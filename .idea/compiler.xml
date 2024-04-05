@@ -9,14 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="config-sever" />
-        <module name="department-service" />
         <module name="service-registry" />
-        <module name="employee-service" />
         <module name="cinema-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="booking-service" target="17" />
+      <module name="department-service" target="17" />
+      <module name="employee-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
