@@ -12,12 +12,18 @@
         <module name="department-service" />
         <module name="service-registry" />
         <module name="employee-service" />
+        <module name="cinema-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="booking-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="booking-service" options="-parameters" />
+      <module name="cinema-service" options="-parameters" />
       <module name="config-sever" options="-parameters" />
       <module name="department-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
