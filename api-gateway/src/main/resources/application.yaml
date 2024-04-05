@@ -23,3 +23,7 @@ spring:
           uri: lb://cinema-service
           predicates:
             - Path=/cinema/**
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/booking/**
