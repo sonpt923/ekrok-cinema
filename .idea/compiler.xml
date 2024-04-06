@@ -7,14 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
-        <module name="config-sever" />
-        <module name="service-registry" />
+        <module name="chatnotify-service" />
         <module name="cinema-service" />
+        <module name="booking-service" />
+        <module name="api-gateway" />
+        <module name="user-service" />
+        <module name="config-sever" />
+        <module name="mail-service" />
+        <module name="service-registry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="booking-service" target="17" />
       <module name="department-service" target="17" />
       <module name="employee-service" target="17" />
     </bytecodeTargetLevel>
@@ -23,11 +26,14 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="booking-service" options="-parameters" />
+      <module name="chatnotify-service" options="-parameters" />
       <module name="cinema-service" options="-parameters" />
       <module name="config-sever" options="-parameters" />
       <module name="department-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
+      <module name="mail-service" options="-parameters" />
       <module name="service-registry" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>
