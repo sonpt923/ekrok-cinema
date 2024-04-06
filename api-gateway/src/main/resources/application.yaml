@@ -27,3 +27,15 @@ spring:
           uri: lb://booking-service
           predicates:
             - Path=/booking/**
+        - id: chatnotify-service
+          uri: lb://chatnotify-service
+          predicates:
+            - Path=/chatnotify/**
+        - id: mail-service
+          uri: lb://mail-service
+          predicates:
+            - Path=/mail/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
