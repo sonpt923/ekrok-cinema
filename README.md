@@ -27,3 +27,33 @@
 ## 6, Movie service
 - **database**: Mysql
 - **description**: Đây là service quản lý thông tin về các bộ phim. Chức năng của service này có thể bao gồm quản lý danh sách các bộ phim, thông tin chi tiết về mỗi bộ phim như đạo diễn, diễn viên, thể loại, đánh giá, và các dịch vụ khác liên quan đến quản lý thông tin về các bộ phim.
+
+# II, Công nghệ
+
+## 1, Database
+- Mysql:
+- MongoDB:
+- Redis:
+
+## 2, spring boot
+- JWT, security, oauth2
+- JPA, 
+- Log4j
+- UnitTesting
+
+## 3, cloud
+- **AWS**: 
+  - S3: sử dụng để lưu trữ các file ( hình ảnh, video .....)
+  - RDS: sử dụng để làm cơ ở dữ liệu ...
+  - EC2: su dụng để ....
+
+## 4, Message Queue
+- **RabbitMQ**: 
+  - công dụng:
+  - sử dụng: để xử lý luồng gửi mail
+
+## 5, Docker
+- docker image
+- docker file
+- docker compose
+- docker network
