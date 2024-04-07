@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/chatnotify-service/pom.xml" />
         <option value="$PROJECT_DIR$/mail-service/pom.xml" />
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/movie-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -11,6 +11,7 @@
         <module name="cinema-service" />
         <module name="booking-service" />
         <module name="api-gateway" />
+        <module name="movie-service" />
         <module name="user-service" />
         <module name="config-sever" />
         <module name="mail-service" />
@@ -24,16 +25,17 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="api-gateway" options="-parameters" />
-      <module name="booking-service" options="-parameters" />
-      <module name="chatnotify-service" options="-parameters" />
-      <module name="cinema-service" options="-parameters" />
-      <module name="config-sever" options="-parameters" />
+      <module name="api-gateway" options="" />
+      <module name="booking-service" options="" />
+      <module name="chatnotify-service" options="" />
+      <module name="cinema-service" options="" />
+      <module name="config-sever" options="" />
       <module name="department-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
-      <module name="mail-service" options="-parameters" />
-      <module name="service-registry" options="-parameters" />
-      <module name="user-service" options="-parameters" />
+      <module name="mail-service" options="" />
+      <module name="movie-service" options="-parameters" />
+      <module name="service-registry" options="" />
+      <module name="user-service" options="" />
     </option>
   </component>
 </project>
