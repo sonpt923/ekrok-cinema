@@ -1,10 +1,10 @@
 CREATE SCHEMA `movie`;
 
-CREATE TABLE `movie`.`directors`
+CREATE TABLE `movie`.`director`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
-    `status`       VARCHAR(45)  NOT NULL,
+    `status`       INT  NOT NULL,
     `created_by`   VARCHAR(45)  NOT NULL,
     `created_time` DATETIME     NOT NULL default NOW(),
     `updated_by`   VARCHAR(45) NULL,
@@ -17,20 +17,20 @@ CREATE TABLE `movie`.`movie`
     `id`            BIGINT      NOT NULL AUTO_INCREMENT,
     `id_director`   BIGINT      NOT NULL,
     `name`          VARCHAR(45) NOT NULL,
-    `age`           VARCHAR(45) NOT NULL,
+    `age`           INT         NOT NULL,
     `time`          DATETIME    NOT NULL,
-    `status`        BIGINT      NOT NULL,
+    `status`        INT         NOT NULL,
+    `premiere_date` DATE        NOT NULL,
     `created_time`  DATETIME    NOT NULL default NOW(),
     `created_by`    VARCHAR(45) NOT NULL,
     `updated_time`  DATETIME NULL,
     `updated_by`    VARCHAR(45) NULL,
-    `premiere_date` DATE        NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
     INDEX           `FK_M_D_idx` (`id_director` ASC) VISIBLE,
     CONSTRAINT `FK_M_D`
         FOREIGN KEY (`id_director`)
-            REFERENCES `movie`.`directors` (`id`)
+            REFERENCES `movie`.`director` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
@@ -39,7 +39,7 @@ CREATE TABLE `movie`.`genre`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
-    `status`       VARCHAR(45) NOT NULL,
+    `status`       INT NOT NULL,
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
@@ -52,7 +52,7 @@ CREATE TABLE `movie`.`actor`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
-    `status`       VARCHAR(45) NOT NULL,
+    `status`       INT NOT NULL,
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
@@ -65,7 +65,7 @@ CREATE TABLE `movie`.`producer`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
-    `status`       VARCHAR(45) NOT NULL,
+    `status`       INT NOT NULL,
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
