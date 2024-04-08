@@ -22,13 +22,6 @@ spring:
 #        port: 14442
 #        username: default
 #        password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            client-id: 371453517569-sdlqpnul2t1iihsrk3u2apb6qvik0cvh.apps.googleusercontent.com
-#            client-secret: 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
 #    jwt:
 #      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAxMDU2Mzc5fQOl6Psk1arnTFAbGoC7EBmrm7Z58J4AMaml6dN01sQnr7fjfdgsBRBq8mOKIxqXTtr5yNEmgzhjU9HDzRxSQ
 #      expiration_time: 5
