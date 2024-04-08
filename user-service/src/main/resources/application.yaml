@@ -10,3 +10,41 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+#    cache:
+#      type: redis
+#      redis:
+#        cache-null-values: false
+#        use-key-prefix: true
+#        time-to-live: 3000
+#    data:
+#      redis:
+#        host: redis-14442.c1.ap-southeast-1-1.ec2.cloud.redislabs.com
+#        port: 14442
+#        username: default
+#        password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          google:
+#            client-id: 371453517569-sdlqpnul2t1iihsrk3u2apb6qvik0cvh.apps.googleusercontent.com
+#            client-secret: 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
+#    jwt:
+#      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAxMDU2Mzc5fQOl6Psk1arnTFAbGoC7EBmrm7Z58J4AMaml6dN01sQnr7fjfdgsBRBq8mOKIxqXTtr5yNEmgzhjU9HDzRxSQ
+#      expiration_time: 5
+#  mail:
+#    username: sonptph25875@fpt.edu.vn
+#    password: bkcl gwfc ompy kdcm
+#    port: 587
+#    host: smtp.gmail.com
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#cloudiary:
+#  cloud_name: dm256lpnu
+#  api_key: 463632651578279
+#  api_secret: CEQdGRFAMKw29flEN7UELfTm-Wg
+#  secure: true
