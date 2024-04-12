@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="core" />
         <module name="chatnotify-service" />
         <module name="cinema-service" />
         <module name="booking-service" />
@@ -30,12 +31,13 @@
       <module name="chatnotify-service" options="" />
       <module name="cinema-service" options="" />
       <module name="config-sever" options="" />
+      <module name="core" options="-parameters" />
       <module name="department-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
       <module name="mail-service" options="" />
       <module name="movie-service" options="-parameters" />
       <module name="service-registry" options="" />
-      <module name="user-service" options="" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>
