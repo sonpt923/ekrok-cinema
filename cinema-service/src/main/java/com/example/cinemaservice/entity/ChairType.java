@@ -6,20 +6,15 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "room")
+@Table(name = "chair")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Room {
+public class ChairType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-    @Column(name = "name")
-    private String name;
-
-
 
 }
