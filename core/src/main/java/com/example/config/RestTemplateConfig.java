@@ -28,7 +28,7 @@ public class RestTemplateConfig {
 //        HttpClients httpClient = HttpClients.custom().setSSLSocketFactory(csf).build();
 
         HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
-        requestFactory.setHttpClient(null);
+//        requestFactory.setHttpClient(null);
         return new RestTemplate(requestFactory);
     }
 }
