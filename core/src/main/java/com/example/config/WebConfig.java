@@ -23,7 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(0, new MappingJackson2HttpMessageConverter());
         ByteArrayHttpMessageConverter byteArrayConverter = new ByteArrayHttpMessageConverter();
-        byteArrayConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_PDF, MediaType.APPLICATION_OCTET_STREAM)); // Set supported media type (optional)
+        byteArrayConverter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_PDF, MediaType.APPLICATION_OCTET_STREAM));
         converters.add(byteArrayConverter);
     }
 }
