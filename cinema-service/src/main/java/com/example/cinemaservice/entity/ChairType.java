@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -21,6 +22,9 @@ public class ChairType {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "price")
+    private BigDecimal price;
 
     @Column(name = "status")
     private Long status;

@@ -4,7 +4,7 @@ CREATE TABLE `cinema`.`room`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
-    `total_chair`  BIGINT       NOT NULL,
+    `price`        DECIMAL      NOT NULL,
     `status`       BIGINT       NOT NULL,
     `created_time` DATETIME     NOT NULL default NOW(),
     `created_by`   VARCHAR(45)  NOT NULL,
@@ -20,6 +20,7 @@ CREATE TABLE `cinema`.`chair_type`
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
     `status`       BIGINT       NOT NULL,
+    `price`        DECIMAL      NOT NULL,
     `created_time` DATETIME     NOT NULL default NOW(),
     `created_by`   VARCHAR(45)  NOT NULL,
     `updated_time` DATETIME NULL,

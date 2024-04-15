@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -22,8 +23,8 @@ public class Room {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "total_chair")
-    private Long totalChair;
+    @Column(name = "price")
+    private BigDecimal price;
 
     @Column(name = "status")
     private Long status;
