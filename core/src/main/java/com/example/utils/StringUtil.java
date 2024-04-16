@@ -1,6 +1,8 @@
 
 package com.example.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -43,6 +45,14 @@ public class StringUtil {
         return false;
     }
 
+    public static String generateOTP(int length) {
+        String str = UUID.randomUUID().toString();
+        str = str.replaceAll("\\D", "");
+        if (str.length() < length) {
+            str = StringUtils.repeat("0", length - str.length()) + str;
+        }
+        return str.substring(0, length);
+    }
     public static boolean isListEmpty(List lst) {
         return lst == null || lst.isEmpty();
     }
