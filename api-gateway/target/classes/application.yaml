@@ -23,8 +23,8 @@ spring:
           uri: lb://cinema-service
           predicates:
             - Path=/cinema/**
-          filters:
-            - AuthenticationFilter
+#          filters:
+#            - AuthenticationFilter
 
         - id: booking-service
           uri: lb://booking-service
