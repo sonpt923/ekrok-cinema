@@ -23,23 +23,39 @@ spring:
           uri: lb://cinema-service
           predicates:
             - Path=/cinema/**
+          filters:
+            - AuthenticationFilter
+
         - id: booking-service
           uri: lb://booking-service
           predicates:
             - Path=/booking/**
+
         - id: chatnotify-service
           uri: lb://chatnotify-service
           predicates:
             - Path=/chatnotify/**
+          filters:
+            - AuthenticationFilter
+
         - id: mail-service
           uri: lb://mail-service
           predicates:
             - Path=/mail/**
+          filters:
+            - AuthenticationFilter
+
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/user/**
+          filters:
+            - AuthenticationFilter
+
+
         - id: movie-service
           uri: lb://movie-service
           predicates:
             - Path=/movie/**
+          filters:
+            - AuthenticationFilter
