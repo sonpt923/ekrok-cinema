@@ -5,7 +5,7 @@ spring:
     import: "optional:configserver:http://localhost:8088"
 
   datasource:
-    url: jdbc:mysql://localhost:3306/microservice
+    url: jdbc:mysql://localhost:3306/cinema
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver

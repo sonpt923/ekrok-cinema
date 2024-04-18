@@ -7,7 +7,6 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 
 @SpringBootApplication(scanBasePackages = {"com.example"})
 @EnableDiscoveryClient
-@EnableWebFlux
 public class ApiGatewayApplication {
 
 	public static void main(String[] args) {
