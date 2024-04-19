@@ -17,7 +17,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Override
     public GatewayFilter apply(Object config) {
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
@@ -32,7 +31,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
                 }
 
                 try {
-                    restTemplate.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
+//                    restTemplate.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
 
                 } catch (Exception e) {
                     System.out.println("invalid access...!");

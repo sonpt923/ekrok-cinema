@@ -20,7 +20,6 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/department-service/pom.xml" />
         <option value="$PROJECT_DIR$/employee-service/pom.xml" />
       </set>
     </option>

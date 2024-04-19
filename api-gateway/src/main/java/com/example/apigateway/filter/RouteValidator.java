@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 @Component
 public class RouteValidator {
 
-    public static final Set<String> publicApi = Set.of("/auth", "/eureka", "/public");
+    public static final Set<String> publicApi = Set.of("/auth", "/eureka", "/public", "/cinema/a/hello");
 
     public Predicate<ServerHttpRequest> isSecured =
             request -> publicApi

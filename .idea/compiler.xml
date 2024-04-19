@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="chatnotify-service" />
+        <module name="department-service" />
         <module name="cinema-service" />
         <module name="booking-service" />
         <module name="api-gateway" />
@@ -20,7 +21,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="department-service" target="17" />
       <module name="employee-service" target="17" />
     </bytecodeTargetLevel>
   </component>
