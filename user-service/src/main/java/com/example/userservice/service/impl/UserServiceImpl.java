@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Autowired
-    private MailProvider mailProvider;
+//    @Autowired
+//    private MailProvider mailProvider;
 
     @Override
     public UserListResponse getUserByRole() {

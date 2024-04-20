@@ -37,23 +37,23 @@ spring:
           uri: lb://chatnotify-service
           predicates:
             - Path=/chatnotify/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: mail-service
           uri: lb://mail-service
           predicates:
             - Path=/mail/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/user/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: movie-service
           uri: lb://movie-service
           predicates:
             - Path=/movie/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter

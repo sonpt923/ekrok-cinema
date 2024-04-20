@@ -1,3 +1,8 @@
 spring:
   application:
     name: mail-service
+  data:
+    mongodb:
+      host:
+      port:
+      database:

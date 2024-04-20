@@ -1,5 +1,6 @@
 package com.example.userservice.service.impl;
 
+import com.example.userservice.security.JwtProvider;
 import com.example.userservice.service.AuthenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,5 +16,7 @@ public class AuthenServiceImpl implements AuthenService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+//    @Autowired
+//    private JwtProvider jwtProvider;
 
 }
