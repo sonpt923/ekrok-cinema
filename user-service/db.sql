@@ -6,6 +6,8 @@ CREATE TABLE `user`.`user`
     `code`         VARCHAR(45)  NOT NULL,
     `name`         VARCHAR(145) NOT NULL,
     `username`     VARCHAR(45)  NOT NULL,
+    `birth_day`    DATETIME     NOT NULL,
+    `status`       BIGINT       NOT NULL,
     `email`        VARCHAR(145) NOT NULL,
     `role`         BIGINT       NOT NULL,
     `password`     VARCHAR(145) NOT NULL,

@@ -1,14 +1,14 @@
 package com.example.userservice.controller;
 
+import com.example.config.EnableWrapResponse;
 import com.example.userservice.service.AuthenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@EnableWrapResponse
 public class AuthController {
 
     @Autowired
@@ -34,8 +34,9 @@ public class AuthController {
         return ResponseEntity.ok(null);
     }
 
-    @PostMapping("/validate-token")
-    public ResponseEntity validateToken() {
+    @GetMapping("/validate-token")
+    public ResponseEntity validateToken(@RequestParam("token") String token) {
+        System.out.println(token);
         return ResponseEntity.ok(null);
     }
 

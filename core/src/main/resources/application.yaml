@@ -20,10 +20,10 @@ spring:
 mail:
   smtp:
     port: 587
+    sender: EKKROK CINEMA
     username: sonptph25875@fpt.edu.vn
     password: dnJ4dyBwem5iIHZnbHQgd2pzeA==
     host: smtp.gmail.com
-
 cloudiary:
   cloud_name: dm256lpnu
   api_key: 463632651578279

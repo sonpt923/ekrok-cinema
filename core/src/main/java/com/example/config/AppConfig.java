@@ -6,6 +6,7 @@ import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.ssl.SSLContexts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
@@ -20,6 +21,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Configuration
 public class AppConfig {
 
     @Value("${cloudiary.cloud_name}")
@@ -58,7 +60,6 @@ public class AppConfig {
 
     @Bean
     public Cloudinary getCloudiary() {
-
         Map config = new HashMap();
         config.put("cloud_name", cloudName);
         config.put("api_key", apiKey);

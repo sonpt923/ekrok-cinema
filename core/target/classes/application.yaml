@@ -5,6 +5,25 @@ spring:
     jwt:
       secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
       expiration_time: 5
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      time-to-live: 3000
+  data:
+    redis:
+      host: redis-14442.c1.ap-southeast-1-1.ec2.cloud.redislabs.com
+      port: 14442
+      username: default
+      password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
+mail:
+  smtp:
+    port: 587
+    sender: EKKROK CINEMA
+    username: sonptph25875@fpt.edu.vn
+    password: dnJ4dyBwem5iIHZnbHQgd2pzeA==
+    host: smtp.gmail.com
 cloudiary:
   cloud_name: dm256lpnu
   api_key: 463632651578279

@@ -25,10 +25,6 @@ spring:
             - Path=/cinema/**
           filters:
             - AuthenticationFilter
-        - id: department-service
-          uri: lb://department-service
-          predicates:
-            - Path=/department/**
         - id: booking-service
           uri: lb://booking-service
           predicates:
@@ -37,23 +33,23 @@ spring:
           uri: lb://chatnotify-service
           predicates:
             - Path=/chatnotify/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: mail-service
           uri: lb://mail-service
           predicates:
             - Path=/mail/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/user/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: movie-service
           uri: lb://movie-service
           predicates:
             - Path=/movie/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter

@@ -27,11 +27,20 @@ public class User {
     @Column(name = "username")
     private String username;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "birth_day")
+    private Date birthDay;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "role")
     private Long role;
+
+    @Column(name = "status")
+    private Long status;
 
     @Column(name = "password")
     private String passwrod;
