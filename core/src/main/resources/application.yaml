@@ -1,10 +1,6 @@
 spring:
   application:
     name: core
-  security:
-    jwt:
-      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
-      expiration_time: 5
   cache:
     type: redis
     redis:
@@ -17,13 +13,10 @@ spring:
       port: 14442
       username: default
       password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
-mail:
-  smtp:
-    port: 587
-    sender: EKKROK CINEMA
-    username: sonptph25875@fpt.edu.vn
-    password: dnJ4dyBwem5iIHZnbHQgd2pzeA==
-    host: smtp.gmail.com
+  security:
+    jwt:
+      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
+      expiration_time: 5
 cloudiary:
   cloud_name: dm256lpnu
   api_key: 463632651578279

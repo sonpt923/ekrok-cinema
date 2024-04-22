@@ -3,7 +3,10 @@ spring:
     name: user-service
   config:
     import: "optional:configserver:http://localhost:8088"
-
+#  security:
+#    jwt:
+#      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
+#      expiration_time: 5
   datasource:
     url: jdbc:mysql://localhost:3306/user?useSSL=true
     username: root
@@ -13,6 +16,13 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+mail:
+  smtp:
+    port: 587
+    sender: EKKROK CINEMA
+    username: sonptph25875@fpt.edu.vn
+    password: dnJ4dyBwem5iIHZnbHQgd2pzeA==
+    host: smtp.gmail.com
 #    cache:
 #      type: redis
 #      redis:
