@@ -1,8 +1,11 @@
 package com.example.userservice.controller;
 
 import com.example.config.EnableWrapResponse;
+import com.example.exception.AppException;
+import com.example.exception.ValidationException;
 import com.example.userservice.service.AuthenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

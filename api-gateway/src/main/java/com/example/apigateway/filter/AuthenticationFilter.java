@@ -1,5 +1,6 @@
 package com.example.apigateway.filter;
 
+import jakarta.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -34,7 +35,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
                 }
 
                 try {
-                    restTemplate.getForObject("http://user-service//validate-token?token" + authHeader, String.class);
+                    restTemplate.getForObject("http://localhost:8083/auth/validate-token?token=" + authHeader, String.class);
 
                 } catch (Exception e) {
                     log.error("Invalid token: { }", e.getMessage());

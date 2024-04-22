@@ -2,10 +2,8 @@ package com.example.userservice.security;
 
 import com.example.security.JwtHelper;
 import com.example.userservice.entity.User;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -13,12 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class JwtProvider {
+public class JwtProvider  {
 
-//    @Value("${spring.security.jwt.expiration_time}")
+    //    @Value("${spring.security.jwt.expiration_time}")
     private Integer EXPIRATION_TIME;
 
-//    @Value("${spring.security.jwt.secret_key}")
+    //    @Value("${spring.security.jwt.secret_key}")
     private String SECRET_KEY;
 
 

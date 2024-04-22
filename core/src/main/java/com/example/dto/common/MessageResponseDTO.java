@@ -16,14 +16,11 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MessageResponseDTO<T> extends AItemDTO {
 
-    public static final String BASIC_NAME = "MessageResponseDTO";
-
     private int status;
     private String message;
     private String path;
     private String timestamp;
     private T data;
-    private int total;
 
     public MessageResponseDTO(int status, String message, T data, String path) {
         this.status = status;
@@ -53,11 +50,6 @@ public class MessageResponseDTO<T> extends AItemDTO {
         }
         if (msg.getCode() == null) {
             msg.setCode(UUID.randomUUID().toString());
-        }
-        if (msg.getData() instanceof List) {
-            msg.setTotal((((List<?>) msg.getData()).size()));
-        } else if (msg.getData() instanceof Map) {
-            msg.setTotal((((Map) msg.getData()).size()));
         }
 
         return msg;

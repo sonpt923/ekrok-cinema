@@ -25,10 +25,6 @@ spring:
             - Path=/cinema/**
           filters:
             - AuthenticationFilter
-        - id: department-service
-          uri: lb://department-service
-          predicates:
-            - Path=/department/**
         - id: booking-service
           uri: lb://booking-service
           predicates:

@@ -5,8 +5,8 @@ import com.example.userservice.entity.User;
 
 public interface UserService {
 
-    UserListResponse getUserByRole();
+    UserListResponse getUserByCondition();
 
-    User getUserInfo();
+    User getUserInfo(String username);
 
 }
