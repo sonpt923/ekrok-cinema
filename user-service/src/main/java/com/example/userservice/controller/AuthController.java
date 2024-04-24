@@ -1,11 +1,9 @@
 package com.example.userservice.controller;
 
 import com.example.config.EnableWrapResponse;
-import com.example.exception.AppException;
-import com.example.exception.ValidationException;
+import com.example.userservice.entity.User;
 import com.example.userservice.service.AuthenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +21,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity register() {
-        return ResponseEntity.ok(null);
+    public ResponseEntity register(@RequestBody User request) {
+        return ResponseEntity.ok(authenService.register(request));
     }
 
     @PostMapping("/login-google")
@@ -39,8 +37,7 @@ public class AuthController {
 
     @GetMapping("/validate-token")
     public ResponseEntity validateToken(@RequestParam("token") String token) {
-        System.out.println(token);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(authenService.validateToken(token));
     }
 
 

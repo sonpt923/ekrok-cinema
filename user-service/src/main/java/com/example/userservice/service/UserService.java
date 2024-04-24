@@ -9,4 +9,10 @@ public interface UserService {
 
     User getUserInfo(String username);
 
+    User getUserByUsernameAndStatus(String username, long status);
+
+    String genUserCode(String role);
+
+    User createUser(User user);
+
 }
