@@ -24,9 +24,6 @@ public class User {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "username")
-    private String username;
-
     @Column(name = "name")
     private String name;
 
@@ -36,6 +33,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone")
+    private String phone;
+
     @Column(name = "role")
     private Long role;
 
@@ -43,7 +43,7 @@ public class User {
     private Long status;
 
     @Column(name = "password")
-    private String passwrod;
+    private String password;
 
     @Column(name = "created_by")
     private String createdBy;

@@ -45,7 +45,7 @@ public class StringUtil {
         return false;
     }
 
-    public static String generateOTP(int length) {
+    public static String generateString(int length) {
         String str = UUID.randomUUID().toString();
         str = str.replaceAll("\\D", "");
         if (str.length() < length) {

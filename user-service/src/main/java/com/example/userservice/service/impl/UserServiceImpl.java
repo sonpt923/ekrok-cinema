@@ -1,9 +1,11 @@
 package com.example.userservice.service.impl;
 
+import com.example.provider.MailProvider;
 import com.example.userservice.dto.response.UserListResponse;
 import com.example.userservice.entity.User;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.service.UserService;
+import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,8 @@ public class UserServiceImpl implements UserService {
 //    @Autowired
 //    private RedisTemplate redisTemplate;
 
-//    @Autowired
-//    private MailProvider mailProvider;
+    @Autowired
+    private MailProvider mailProvider;
 
     @Override
     public UserListResponse getUserByCondition() {
@@ -25,7 +27,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserInfo(String username) {
-        return userRepository.getUserByUsername(username);
+    public User getUserInfo(String code) {
+        return userRepository.getUserByCode(code);
+    }
+
+    @Override
+    public User getUserByUsernameAndStatus(String code, long status) {
+        return userRepository.getUserByCodeAndStatus(code, status);
+    }
+
+    @Override
+    public String genUserCode(String role) {
+        String code = role;
+        while (true) {
+            code += StringUtil.generateString(6);
+            if (!userRepository.existsByCode(code)) {
+                break;
+            }
+        }
+        return code;
+    }
+
+    @Override
+    public User createUser(User user) {
+        return null;
     }
 }

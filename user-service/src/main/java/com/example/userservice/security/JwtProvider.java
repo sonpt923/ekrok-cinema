@@ -2,6 +2,7 @@ package com.example.userservice.security;
 
 import com.example.security.JwtHelper;
 import com.example.userservice.entity.User;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class JwtProvider  {
+public class JwtProvider extends JwtHelper {
 
     //    @Value("${spring.security.jwt.expiration_time}")
     private Integer EXPIRATION_TIME;
@@ -22,27 +23,21 @@ public class JwtProvider  {
 
     public String generateToken(User user) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("username", user.getUpdatedBy());
-        claims.put("name", user.getName());
+        claims.put("code", user.getCode());
         claims.put("email", user.getEmail());
         claims.put("birth_day", user.getBirthDay());
         claims.put("role", user.getRole());
-        claims.put("status", user.getStatus());
-        claims.put("created_by", user.getCreatedBy());
-        claims.put("updated_by", user.getUpdatedBy());
-        claims.put("created_time", user.getCreatedTime());
-        claims.put("updated_time", user.getUpdatedTime());
-        return doGenerateToken(claims, user.getUsername());
+        return doGenerateToken(claims, user.getCode());
     }
 
-//    public Boolean isTokenExpired(String token) {
-//        final Date expiration = getExpirationDateFromToken(token);
-//        return expiration.after(new Date());
-//    }
+    public Boolean isTokenExpired(String token) {
+        final Date expiration = getExpirationDateFromToken(token);
+        return expiration.after(new Date());
+    }
 
-//    public Date getExpirationDateFromToken(String token) {
-//        return getClaimFromToken(token, Claims::getExpiration);
-//    }
+    public Date getExpirationDateFromToken(String token) {
+        return getClaimFromToken(token, Claims::getExpiration);
+    }
 
     private String doGenerateToken(Map<String, Object> claims, String username) {
         return Jwts.builder()
