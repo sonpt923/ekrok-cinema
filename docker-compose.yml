@@ -1,0 +1,27 @@
+version: '3'
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    environment:
+      - REDIS_PASSWORD=Son191203
+    volumes:
+      - cache/data
+    ports:
+      - "6379:6379"
+
+  rabbitMQ:
+    image: rabbitmq:3-management
+    container_name: rabbitMQ
+    volumes:
+      - rabbitmq/data
+    environment:
+      - REDIS_PASSWORD=Son191203
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+
+volumes:
+  cache:
+  rabbitmq:
