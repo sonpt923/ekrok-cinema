@@ -64,10 +64,8 @@
 
 - **AWS**:
     - RDS: sử dụng để làm cơ ở dữ liệu ...
-    - EC2: su dụng để ....
-- **Cloudinary**:
-    - sử dụng để lưu trữ các file ( hình ảnh, video .....)
-
+    - EC2: su dụng để ...
+    - Bucket: lưu tru du lieu (file, video...)
 ## 4, Message Queue
 
 - **RabbitMQ**:
