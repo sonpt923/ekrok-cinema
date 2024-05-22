@@ -4,7 +4,7 @@ CREATE TABLE `user`.`user`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
-    `code`     VARCHAR(45)  NOT NULL,
+    `code`         VARCHAR(45)  NOT NULL,
     `birth_day`    DATETIME     NOT NULL,
     `phone`        VARCHAR(45)  NOT NULL,
     `status`       BIGINT       NOT NULL,

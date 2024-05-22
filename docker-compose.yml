@@ -127,24 +127,24 @@ services:
 #      - db-data:/var/lib/mysql
 
   #  elk
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
-    container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - ELASTIC_PASSWORD=changeme
-    ports:
-      - "9200:9200"
-
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.15.0
-    container_name: kibana
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - ELASTICSEARCH_USERNAME=elastic
-      - ELASTICSEARCH_PASSWORD=changeme
-    ports:
-      - "5601:5601"
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
+#    container_name: elasticsearch
+#    environment:
+#      - discovery.type=single-node
+#      - ELASTIC_PASSWORD=changeme
+#    ports:
+#      - "9200:9200"
+#
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:7.15.0
+#    container_name: kibana
+#    environment:
+#      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+#      - ELASTICSEARCH_USERNAME=elastic
+#      - ELASTICSEARCH_PASSWORD=changeme
+#    ports:
+#      - "5601:5601"
 
 
 volumes:
