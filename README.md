@@ -79,7 +79,7 @@
 - docker compose
 - docker network
 
-## 6, Orther
+## 6, Các mục khác
 
 # III, chức năng
 
