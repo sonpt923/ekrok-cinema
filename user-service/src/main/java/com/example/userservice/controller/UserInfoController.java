@@ -19,7 +19,7 @@ public class UserInfoController {
     @Autowired
     private JwtProvider jwtProvider;
 
-    @GetMapping("/get-user-info-login")
+    @GetMapping("/get-info-login")
     public ResponseEntity getUserInfor(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
         String username = "jwtProvider.generateToken()";
         return ResponseEntity.ok(userService.getUserInfo(username));
@@ -30,7 +30,7 @@ public class UserInfoController {
         return ResponseEntity.ok(null);
     }
 
-    @PostMapping("/update-user-info")
+    @PostMapping("/update-info")
     public ResponseEntity updateUserInfo() {
         return ResponseEntity.ok(null);
     }

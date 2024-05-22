@@ -91,7 +91,6 @@ services:
     environment:
       - hello=hello
 
-
   redis:
     image: redis:latest
     container_name: redis

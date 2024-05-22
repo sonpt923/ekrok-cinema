@@ -1,6 +1,6 @@
 FROM openjdk:17
 
-MAINTAINER sonpt
+MAINTAINER sonpt03
 
 COPY target/api-gateway-1.0.jar app.jar
 

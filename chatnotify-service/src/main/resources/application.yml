@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mail-service
+    name: chatnotify-service
   data:
     mongodb:
       host: localhost

@@ -49,8 +49,3 @@ mail:
 #          auth: true
 #          starttls:
 #            enable: true
-#cloudiary:
-#  cloud_name: dm256lpnu
-#  api_key: 463632651578279
-#  api_secret: CEQdGRFAMKw29flEN7UELfTm-Wg
-#  secure: true
