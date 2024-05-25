@@ -21,7 +21,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="chat-service" target="17" />
       <module name="employee-service" target="17" />
+      <module name="notify-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

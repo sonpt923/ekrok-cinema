@@ -1,14 +1,10 @@
 package com.example.mailservice.model;
 
-import jakarta.persistence.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document("")
+//@Document("")
 public class EmailLogs {
 
-    @Id
+    //    @Id
     private String id;
-
 
 
 }

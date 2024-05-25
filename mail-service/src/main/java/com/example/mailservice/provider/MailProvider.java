@@ -1,5 +1,6 @@
-package com.example.provider;
+package com.example.mailservice.provider;
 
+import com.example.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
