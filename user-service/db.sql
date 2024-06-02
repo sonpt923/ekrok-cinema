@@ -21,5 +21,5 @@ CREATE TABLE `user`.`user`
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
     UNIQUE INDEX `code_UNIQUE` (`code` ASC) VISIBLE,
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-    UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE,
+    UNIQUE INDEX `password_UNIQUE` (`password` ASC) VISIBLE
 );

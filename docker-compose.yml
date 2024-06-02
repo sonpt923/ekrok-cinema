@@ -1,155 +1,169 @@
 version: '3'
 services:
   #service
-  user-service:
-    image: user-service
-    container_name: user-service
-    build:
-      context: ./user-service
-    networks:
-      - ekrok-networks
-    environment:
-      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+  #  user-service:
+  #    image: user-service
+  #    container_name: user-service
+  #    build:
+  #      context: ./user-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+  #
+  #  api-gateway:
+  #    image: api-gateway
+  #    container_name: api-gateway
+  #    build:
+  #      context: ./api-gateway
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  booking-service:
+  #    image: booking-service
+  #    container_name: booking-service
+  #    build:
+  #      context: ./booking-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  chatnotify-service:
+  #    image: chatnotify-service
+  #    container_name: chatnotify-service
+  #    build:
+  #      context: ./chatnotify-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  cinema-service:
+  #    image: cinema-service
+  #    container_name: cinema-service
+  #    build:
+  #      context: ./cinema-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  config-service:
+  #    image: config-service
+  #    container_name: config-service
+  #    build:
+  #      context: ./config-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  mail-service:
+  #    image: mail-service
+  #    container_name: mail-service
+  #    build:
+  #      context: ./mail-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  movie-service:
+  #    image: movie-service
+  #    container_name: movie-service
+  #    build:
+  #      context: ./movie-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  registry-service:
+  #    image: service-registry
+  #    container_name: service-registry
+  #    build:
+  #      context: ./service-registry
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  redis:
+  #    image: redis:latest
+  #    container_name: redis
+  #    environment:
+  #      - REDIS_PASSWORD=Son191203
+  #    volumes:
+  #      - cache/data
+  #    ports:
+  #      - "6379:6379"
+  #
+  #  rabbitMQ:
+  #    image: rabbitmq:3-management
+  #    container_name: rabbitMQ
+  #    volumes:
+  #      - rabbitmq/data
+  #    environment:
+  #      - REDIS_PASSWORD=Son191203
+  #    ports:
+  #      - "15672:15672"
+  #      - "5672:5672"
 
-  api-gateway:
-    image: api-gateway
-    container_name: api-gateway
-    build:
-      context: ./api-gateway
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
+  #  database:
+  #    image: mysql:8.0
+  #    environment:
+  #      - MYSQL_ROOT_PASSWORD=Son191203
+  #      - MYSQL_DATABASE= userdb
+  #      - MYSQL_DATABASE= cinemadb
+  #    ports:
+  #      - "3306:3306"
+  #    networks:
+  #      - ekrok-network
+  #    volumes:
+  #      - db-data:/var/lib/mysql
 
-  booking-service:
-    image: booking-service
-    container_name: booking-service
-    build:
-      context: ./booking-service
-    networks:
-      - ekrok-networks
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    container_name: elasticsearch
     environment:
-      - hello=hello
-
-  chatnotify-service:
-    image: chatnotify-service
-    container_name: chatnotify-service
-    build:
-      context: ./chatnotify-service
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  cinema-service:
-    image: cinema-service
-    container_name: cinema-service
-    build:
-      context: ./cinema-service
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  config-service:
-    image: config-service
-    container_name: config-service
-    build:
-      context: ./config-service
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  mail-service:
-    image: mail-service
-    container_name: mail-service
-    build:
-      context: ./mail-service
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  movie-service:
-    image: movie-service
-    container_name: movie-service
-    build:
-      context: ./movie-service
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  registry-service:
-    image: service-registry
-    container_name: service-registry
-    build:
-      context: ./service-registry
-    networks:
-      - ekrok-networks
-    environment:
-      - hello=hello
-
-  redis:
-    image: redis:latest
-    container_name: redis
-    environment:
-      - REDIS_PASSWORD=Son191203
-    volumes:
-      - cache/data
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
     ports:
-      - "6379:6379"
-
-  rabbitMQ:
-    image: rabbitmq:3-management
-    container_name: rabbitMQ
+      - "9200:9200"
     volumes:
-      - rabbitmq/data
-    environment:
-      - REDIS_PASSWORD=Son191203
+      - esdata:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    container_name: kibana
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
 
-#  database:
-#    image: mysql:8.0
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=Son191203
-#      - MYSQL_DATABASE= userdb
-#      - MYSQL_DATABASE= cinemadb
-#    ports:
-#      - "3306:3306"
-#    networks:
-#      - ekrok-network
-#    volumes:
-#      - db-data:/var/lib/mysql
-
-  #  elk
-#  elasticsearch:
-#    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0
-#    container_name: elasticsearch
-#    environment:
-#      - discovery.type=single-node
-#      - ELASTIC_PASSWORD=changeme
-#    ports:
-#      - "9200:9200"
-#
-#  kibana:
-#    image: docker.elastic.co/kibana/kibana:7.15.0
-#    container_name: kibana
-#    environment:
-#      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-#      - ELASTICSEARCH_USERNAME=elastic
-#      - ELASTICSEARCH_PASSWORD=changeme
-#    ports:
-#      - "5601:5601"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.0
+    container_name: logstash
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logs:/usr/share/logstash/logs
+    ports:
+      - "5044:5044"
+      - "9600:9600"
+    depends_on:
+      - elasticsearch
 
 
 volumes:
   cache:
   rabbitmq:
   db-data:
+  esdata:
+    driver: local
+
 
 networks:
   ekrok-networks:

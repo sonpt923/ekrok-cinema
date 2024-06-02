@@ -1,6 +1,5 @@
 package com.example.userservice.security;
 
-import com.example.security.JwtHelper;
 import com.example.userservice.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -13,7 +12,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Component
-public class JwtProvider extends JwtHelper {
+public class JwtProvider {
 
     //    @Value("${spring.security.jwt.expiration_time}")
     private Integer EXPIRATION_TIME;

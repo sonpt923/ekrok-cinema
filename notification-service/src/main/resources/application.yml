@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: notification-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: chat_notify
+#      username: admin
+#      password: Son191203

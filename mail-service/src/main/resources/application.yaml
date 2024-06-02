@@ -3,3 +3,10 @@ spring:
     name: mail-service
   config:
     import: "optional:configserver:http://localhost:8088"
+mail:
+  smtp:
+    port: 587
+    username: sonptph25875@fpt.edu.vn
+    password: "******************"
+    host: smtp.gmail.com
+    sender: EKROK-CINEMA

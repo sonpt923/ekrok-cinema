@@ -1,6 +1,5 @@
 package com.example.userservice.service.impl;
 
-import com.example.provider.MailProvider;
 import com.example.userservice.dto.response.UserListResponse;
 import com.example.userservice.entity.User;
 import com.example.userservice.repository.UserRepository;
@@ -18,8 +17,6 @@ public class UserServiceImpl implements UserService {
 //    @Autowired
 //    private RedisTemplate redisTemplate;
 
-    @Autowired
-    private MailProvider mailProvider;
 
     @Override
     public UserListResponse getUserByCondition() {

@@ -22,7 +22,6 @@ public class AnnotationConfig {
         System.out.println("Method executed in : " + executionTime + "ms");
         System.out.println("Input Request: " + joinPoint.getArgs()[0]);
         System.out.println("Output Response : " + proceed);
-
         return proceed;
     }
 }

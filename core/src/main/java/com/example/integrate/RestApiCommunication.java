@@ -3,11 +3,12 @@ package com.example.integrate;
 
 import com.example.exception.SystemException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 
@@ -15,14 +16,14 @@ import java.net.URI;
 @Component
 public class RestApiCommunication<T> {
 
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private RestTemplate restTemplate;
 
     public ResponseEntity<T> exchangeJsonUrl(HttpMethod method,
-                                            HttpHeaders headers,
-                                            String url,
-                                            String params,
-                                            Class<T> responseType) throws SystemException {
+                                             HttpHeaders headers,
+                                             String url,
+                                             String params,
+                                             Class<T> responseType) throws SystemException {
         ResponseEntity<T> response = null;
 //        headers.add("apikey", apiKey);
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -34,7 +35,8 @@ public class RestApiCommunication<T> {
             log.info("Body {}", params);
             log.info("Uri {}", uri);
 
-            response = restTemplate.exchange(uri, method, entity, responseType);
+//            response = restTemplate.exchange(uri, method, entity, responseType);
+            response = null;
 
             log.info("Response {}", response);
             return response;

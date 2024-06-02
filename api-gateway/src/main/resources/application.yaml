@@ -29,10 +29,10 @@ spring:
           uri: lb://booking-service
           predicates:
             - Path=/booking/**
-        - id: chatnotify-service
-          uri: lb://chatnotify-service
+        - id: notification-service
+          uri: lb://notification-service
           predicates:
-            - Path=/chatnotify/**
+            - Path=/notification/**
           filters:
             - AuthenticationFilter
         - id: mail-service

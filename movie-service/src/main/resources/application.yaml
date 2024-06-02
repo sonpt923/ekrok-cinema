@@ -1,6 +1,8 @@
 spring:
   application:
     name: movie-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
   datasource:
     url: jdbc:mysql://localhost:3306/movie?useSSL=true
     username: root

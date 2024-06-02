@@ -66,6 +66,7 @@
     - RDS: sử dụng để làm cơ ở dữ liệu ...
     - EC2: su dụng để ...
     - Bucket: lưu tru du lieu (file, video...)
+
 ## 4, Message Queue
 
 - **RabbitMQ**:
@@ -83,7 +84,9 @@
 
 # III, chức năng
 
-# IV, user case
+# IV, NETFLIX CLOUD
+
+- dashboard: 
 
 # V,
 
