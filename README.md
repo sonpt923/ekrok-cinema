@@ -15,7 +15,7 @@
 - **Description**: Service này quản lý việc đặt vé xem phim. Nhiệm vụ của service này bao gồm quản lý thông tin về các
   vé đã đặt, xử lý thanh toán, kiểm tra tình trạng của vé, và quản lý các giao dịch liên quan đến việc đặt vé xem phim.
 
-## 3, Chat - Notify service
+## 3, Notification service
 
 - **Datebase**: MongoDB
 - **Description**: Service này quản lý thông báo trong hệ thống, có thể là thông báo trò chuyện hoặc thông báo hệ thống.
@@ -65,13 +65,11 @@
 - **AWS**:
     - RDS: sử dụng để làm cơ ở dữ liệu ...
     - EC2: su dụng để ...
-    - Bucket: lưu tru du lieu (file, video...)
+    - S3 Bucket: lưu tru du lieu (file, video...)
 
 ## 4, Message Queue
 
 - **RabbitMQ**:
-    - công dụng:
-    - sử dụng: để xử lý luồng gửi mail
 
 ## 5, Docker
 
@@ -83,11 +81,7 @@
 ## 6, Các mục khác
 
 # III, chức năng
-
-# IV, NETFLIX CLOUD
-
-- dashboard: 
-
+ 
 # V,
 
 - draw.io: https://app.diagrams.net/#G1D8ayGQ-tIOHoZhpv60E1_BywWRZHdryd#%7B%22pageId%22%3A%22pxJnE2IzepgIanvHQNzt%22%7D
