@@ -18,9 +18,9 @@
 ## 3, Notification service
 
 - **Datebase**: MongoDB
-- **Description**: Service này quản lý thông báo trong hệ thống, có thể là thông báo trò chuyện hoặc thông báo hệ thống.
-  Nhiệm vụ của service này có thể bao gồm gửi thông báo tới người dùng khi có sự kiện quan trọng xảy ra trong hệ thống,
-  thông báo trong các cuộc trò chuyện hoặc nhóm trò chuyện, và quản lý cài đặt thông báo của người dùng
+- **Description**: Service này quản lý thông báo trong hệ thống.
+  Nhiệm vụ của service này bao gồm gửi thông báo tới người dùng khi có sự kiện quan trọng xảy ra trong hệ thống,
+  và quản lý cài đặt thông báo của người dùng
 
 ## 4, User service
 
