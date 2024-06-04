@@ -18,6 +18,16 @@ spring:
     import: "optional:configserver:http://localhost:8088"
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:3000"
+            allowed-headers:
+              - "*"
+            allowed-methods:
+              - GET
+              - POST
       routes:
         - id: cinema-service
           uri: lb://cinema-service

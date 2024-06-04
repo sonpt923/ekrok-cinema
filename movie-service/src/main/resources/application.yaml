@@ -12,3 +12,15 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      time-to-live: 3000
+  data:
+    redis:
+      host: redis-14442.c1.ap-southeast-1-1.ec2.cloud.redislabs.com
+      port: 14442
+      username: default
+      password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL

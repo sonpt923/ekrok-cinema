@@ -14,6 +14,10 @@ import java.util.function.Function;
 @Component
 public class JwtProvider {
 
+    private final String PUBLIC_KEY = "";
+
+    private final String PRIVATE_KEY = "";
+
     //    @Value("${spring.security.jwt.expiration_time}")
     private Integer EXPIRATION_TIME;
 

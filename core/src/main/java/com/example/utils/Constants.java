@@ -2,6 +2,8 @@ package com.example.utils;
 
 public class Constants {
 
+    public static final String YES = "YES";
+
     public static final String SUCCESSFUL = "API000";
     public static final String SUCCESS = "SUCCESS";
 

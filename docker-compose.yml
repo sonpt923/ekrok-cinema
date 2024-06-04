@@ -1,116 +1,125 @@
 version: '3'
 services:
-  #service
-  #  user-service:
-  #    image: user-service
-  #    container_name: user-service
-  #    build:
-  #      context: ./user-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - DATABASE_URL=jdbc:mysql://database:3306/userdb
-  #
-  #  api-gateway:
-  #    image: api-gateway
-  #    container_name: api-gateway
-  #    build:
-  #      context: ./api-gateway
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  booking-service:
-  #    image: booking-service
-  #    container_name: booking-service
-  #    build:
-  #      context: ./booking-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  chatnotify-service:
-  #    image: chatnotify-service
-  #    container_name: chatnotify-service
-  #    build:
-  #      context: ./chatnotify-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  cinema-service:
-  #    image: cinema-service
-  #    container_name: cinema-service
-  #    build:
-  #      context: ./cinema-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  config-service:
-  #    image: config-service
-  #    container_name: config-service
-  #    build:
-  #      context: ./config-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  mail-service:
-  #    image: mail-service
-  #    container_name: mail-service
-  #    build:
-  #      context: ./mail-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  movie-service:
-  #    image: movie-service
-  #    container_name: movie-service
-  #    build:
-  #      context: ./movie-service
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  registry-service:
-  #    image: service-registry
-  #    container_name: service-registry
-  #    build:
-  #      context: ./service-registry
-  #    networks:
-  #      - ekrok-networks
-  #    environment:
-  #      - hello=hello
-  #
-  #  redis:
-  #    image: redis:latest
-  #    container_name: redis
-  #    environment:
-  #      - REDIS_PASSWORD=Son191203
-  #    volumes:
-  #      - cache/data
-  #    ports:
-  #      - "6379:6379"
-  #
-  #  rabbitMQ:
-  #    image: rabbitmq:3-management
-  #    container_name: rabbitMQ
-  #    volumes:
-  #      - rabbitmq/data
-  #    environment:
-  #      - REDIS_PASSWORD=Son191203
-  #    ports:
-  #      - "15672:15672"
-  #      - "5672:5672"
+#  user-service:
+#    image: user-service
+#    container_name: user-service
+#    build:
+#      context: ./user-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+#
+#  discount-service:
+#    image: discount-service
+#    container_name: discount-service
+#    build:
+#      context: ./discount-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+#
+#  api-gateway:
+#    image: api-gateway
+#    container_name: api-gateway
+#    build:
+#      context: ./api-gateway
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  booking-service:
+#    image: booking-service
+#    container_name: booking-service
+#    build:
+#      context: ./booking-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  notification-service:
+#    image: notification-service
+#    container_name: notification-service
+#    build:
+#      context: ./notification-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  cinema-service:
+#    image: cinema-service
+#    container_name: cinema-service
+#    build:
+#      context: ./cinema-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  config-service:
+#    image: config-service
+#    container_name: config-service
+#    build:
+#      context: ./config-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  mail-service:
+#    image: mail-service
+#    container_name: mail-service
+#    build:
+#      context: ./mail-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  movie-service:
+#    image: movie-service
+#    container_name: movie-service
+#    build:
+#      context: ./movie-service
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  registry-service:
+#    image: service-registry
+#    container_name: service-registry
+#    build:
+#      context: ./service-registry
+#    networks:
+#      - ekrok-networks
+#    environment:
+#      - hello=hello
+#
+#  redis:
+#    image: redis:latest
+#    container_name: redis
+#    environment:
+#      - REDIS_PASSWORD=Son191203
+#    volumes:
+#      - cache/data
+#    ports:
+#      - "6379:6379"
+#
+#  rabbitMQ:
+#    image: rabbitmq:3-management
+#    container_name: rabbitMQ
+#    volumes:
+#      - rabbitmq/data
+#    environment:
+#      - REDIS_PASSWORD=Son191203
+#    ports:
+#      - "15672:15672"
+#      - "5672:5672"
 
   #  database:
   #    image: mysql:8.0
@@ -156,14 +165,12 @@ services:
     depends_on:
       - elasticsearch
 
-
 volumes:
   cache:
   rabbitmq:
   db-data:
   esdata:
     driver: local
-
 
 networks:
   ekrok-networks:

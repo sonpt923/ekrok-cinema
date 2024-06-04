@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="department-service" />
+        <module name="discount-service" />
         <module name="cinema-service" />
         <module name="booking-service" />
         <module name="api-gateway" />
@@ -34,6 +35,7 @@
       <module name="config-sever" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="department-service" options="-parameters" />
+      <module name="discount-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
       <module name="mail-service" options="-parameters" />
       <module name="movie-service" options="-parameters" />

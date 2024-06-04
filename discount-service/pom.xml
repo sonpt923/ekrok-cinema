@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>user-service</artifactId>
+    <artifactId>discount-service</artifactId>
     <version>1.0</version>
-    <name>user-service</name>
-    <description>user-service</description>
+    <name>discount-service</name>
+    <description>discount-service</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
@@ -23,12 +23,6 @@
             <artifactId>core</artifactId>
             <version>1.0</version>
             <groupId>com.example</groupId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-admin-client</artifactId>
-            <version>24.0.4</version>
         </dependency>
 
         <dependency>
