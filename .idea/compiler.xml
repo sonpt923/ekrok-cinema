@@ -7,18 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="core" />
         <module name="department-service" />
-        <module name="discount-service" />
         <module name="cinema-service" />
-        <module name="booking-service" />
-        <module name="api-gateway" />
         <module name="movie-service" />
         <module name="user-service" />
+        <module name="notification-service" />
+        <module name="core" />
+        <module name="discount-service" />
+        <module name="schedule-service" />
+        <module name="booking-service" />
+        <module name="api-gateway" />
         <module name="config-sever" />
         <module name="mail-service" />
         <module name="service-registry" />
-        <module name="notification-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -40,6 +41,7 @@
       <module name="mail-service" options="-parameters" />
       <module name="movie-service" options="-parameters" />
       <module name="notification-service" options="-parameters" />
+      <module name="schedule-service" options="-parameters" />
       <module name="service-registry" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>

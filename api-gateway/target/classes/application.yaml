@@ -18,6 +18,16 @@ spring:
     import: "optional:configserver:http://localhost:8088"
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:3000"
+            allowed-headers:
+              - "*"
+            allowed-methods:
+              - GET
+              - POST
       routes:
         - id: cinema-service
           uri: lb://cinema-service
@@ -29,10 +39,10 @@ spring:
           uri: lb://booking-service
           predicates:
             - Path=/booking/**
-        - id: chatnotify-service
-          uri: lb://chatnotify-service
+        - id: notification-service
+          uri: lb://notification-service
           predicates:
-            - Path=/chatnotify/**
+            - Path=/notification/**
           filters:
             - AuthenticationFilter
         - id: mail-service
@@ -53,3 +63,7 @@ spring:
             - Path=/movie/**
           filters:
             - AuthenticationFilter
+        - id: schedule-service
+          uri: lb://schedule-service
+          predicates:
+            - Path=/schedule/**

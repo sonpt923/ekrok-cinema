@@ -1,6 +1,6 @@
-CREATE SCHEMA `booking`;
+CREATE SCHEMA `booking-service`;
 
-CREATE TABLE `booking`.`type_ticket`
+CREATE TABLE `booking-service`.`type_ticket`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `booking`.`type_ticket`
 );
 
 
-CREATE TABLE `booking`.`show_time`
+CREATE TABLE `booking-service`.`show_time`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `id_room`      BIGINT      NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `booking`.`show_time`
 
 
 
-CREATE TABLE `booking`.`order`
+CREATE TABLE `booking-service`.`order`
 (
     `id`              BIGINT      NOT NULL AUTO_INCREMENT,
     `id_customer`     BIGINT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `booking`.`order`
 
 
 
-CREATE TABLE `booking`.`ticket`
+CREATE TABLE `booking-service`.`ticket`
 (
     `id`             BIGINT      NOT NULL AUTO_INCREMENT,
     `id_chair`       BIGINT      NOT NULL,
@@ -75,17 +75,17 @@ CREATE TABLE `booking`.`ticket`
     INDEX            `FK_TICKET_ORDER_idx` (`id_order` ASC) VISIBLE,
     CONSTRAINT `FK_TICKET_TYPE_TICKET`
         FOREIGN KEY (`id_type_ticket`)
-            REFERENCES `booking`.`type_ticket` (`id`)
+            REFERENCES `booking-service`.`type_ticket` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_TICKET_SHOW_TIME`
         FOREIGN KEY (`id_show_time`)
-            REFERENCES `booking`.`show_time` (`id`)
+            REFERENCES `booking-service`.`show_time` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_TICKET_ORDER`
         FOREIGN KEY (`id_order`)
-            REFERENCES `booking`.`order` (`id`)
+            REFERENCES `booking-service`.`order` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 

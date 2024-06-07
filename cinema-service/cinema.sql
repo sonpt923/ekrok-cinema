@@ -1,6 +1,6 @@
-CREATE SCHEMA `cinema`;
+CREATE SCHEMA `cinema-service`;
 
-CREATE TABLE `cinema`.`room`
+CREATE TABLE `cinema-service`.`room`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE `cinema`.`room`
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
 );
 
-CREATE TABLE `cinema`.`chair_type`
+CREATE TABLE `cinema-service`.`chair_type`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `cinema`.`chair_type`
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE
 );
 
-CREATE TABLE `cinema`.`chair`
+CREATE TABLE `cinema-service`.`chair`
 (
     `id`            BIGINT      NOT NULL AUTO_INCREMENT,
     `id_room`       BIGINT      NOT NULL,
@@ -46,12 +46,12 @@ CREATE TABLE `cinema`.`chair`
     INDEX           `FK_CHAIR_CHAIRTYPE_idx` (`id_chair_type` ASC) VISIBLE,
     CONSTRAINT `FK_CHAIR_ROOM`
         FOREIGN KEY (`id_room`)
-            REFERENCES `cinema`.`room` (`id`)
+            REFERENCES `cinema-service`.`room` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_CHAIR_CHAIRTYPE`
         FOREIGN KEY (`id_chair_type`)
-            REFERENCES `cinema`.`chair_type` (`id`)
+            REFERENCES `cinema-service`.`chair_type` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );

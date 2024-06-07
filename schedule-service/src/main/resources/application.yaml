@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: schedule-service
+  config:
+    import: "optional:configserver:http://localhost:8088"
+  datasource:
+    url: jdbc:mysql://localhost:3306/schedule-service?useSSL=true
+    username: root
+    password: Son191203
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+org:
+  jobrunr:
+    background-job-server:
+      worker-count: 4
+    dashboard:
+      enabled: true
+      auth-enabled: false
+      port: 8000

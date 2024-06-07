@@ -28,16 +28,16 @@ public class KeycloakMasterConfig {
 
     private Keycloak keycloak;
 
-    @PostConstruct
-    public void init() {
-        keycloak = KeycloakBuilder.builder() //
-                .serverUrl(urlBase) //
-                .realm(Constants.Realm.MASTER) //
-                .grantType(OAuth2Constants.CLIENT_CREDENTIALS) //
-                .clientId(clientIdMaster) //
-                .clientSecret(clientSecretMaster) //
-                .build();
-    }
+//    @PostConstruct
+//    public void init() {
+//        keycloak = KeycloakBuilder.builder() //
+//                .serverUrl(urlBase) //
+//                .realm(Constants.Realm.MASTER) //
+//                .grantType(OAuth2Constants.CLIENT_CREDENTIALS) //
+//                .clientId(clientIdMaster) //
+//                .clientSecret(clientSecretMaster) //
+//                .build();
+//    }
 
 
 }

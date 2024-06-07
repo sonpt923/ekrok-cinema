@@ -1,6 +1,5 @@
 package com.example.userservice.service;
 
-import com.example.userservice.dto.request.UserRequest;
 import com.example.userservice.entity.User;
 
 public interface AuthenService {

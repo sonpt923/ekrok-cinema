@@ -8,7 +8,7 @@ spring:
       secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
       expiration_time: 5
   datasource:
-    url: jdbc:mysql://localhost:3306/user?useSSL=true
+    url: jdbc:mysql://localhost:3306/user-service?useSSL=true
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver

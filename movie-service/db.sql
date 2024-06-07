@@ -1,6 +1,6 @@
-CREATE SCHEMA `movie`;
+CREATE SCHEMA `movie-service`;
 
-CREATE TABLE `movie`.`director`
+CREATE TABLE `movie-service`.`director`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `movie`.`director`
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `movie`.`movie`
+CREATE TABLE `movie-service`.`movie`
 (
     `id`            BIGINT      NOT NULL AUTO_INCREMENT,
     `id_director`   BIGINT      NOT NULL,
@@ -30,12 +30,12 @@ CREATE TABLE `movie`.`movie`
     INDEX           `FK_M_D_idx` (`id_director` ASC) VISIBLE,
     CONSTRAINT `FK_M_D`
         FOREIGN KEY (`id_director`)
-            REFERENCES `movie`.`director` (`id`)
+            REFERENCES `movie-service`.`director` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
 
-CREATE TABLE `movie`.`genre`
+CREATE TABLE `movie-service`.`genre`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `movie`.`genre`
 );
 
 
-CREATE TABLE `movie`.`actor`
+CREATE TABLE `movie-service`.`actor`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `movie`.`actor`
 );
 
 
-CREATE TABLE `movie`.`producer`
+CREATE TABLE `movie-service`.`producer`
 (
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(45) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `movie`.`producer`
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `movie`.`movie_actor`
+CREATE TABLE `movie-service`.`movie_actor`
 (
     `id`       BIGINT NOT NULL AUTO_INCREMENT,
     `id_movie` BIGINT NOT NULL,
@@ -83,17 +83,17 @@ CREATE TABLE `movie`.`movie_actor`
     INDEX      `FK_MA_M_idx` (`id_movie` ASC) VISIBLE,
     CONSTRAINT `FK_MA_A`
         FOREIGN KEY (`id_actor`)
-            REFERENCES `movie`.`actor` (`id`)
+            REFERENCES `movie-service`.`actor` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_MA_M`
         FOREIGN KEY (`id_movie`)
-            REFERENCES `movie`.`movie` (`id`)
+            REFERENCES `movie-service`.`movie` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
 
-CREATE TABLE `movie`.`movie_producer`
+CREATE TABLE `movie-service`.`movie_producer`
 (
     `id`          BIGINT NOT NULL AUTO_INCREMENT,
     `id_producer` BIGINT NOT NULL,
@@ -104,17 +104,17 @@ CREATE TABLE `movie`.`movie_producer`
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     CONSTRAINT `FK_PM_P`
         FOREIGN KEY (`id_producer`)
-            REFERENCES `movie`.`producer` (`id`)
+            REFERENCES `movie-service`.`producer` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_PM_M`
         FOREIGN KEY (`id_movie`)
-            REFERENCES `movie`.`movie` (`id`)
+            REFERENCES `movie-service`.`movie` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
 
-CREATE TABLE `movie`.`movie_genre`
+CREATE TABLE `movie-service`.`movie_genre`
 (
     `id`       BIGINT NOT NULL AUTO_INCREMENT,
     `id_movie` BIGINT NOT NULL,
@@ -125,12 +125,12 @@ CREATE TABLE `movie`.`movie_genre`
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     CONSTRAINT `FK_MG_G`
         FOREIGN KEY (`id_genre`)
-            REFERENCES `movie`.`genre` (`id`)
+            REFERENCES `movie-service`.`genre` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `FK_MG_M`
         FOREIGN KEY (`id_movie`)
-            REFERENCES `movie`.`movie` (`id`)
+            REFERENCES `movie-service`.`movie` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );

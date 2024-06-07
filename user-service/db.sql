@@ -1,6 +1,6 @@
-CREATE SCHEMA `user`;
+CREATE SCHEMA `user-service`;
 
-CREATE TABLE `user`.`user`
+CREATE TABLE `user-service`.`user`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `name`         VARCHAR(145) NOT NULL,

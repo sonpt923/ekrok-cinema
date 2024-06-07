@@ -4,7 +4,7 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8088"
   datasource:
-    url: jdbc:mysql://localhost:3306/movie?useSSL=true
+    url: jdbc:mysql://localhost:3306/movie-service?useSSL=true
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver

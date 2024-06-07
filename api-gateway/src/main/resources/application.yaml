@@ -5,7 +5,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
 management:
   tracing:
     sampling:
@@ -63,3 +62,7 @@ spring:
             - Path=/movie/**
           filters:
             - AuthenticationFilter
+        - id: schedule-service
+          uri: lb://schedule-service
+          predicates:
+            - Path=/schedule/**

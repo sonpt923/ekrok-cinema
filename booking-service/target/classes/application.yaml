@@ -3,16 +3,36 @@ spring:
     name: booking-service
   config:
     import: "optional:configserver:http://localhost:8088"
-
-
   datasource:
     url: jdbc:mysql://localhost:3306/booking
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver
-    jpa:
-      hibernate:
-        ddl-auto: none
-      show-sql: true
-
+    hikari:
+      read-only: false
+      leak-detection-threshold: 30000
+      pool-name: Admin_Pool
+      idleTimeout: 60000
+      maxLifetime: 60000
+      connectionTimeout: 60000
+      minimumIdle: 5
+      maximum-pool-size: 30
+      connection-test-query: SELECT 1 FROM DUAL
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      time-to-live: 3000
+  data:
+    redis:
+      host: redis-14442.c1.ap-southeast-1-1.ec2.cloud.redislabs.com
+      port: 14442
+      username: default
+      password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
+      havePassword: NO
 
