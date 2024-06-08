@@ -8,43 +8,39 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericToStringSerializer;
 
-//@Configuration
-//@PropertySource("classpath:application.yaml")
+@Configuration
+@PropertySource("classpath:application.yaml")
 public class RedisConfig {
 
-//    @Value("${spring.data.redis.host}")
-//    String host;
-//
-//    @Value("${spring.data.redis.port}")
-//    Integer port;
-//
-//    @Value("${spring.data.redis.password}")
-//    String password;
-//
-//    @Value("${spring.data.redis.havePassword}")
-//    String havePassword;
-//
-//
-//    @Bean
-//    JedisConnectionFactory jedisConnectionFactory() {
-//        JedisConnectionFactory jedisConFactory
-//                = new JedisConnectionFactory();
-//        jedisConFactory.setHostName(host);
-//        jedisConFactory.setPort(port);
-//        if (havePassword.equals(Constants.YES)) {
-//            jedisConFactory.setPassword(password);
-//        }
-//        return jedisConFactory;
-//    }
-//
-//    @Bean
-//    public RedisTemplate<String, Object> redisTemplate() {
-//        final RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
-//        template.setConnectionFactory(jedisConnectionFactory());
-//        template.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
-//        return template;
-//    }
+    @Value("${spring.data.redis.host}")
+    String host;
+
+    @Value("${spring.data.redis.port}")
+    Integer port;
+
+    @Value("${spring.data.redis.password}")
+    String password;
+
+    @Value("${spring.data.redis.havePassword}")
+    String havePassword;
+
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+        jedisConnectionFactory.setHostName(host);
+        jedisConnectionFactory.setPort(port);
+        if (havePassword.equals(Constants.YES)) {
+            jedisConnectionFactory.setPassword(password);
+        }
+        return jedisConnectionFactory;
+    }
+
+    @Bean
+    public RedisTemplate redisTemplate(RedisConnectionFactory connectionFactory) {
+        RedisTemplate template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory);
+        return template;
+    }
 
 }

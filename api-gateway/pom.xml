@@ -18,12 +18,6 @@
         <spring-cloud.version>2022.0.4</spring-cloud.version>
     </properties>
     <dependencies>
-        <!--customize dependency-->
-        <!--        <dependency>-->
-        <!--            <artifactId>core</artifactId>-->
-        <!--            <version>1.0</version>-->
-        <!--            <groupId>com.example</groupId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -40,7 +34,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
