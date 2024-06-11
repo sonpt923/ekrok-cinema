@@ -1,6 +1,5 @@
 package com.example.apigateway.filter;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-@Slf4j
 public class AuthenticationFilter extends AbstractGatewayFilterFactory {
 
     @Autowired
@@ -22,7 +20,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
-                    log.error("Invalid token: {}", "missing authorization header");
                     throw new RuntimeException("missing authorization header");
                 }
                 String authHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
@@ -31,9 +28,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
                 }
                 try {
                     restTemplate.getForObject("http://localhost:8083/auth/validate-token?token=" + authHeader, String.class);
-
                 } catch (Exception e) {
-                    log.error("Invalid token: {}", e.getMessage());
                     throw new RuntimeException(e.getMessage());
                 }
             }

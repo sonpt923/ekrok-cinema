@@ -1,8 +1,30 @@
 CREATE SCHEMA `cinema-service`;
 
+CREATE TABLE `cinema-service`.`cinema`
+(
+    `id`           BIGINT       NOT NULL AUTO_INCREMENT,
+    `name`         VARCHAR(145) NOT NULL,
+    `address`      VARCHAR(255) NOT NULL,
+    `status`       BIGINT       NOT NULL,
+    `created_by`   VARCHAR(45)  NOT NULL,
+    `created_time` DATETIME     NOT NULL DEFAULT NOW(),
+    `updated_by`   VARCHAR(45) NULL,
+    `updated_time` DATETIME NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
+    INDEX          `FK_CINEMA_PROVINCE_idx` (`id_province` ASC) VISIBLE,
+    CONSTRAINT `FK_CINEMA_PROVINCE`
+        FOREIGN KEY (`id_province`)
+            REFERENCES `cinema-service`.`province` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
+
+
 CREATE TABLE `cinema-service`.`room`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
+    `id_cinema`    BIGINT       NOT NULL,
     `name`         VARCHAR(145) NOT NULL,
     `price`        DECIMAL      NOT NULL,
     `status`       BIGINT       NOT NULL,

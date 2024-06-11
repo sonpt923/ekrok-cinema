@@ -15,6 +15,8 @@ CREATE TABLE `user-service`.`user`
     `created_time` DATETIME     NOT NULL DEFAULT NOW(),
     `updated_by`   VARCHAR(45) NULL,
     `updated_time` DATETIME NULL,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,

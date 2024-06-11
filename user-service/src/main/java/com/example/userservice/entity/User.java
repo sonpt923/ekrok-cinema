@@ -57,4 +57,10 @@ public class User {
     @Column(name = "updated_time")
     private Date updatedTime;
 
+    @Column(name = "deleted_by")
+    private String deletedBy;
+
+    @Column(name = "deleted_time")
+    private Date deletedTime;
+
 }

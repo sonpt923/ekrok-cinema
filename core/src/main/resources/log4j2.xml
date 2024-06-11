@@ -5,18 +5,11 @@
             <PatternLayout
                     pattern="%d{yyyy-MM-dd HH:mm:ss.SSS a} %highlight{%highlight{%-5level}}{FATAL=black, ERROR=black, WARN=black, INFO=black, DEBUG=black, TRACE=black, ALL=black} [%15.15t] %logger{36}:   %msg%n"/>
         </Console>
-
         <File name="ReceiveLogFile" fileName="logs/receive.log">
-            <PatternLayout
-                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS a} %-5level [%15.15t] %logger{36}:   %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS a} %-5level [%15.15t] %logger{36}: %msg%n"/>
         </File>
-
         <File name="SendLogFile" fileName="logs/send.log">
-            <PatternLayout
-                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS a} %-5level [%15.15t] %logger{36}:   %msg%n"/>
-<!--            <TimeBasedTriggeringPolicy interval="1d" modulate="true"/>-->
-<!--            <SizeBasedTriggeringPolicy size="100 MB"/>-->
-<!--            <DefaultRolloverStrategy max="10"/>-->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS a} %-5level [%15.15t] %logger{36}: %msg%n"/>
         </File>
     </Appenders>
     <Loggers>

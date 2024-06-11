@@ -22,19 +22,23 @@ public class RedisConfig {
     @Value("${spring.data.redis.password}")
     String password;
 
+    @Value("${spring.data.redis.username}")
+    private String username;
+
     @Value("${spring.data.redis.havePassword}")
     String havePassword;
 
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory() {
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-        jedisConnectionFactory.setHostName(host);
-        jedisConnectionFactory.setPort(port);
-        if (havePassword.equals(Constants.YES)) {
-            jedisConnectionFactory.setPassword(password);
-        }
-        return jedisConnectionFactory;
-    }
+//    @Bean
+//    public RedisConnectionFactory redisConnectionFactory() {
+//        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+//        jedisConnectionFactory.setHostName(host);
+//        jedisConnectionFactory.set(username);
+//        jedisConnectionFactory.setPort(port);
+//        if (havePassword.equals(Constants.YES)) {
+//            jedisConnectionFactory.setPassword(password);
+//        }
+//        return jedisConnectionFactory;
+//    }
 
     @Bean
     public RedisTemplate redisTemplate(RedisConnectionFactory connectionFactory) {

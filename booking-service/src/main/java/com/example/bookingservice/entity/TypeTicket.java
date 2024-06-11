@@ -46,4 +46,10 @@ public class TypeTicket {
     @Column(name = "updated_time")
     private Date updatedTime;
 
+    @Column(name = "delted_time")
+    private Date deleted_time;
+
+    @Column(name = "deleted_by")
+    private String deletedBy;
+
 }

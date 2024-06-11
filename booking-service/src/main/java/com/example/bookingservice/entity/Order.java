@@ -46,4 +46,10 @@ public class Order {
     @Column(name = "created_by")
     private Date createdBy;
 
+    @Column(name = "delted_time")
+    private Date deleted_time;
+
+    @Column(name = "deleted_by")
+    private String deletedBy;
+
 }

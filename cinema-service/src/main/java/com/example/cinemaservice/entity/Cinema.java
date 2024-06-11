@@ -1,38 +1,24 @@
-package com.example.movieservice.entity;
-
+package com.example.cinemaservice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
-@Table(name = "actor")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class Actor {
+@Table(name = "cinema")
+public class Cinema {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "code")
-    private String code;
-
-    @Column(name = "image")
-    private String image;
-
     @Column(name = "name")
     private String name;
 
-    @Column(name = "status")
-    private Integer status;
+    @Column(name = "price")
+    private BigDecimal price;
 
     @Column(name = "created_time")
     private Date createdTime;

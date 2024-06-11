@@ -39,4 +39,10 @@ public class Genre {
     @Column(name = "updated_by")
     private String updatedBy;
 
+    @Column(name = "delted_time")
+    private Date deleted_time;
+
+    @Column(name = "deleted_by")
+    private String deletedBy;
+
 }

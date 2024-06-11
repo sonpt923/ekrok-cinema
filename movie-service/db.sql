@@ -8,7 +8,9 @@ CREATE TABLE `movie-service`.`director`
     `created_by`   VARCHAR(45)  NOT NULL,
     `created_time` DATETIME     NOT NULL default NOW(),
     `updated_by`   VARCHAR(45) NULL,
-    `updated_time` DATETIME NULL,
+    `updated_time` DATETIME NULL,,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -24,7 +26,9 @@ CREATE TABLE `movie-service`.`movie`
     `created_time`  DATETIME    NOT NULL default NOW(),
     `created_by`    VARCHAR(45) NOT NULL,
     `updated_time`  DATETIME NULL,
-    `updated_by`    VARCHAR(45) NULL,
+    `updated_by`    VARCHAR(45) NULL,,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
     INDEX           `FK_M_D_idx` (`id_director` ASC) VISIBLE,
@@ -43,7 +47,9 @@ CREATE TABLE `movie-service`.`genre`
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL,
+    `updated_by`   VARCHAR(45) NULL,,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -56,7 +62,9 @@ CREATE TABLE `movie-service`.`actor`
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL,
+    `updated_by`   VARCHAR(45) NULL,,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -69,7 +77,9 @@ CREATE TABLE `movie-service`.`producer`
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL,
+    `updated_by`   VARCHAR(45) NULL,,
+    `deleted_by`   VARCHAR(45) NULL,
+    `deleted_time` DATETIME NULL,
     PRIMARY KEY (`id`)
 );
 

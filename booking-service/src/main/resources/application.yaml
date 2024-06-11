@@ -30,9 +30,9 @@ spring:
       time-to-live: 3000
   data:
     redis:
-      host: redis-14442.c1.ap-southeast-1-1.ec2.cloud.redislabs.com
-      port: 14442
+      host: redis-14618.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com
+      port: 14618
       username: default
-      password: N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
-      havePassword: NO
+      password: bq2UkSMCAxrdm1aYvJnpkXGokVZNqapK
+      havePassword: YES
 
