@@ -120,22 +120,22 @@ services:
 #    ports:
 #      - "15672:15672"
 #      - "5672:5672"
-#
-#  keycloak:
-#    image: quay.io/keycloak/keycloak:24.0.5
-#    command: start-dev --verbose
-#    environment:
-#      KC_DB: mysql
-#      KC_DB_URL: jdbc:mysql://host.docker.internal:3306/keycloak
-#      KC_DB_USERNAME: root
-#      KC_DB_PASSWORD: Son191203
-#      KEYCLOAK_ADMIN: admin
-#      KEYCLOAK_ADMIN_PASSWORD: admin
-#      KEYCLOAK_JDBC_PARAMS: 'sslmode=require'
-#    ports:
-#      - "9090:8080"
-#
-#
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5
+    command: start-dev --verbose
+    environment:
+      KC_DB: mysql
+      KC_DB_URL: jdbc:mysql://host.docker.internal:3306/keycloak
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: Son191203
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KEYCLOAK_JDBC_PARAMS: 'sslmode=require'
+    ports:
+      - "9090:8080"
+
+
 #  database:
 #    image: mysql:8.0
 #    environment:

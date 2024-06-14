@@ -56,6 +56,12 @@ spring:
             - Path=/user/**
           filters:
             - AuthenticationFilter
+        - id: discount-service
+          uri: lb://discount-service
+          predicates:
+            - Path=/discount/**
+          filters:
+            - AuthenticationFilter
         - id: movie-service
           uri: lb://movie-service
           predicates:

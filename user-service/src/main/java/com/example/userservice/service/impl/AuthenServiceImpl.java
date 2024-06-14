@@ -5,13 +5,12 @@ import com.example.userservice.security.JwtProvider;
 import com.example.userservice.service.AuthenService;
 import com.example.userservice.service.UserService;
 import com.example.utils.Constants;
-import lombok.extern.slf4j.Slf4j;
+import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 public class AuthenServiceImpl implements AuthenService {
 
     @Autowired
@@ -26,13 +25,10 @@ public class AuthenServiceImpl implements AuthenService {
     @Override
     public Object validateToken(String token) {
         if (jwtProvider.isTokenExpired(token)) {
-            log.error("Token is expired: {}", token);
             throw new RuntimeException();
         }
         String username = jwtProvider.getUsernameFromToken(token);
-        User user = userService.getUserByUsernameAndStatus(username, 1L);
-        if (user == null) {
-            log.error("Token errors: {}", "user is not exist or is disable");
+        if (StringUtil.stringIsNullOrEmty(username)) {
             throw new RuntimeException();
         }
         return Constants.SUCCESS;

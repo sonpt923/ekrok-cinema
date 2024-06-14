@@ -15,19 +15,9 @@ public class AuthController {
     @Autowired
     private AuthenService authenService;
 
-    @PostMapping("/login")
-    public ResponseEntity login() {
-        return ResponseEntity.ok(null);
-    }
-
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody User request) {
         return ResponseEntity.ok(authenService.register(request));
-    }
-
-    @PostMapping("/login-google")
-    public ResponseEntity loginGoole() {
-        return ResponseEntity.ok(null);
     }
 
     @PostMapping("/forgot-password")

@@ -3,10 +3,6 @@ spring:
     name: user-service
   config:
     import: "optional:configserver:http://localhost:8088"
-  security:
-    jwt:
-      secret_key: eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx
-      expiration_time: 5
   datasource:
     url: jdbc:mysql://localhost:3306/user-service?useSSL=true
     username: root
@@ -29,7 +25,5 @@ spring:
       password: bq2UkSMCAxrdm1aYvJnpkXGokVZNqapK
       havePassword: YES
       username: default
-#logging:
-#  config: classpath:log4j2.xml
-#service:
-#  name: ${spring.application.name}
+keycloak:
+  url_base: http://localhost:9090/realms/master/protocol/openid-connect/token
