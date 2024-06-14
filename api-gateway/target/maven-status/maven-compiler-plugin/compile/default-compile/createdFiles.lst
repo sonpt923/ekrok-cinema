@@ -1,4 +1,0 @@
-com\example\apigateway\filter\AuthenticationFilter.class
-com\example\apigateway\config\AppConfig.class
-com\example\apigateway\ApiGatewayApplication.class
-com\example\apigateway\filter\RouteValidator.class
