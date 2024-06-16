@@ -20,6 +20,9 @@ public class ChairType {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "code")
+    private String code;
+
     @Column(name = "name")
     private String name;
 
@@ -27,7 +30,7 @@ public class ChairType {
     private BigDecimal price;
 
     @Column(name = "status")
-    private Long status;
+    private Integer status;
 
     @Column(name = "created_time")
     private Date createdTime;
@@ -40,11 +43,5 @@ public class ChairType {
 
     @Column(name = "updated_by")
     private String updatedBy;
-
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

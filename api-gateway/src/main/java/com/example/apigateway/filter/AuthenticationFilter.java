@@ -1,20 +1,25 @@
 package com.example.apigateway.filter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory {
+
+    private static final Logger log = LoggerFactory.getLogger(AuthenticationFilter.class);
 
     @Autowired
     private RouteValidator validator;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private WebClient.Builder webClient;
 
     public GatewayFilter apply(Object config) {
         return ((exchange, chain) -> {
@@ -27,7 +32,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
                     authHeader = authHeader.substring(7);
                 }
                 try {
-                    restTemplate.getForObject("http://localhost:8083/auth/validate-token?token=" + authHeader, String.class);
+                    Mono mono = webClient.build().get().uri("http://user-service/public/hello").retrieve().bodyToMono(String.class);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage());
                 }

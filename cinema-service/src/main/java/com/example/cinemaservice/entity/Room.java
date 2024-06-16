@@ -20,6 +20,13 @@ public class Room {
     @Column(name = "id")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cinema", referencedColumnName = "id")
+    private Cinema cinema;
+
+    @Column(name = "code")
+    private String code;
+
     @Column(name = "name")
     private String name;
 
@@ -27,7 +34,7 @@ public class Room {
     private BigDecimal price;
 
     @Column(name = "status")
-    private Long status;
+    private Integer status;
 
     @Column(name = "created_time")
     private Date createdTime;
@@ -40,12 +47,6 @@ public class Room {
 
     @Column(name = "updated_by")
     private String updatedBy;
-
-    @Column(name = "delted_time")
-    private java.util.Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 
 }

@@ -2,51 +2,45 @@ package com.example.cinemaservice.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "chair")
+@Table(name = "province")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Chair {
+public class Province {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_room", referencedColumnName = "id")
-    private Room room;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cinema", referencedColumnName = "id")
-    private Cinema cinema;
-
     @Column(name = "code")
     private String code;
 
-    @Column(name = "position")
-    private String position;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "image")
+    private String image;
 
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "created_time")
-    private LocalDateTime createdTime;
-
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_time")
-    private LocalDateTime updatedTime;
+    @Column(name = "createdTime")
+    private LocalDateTime createdTime;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
+    @Column(name = "updated_time")
+    private LocalDateTime updatedTime;
 
 }

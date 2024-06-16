@@ -90,7 +90,5 @@ public class Constants {
         String GROUP = "Group";
     }
 
-    public interface
-
 
 }
