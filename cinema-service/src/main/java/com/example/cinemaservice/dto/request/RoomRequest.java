@@ -21,4 +21,8 @@ public class RoomRequest {
 
     List<Chair> chairs;
 
+    private Long page;
+
+    private Long pageSize;
+
 }

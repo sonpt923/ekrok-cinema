@@ -24,8 +24,8 @@ public class Chair {
     private Room room;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cinema", referencedColumnName = "id")
-    private Cinema cinema;
+    @JoinColumn(name = "id_chair_type", referencedColumnName = "id")
+    private ChairType chairType;
 
     @Column(name = "code")
     private String code;
