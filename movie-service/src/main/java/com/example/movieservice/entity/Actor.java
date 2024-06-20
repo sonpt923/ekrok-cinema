@@ -31,6 +31,15 @@ public class Actor {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "gender")
+    private Integer gender;
+
+    @Column(name = "biography")
+    private String biography;
+
+    @Column(name = "born")
+    private Date born;
+
     @Column(name = "status")
     private Integer status;
 
@@ -46,10 +55,5 @@ public class Actor {
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

@@ -25,8 +25,17 @@ public class Movie {
     @JoinColumn(name = "id_director", referencedColumnName = "id")
     private Director director;
 
+    @Column(name = "code")
+    private String code;
+
     @Column(name = "name")
     private String name;
+
+    @Column(name = "poster")
+    private String poster;
+
+    @Column(name = "trailer")
+    private String trailer;
 
     @Column(name = "age")
     private Integer age;
@@ -52,9 +61,4 @@ public class Movie {
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 }

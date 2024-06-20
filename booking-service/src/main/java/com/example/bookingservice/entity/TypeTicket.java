@@ -10,11 +10,10 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
-@Table(name = "")
+@Table(name = "type_ticket")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 public class TypeTicket {
 
     @Id
@@ -22,7 +21,7 @@ public class TypeTicket {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "status")
@@ -45,11 +44,5 @@ public class TypeTicket {
 
     @Column(name = "updated_time")
     private Date updatedTime;
-
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

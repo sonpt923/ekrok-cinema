@@ -14,7 +14,6 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class ShowTime {
 
     @Id
@@ -38,7 +37,7 @@ public class ShowTime {
     private Date endTime;
 
     @Column(name = "status")
-    private Long status;
+    private Integer status;
 
     @Column(name = "created_by")
     private String createdBy;
@@ -51,11 +50,5 @@ public class ShowTime {
 
     @Column(name = "updated_time")
     private Date updatedTime;
-
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

@@ -1,17 +1,14 @@
 package com.example.mailservice.provider;
 
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.util.encoders.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
@@ -49,21 +46,19 @@ public class MailProvider {
             log.info("Sender: " + sender);
             log.info("Receives: " + String.join(";", receiver));
             Properties props = new Properties();
-            props.put("mail.smtp.host", host); //SMTP Host
-            props.put("mail.smtp.port", port); //TLS Port
-            props.put("mail.smtp.auth", "true"); //enable authentication
-            props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
-
-            //create Authenticator object to pass in Session.getInstance argument
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", port);
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
             Authenticator auth = new Authenticator() {
                 //override the getPasswordAuthentication method
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
+                    return new PasswordAuthentication(username, String.valueOf(Base64.decode(password)));
                 }
             };
             Session session = Session.getInstance(props, auth);
             MimeMessage msg = new MimeMessage(session);
-            //set message headers
+
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
             msg.addHeader("format", "flowed");
             msg.addHeader("Content-Transfer-Encoding", "8bit");

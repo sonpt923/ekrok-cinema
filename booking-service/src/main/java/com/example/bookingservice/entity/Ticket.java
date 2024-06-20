@@ -13,7 +13,6 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Ticket {
 
     @Id

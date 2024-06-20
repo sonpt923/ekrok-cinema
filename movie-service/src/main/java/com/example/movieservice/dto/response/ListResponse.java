@@ -1,4 +1,4 @@
-package com.example.movieservice.dto;
+package com.example.movieservice.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

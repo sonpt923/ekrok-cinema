@@ -18,4 +18,5 @@ public class SocketConfiguration implements WebSocketMessageBrokerConfigurer {
         registry.enableSimpleBroker("/topic", "/queue");
         registry.setApplicationDestinationPrefixes("/app");
     }
+
 }
