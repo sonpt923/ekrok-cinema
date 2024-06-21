@@ -10,20 +10,35 @@ import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Entity
-@Table(name = "producer")
+@Table(name = "actor")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Producer {
+public class People {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "image")
+    private String image;
+
     @Column(name = "name")
     private String name;
+
+    @Column(name = "gender")
+    private Integer gender;
+
+    @Column(name = "biography")
+    private String biography;
+
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
 
     @Column(name = "status")
     private Integer status;
@@ -40,10 +55,5 @@ public class Producer {
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "delted_time")
-    private Date deleted_time;
-
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

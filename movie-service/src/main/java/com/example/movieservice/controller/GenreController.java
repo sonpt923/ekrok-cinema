@@ -1,7 +1,7 @@
 package com.example.movieservice.controller;
 
 import com.example.config.EnableWrapResponse;
-import com.example.movieservice.dto.request.DirectorRequest;
+import com.example.movieservice.dto.request.GenreRequest;
 import com.example.movieservice.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,22 +18,22 @@ public class GenreController {
     private GenreService genreService;
 
     @PostMapping("/create-genre")
-    public ResponseEntity createGenre(@RequestBody DirectorRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+    public ResponseEntity createGenre(@RequestBody GenreRequest directorRequest, @RequestHeader("Authorization") String token) {
         return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
     }
 
     @PostMapping("/update-genre")
-    public ResponseEntity udpateGenre(@RequestBody DirectorRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+    public ResponseEntity udpateGenre(@RequestBody GenreRequest directorRequest, @RequestHeader("Authorization") String token) {
         return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
     }
 
     @PostMapping("/delete-genre")
-    public ResponseEntity deleteGenre(@RequestBody DirectorRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+    public ResponseEntity deleteGenre(@RequestBody GenreRequest directorRequest, @RequestHeader("Authorization") String token) {
         return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
     }
 
     @PostMapping("/find-genre-by-condition")
-    public ResponseEntity findGenreByCondition(@RequestBody DirectorRequest request, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+    public ResponseEntity findGenreByCondition(@RequestBody GenreRequest request, @RequestHeader("Authorization") String token) {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 

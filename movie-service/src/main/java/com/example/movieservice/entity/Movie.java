@@ -21,15 +21,11 @@ public class Movie {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_director", referencedColumnName = "id")
-    private Director director;
-
     @Column(name = "code")
     private String code;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "poster")
     private String poster;
@@ -37,17 +33,17 @@ public class Movie {
     @Column(name = "trailer")
     private String trailer;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "age_restriction")
+    private Integer ageRestriction;
 
-    @Column(name = "time")
-    private Date time;
+    @Column(name = "duration")
+    private Integer duration;
 
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "premiere_date")
-    private Date premiereDate;
+    @Column(name = "release_ate")
+    private Date releaseDate;
 
     @Column(name = "created_time")
     private Date createdTime;

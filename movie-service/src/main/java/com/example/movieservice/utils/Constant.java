@@ -2,7 +2,7 @@ package com.example.movieservice.utils;
 
 public class Constant {
 
-    interface MOVIE_STATUS {
+    interface MOVIE {
 
         Integer COMMING_SOON = 0;
 
@@ -12,4 +12,13 @@ public class Constant {
 
     }
 
+    interface ROLE {
+
+        Integer PRODUCER = 0;
+
+        Integer DIRECTOR = 1;
+
+        Integer ACTOR = 2;
+
+    }
 }

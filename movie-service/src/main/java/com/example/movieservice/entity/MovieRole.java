@@ -6,13 +6,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Entity
 @Table(name = "actor_movie")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ActorMovie {
+public class MovieRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +22,26 @@ public class ActorMovie {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_actor")
-    private Actor actor;
+    @JoinColumn(name = "id_people")
+    private People people;
 
     @ManyToOne
     @JoinColumn(name = "id_movie")
-    private Movie movie;
+    private Movie movieId;
+
+    @Column(name = "role")
+    private Integer role;
+
+    @Column(name = "created_time")
+    private Date createdTime;
+
+    @Column(name = "created_By")
+    private String createdBy;
+
+    @Column(name = "updated_time")
+    private Date updatedTime;
+
+    @Column(name = "updated_by")
+    private String updatedBy;
 
 }

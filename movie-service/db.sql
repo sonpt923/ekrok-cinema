@@ -1,40 +1,23 @@
 CREATE SCHEMA `movie-service`;
 
-CREATE TABLE `movie-service`.`director`
-(
-    `id`           BIGINT       NOT NULL AUTO_INCREMENT,
-    `name`         VARCHAR(145) NOT NULL,
-    `status`       INT          NOT NULL,
-    `created_by`   VARCHAR(45)  NOT NULL,
-    `created_time` DATETIME     NOT NULL default NOW(),
-    `updated_by`   VARCHAR(45) NULL,
-    `updated_time` DATETIME NULL, ,
-    `deleted_by`   VARCHAR(45) NULL,
-    `deleted_time` DATETIME NULL,
-    PRIMARY KEY (`id`)
-);
-
 CREATE TABLE `movie-service`.`movie`
 (
-    `id`            BIGINT      NOT NULL AUTO_INCREMENT,
-    `id_director`   BIGINT      NOT NULL,
-    `code`          VARCHAR(45) NOT NULL,
-    `poster`        VARCHAR(45) NOT NULL,
-    `trailer`       VARCHAR(45) NOT NULL,
-    `name`          VARCHAR(45) NOT NULL,
-    `age`           INT         NOT NULL,
-    `time`          DATETIME    NOT NULL,
-    `status`        INT         NOT NULL,
-    `premiere_date` DATE        NOT NULL,
-    `created_time`  DATETIME    NOT NULL default NOW(),
-    `created_by`    VARCHAR(45) NOT NULL,
-    `updated_time`  DATETIME NULL,
-    `updated_by`    VARCHAR(45) NULL, ,
-    `deleted_by`    VARCHAR(45) NULL,
-    `deleted_time`  DATETIME NULL,
+    `id`              BIGINT      NOT NULL AUTO_INCREMENT,
+    `code`            VARCHAR(45) NOT NULL,
+    `poster`          VARCHAR(45) NOT NULL,
+    `trailer`         VARCHAR(45) NOT NULL,
+    `title`           VARCHAR(45) NOT NULL,
+    `age_restriction` INT         NOT NULL,
+    `duration`        INT         NOT NULL,
+    `status`          INT         NOT NULL,
+    `release_ate`     DATE        NOT NULL,
+    `created_time`    DATETIME    NOT NULL default NOW(),
+    `created_by`      VARCHAR(45) NOT NULL,
+    `updated_time`    DATETIME NULL,
+    `updated_by`      VARCHAR(45) NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
-    INDEX           `FK_M_D_idx` (`id_director` ASC) VISIBLE,
+    INDEX             `FK_M_D_idx` (`id_director` ASC) VISIBLE,
     CONSTRAINT `FK_M_D`
         FOREIGN KEY (`id_director`)
             REFERENCES `movie-service`.`director` (`id`)
@@ -44,51 +27,34 @@ CREATE TABLE `movie-service`.`movie`
 
 CREATE TABLE `movie-service`.`genre`
 (
-    `id`           BIGINT       NOT NULL AUTO_INCREMENT,
-    `code`         VARCHAR(45)  NOT NULL,
-    `name`         VARCHAR(45)  NOT NULL,
-    `born`         DATETIME     NOT NULL,
-    `biography`    VARCHAR(245) NOT NULL,
-    `status`       INT          NOT NULL,
-    `gender`       INT          NOT NULL,
-    `created_time` DATETIME     NOT NULL default NOW(),
-    `created_by`   VARCHAR(45)  NOT NULL,
-    `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL, ,
-    `deleted_by`   VARCHAR(45) NULL,
-    `deleted_time` DATETIME NULL,
-    PRIMARY KEY (`id`)
-);
-
-
-CREATE TABLE `movie-service`.`actor`
-(
     `id`           BIGINT      NOT NULL AUTO_INCREMENT,
+    `code`         VARCHAR(45) NOT NULL,
     `name`         VARCHAR(45) NOT NULL,
-    `status`       INT         NOT NULL,
     `created_time` DATETIME    NOT NULL default NOW(),
     `created_by`   VARCHAR(45) NOT NULL,
     `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL, ,
-    `deleted_by`   VARCHAR(45) NULL,
-    `deleted_time` DATETIME NULL,
+    `updated_by`   VARCHAR(45) NULL,
     PRIMARY KEY (`id`)
 );
 
 
-CREATE TABLE `movie-service`.`producer`
+CREATE TABLE `movie-service`.`people`
 (
-    `id`           BIGINT      NOT NULL AUTO_INCREMENT,
-    `name`         VARCHAR(45) NOT NULL,
-    `status`       INT         NOT NULL,
-    `created_time` DATETIME    NOT NULL default NOW(),
-    `created_by`   VARCHAR(45) NOT NULL,
-    `updated_time` DATETIME NULL,
-    `updated_by`   VARCHAR(45) NULL, ,
-    `deleted_by`   VARCHAR(45) NULL,
-    `deleted_time` DATETIME NULL,
+    `id`            BIGINT       NOT NULL AUTO_INCREMENT,
+    `code`          VARCHAR(45)  NOT NULL,
+    `name`          VARCHAR(45)  NOT NULL,
+    `biography`     VARCHAR(345) NOT NULL,
+    `image`         VARCHAR(45)  NOT NULL,
+    `gender`        INT          NOT NULL,
+    `date_of_birth` DATETIME     NOT NULL,
+    `status`        INT          NOT NULL,
+    `created_time`  DATETIME     NOT NULL default NOW(),
+    `created_by`    VARCHAR(45)  NOT NULL,
+    `updated_time`  DATETIME NULL,
+    `updated_by`    VARCHAR(45) NULL,
     PRIMARY KEY (`id`)
 );
+
 
 CREATE TABLE `movie-service`.`movie_actor`
 (
@@ -110,26 +76,6 @@ CREATE TABLE `movie-service`.`movie_actor`
             ON UPDATE NO ACTION
 );
 
-CREATE TABLE `movie-service`.`movie_producer`
-(
-    `id`          BIGINT NOT NULL AUTO_INCREMENT,
-    `id_producer` BIGINT NOT NULL,
-    `id_movie`    BIGINT NOT NULL,
-    PRIMARY KEY (`id`),
-    INDEX         `FK_PM_M_idx` (`id_movie` ASC) VISIBLE,
-    INDEX         `FK_PM_P_idx` (`id_producer` ASC) VISIBLE,
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-    CONSTRAINT `FK_PM_P`
-        FOREIGN KEY (`id_producer`)
-            REFERENCES `movie-service`.`producer` (`id`)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION,
-    CONSTRAINT `FK_PM_M`
-        FOREIGN KEY (`id_movie`)
-            REFERENCES `movie-service`.`movie` (`id`)
-            ON DELETE NO ACTION
-            ON UPDATE NO ACTION
-);
 
 CREATE TABLE `movie-service`.`movie_genre`
 (

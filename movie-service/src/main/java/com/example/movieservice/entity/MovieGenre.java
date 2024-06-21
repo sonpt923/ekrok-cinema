@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "")
+@Table(name = "movie_genre")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
