@@ -1,6 +1,6 @@
 package com.example.utils;
 
-public class Constants {
+public class BaseConstants {
 
     public static final String YES = "YES";
 
@@ -9,8 +9,6 @@ public class Constants {
 
     public static final String ERROR = "ERROR";
     public static final String ERROR_STATUS_ALIAS = "APP982";
-
-    public static final String AUTOMATIC_LINKING_ACCOUT = "AUTOMATIC_LINKING_ACCOUT";
 
     public static final String ERROR_SYSTEM = "APP001";
     public static final String ERROR_DUPLICATE = "APP002";
@@ -76,6 +74,10 @@ public class Constants {
     public interface STATUS {
         Long ACTIVE = 1L;
         Long IN_ACTIVE = 0L;
+    }
+
+    public interface SERVICE_PATH {
+        String 
     }
 
 

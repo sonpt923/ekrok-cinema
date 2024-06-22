@@ -2,6 +2,7 @@ package com.example.movieservice.controller;
 
 import com.example.config.EnableWrapResponse;
 import com.example.movieservice.dto.request.GenreRequest;
+import com.example.movieservice.dto.request.MovieRequest;
 import com.example.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,18 +19,13 @@ public class MovieController {
     private MovieService movieService;
 
     @PostMapping("/create-movie")
-    public ResponseEntity createMovie(@RequestBody GenreRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
+    public ResponseEntity createMovie(@RequestBody MovieRequest request, @RequestHeader("Authorization") String token) {
+        return new ResponseEntity(movieService.createMovie(request, token), HttpStatus.OK);
     }
 
     @PostMapping("/update-movie")
-    public ResponseEntity updateMovie(@RequestBody GenreRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
-    }
-
-    @PostMapping("/delete-movie")
-    public ResponseEntity deleteMovie(@RequestBody GenreRequest directorRequest, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return new ResponseEntity(directorRequest.toString(), HttpStatus.OK);
+    public ResponseEntity updateMovie(@RequestBody MovieRequest request, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        return new ResponseEntity(movieService.updateMovie(request, token), HttpStatus.OK);
     }
 
     @PostMapping("/find-movie-by-condition")

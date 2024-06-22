@@ -1,6 +1,6 @@
 package com.example.dto.common;
 
-import com.example.utils.Constants;
+import com.example.utils.BaseConstants;
 import lombok.Data;
 
 @Data
@@ -13,6 +13,6 @@ public class ModuleErrorResponseDTO {
     public ModuleErrorResponseDTO(String message, int code) {
         this.message = message;
         this.code = code;
-        this.checkPoint = Constants.TEMPLE_SPLIT;
+        this.checkPoint = BaseConstants.TEMPLE_SPLIT;
     }
 }

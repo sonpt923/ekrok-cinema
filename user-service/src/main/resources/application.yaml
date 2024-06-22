@@ -20,11 +20,11 @@ spring:
       time-to-live: 3000
   data:
     redis:
-      host: redis-14618.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com
-      port: 14618
-      password: bq2UkSMCAxrdm1aYvJnpkXGokVZNqapK
-      havePassword: YES
+      host: redis-19160.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com
+      port: 19160
       username: default
+      password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
+      havePassword: YES
 keycloak:
   url_base: http://localhost:9090/realms/master/protocol/openid-connect/token
 

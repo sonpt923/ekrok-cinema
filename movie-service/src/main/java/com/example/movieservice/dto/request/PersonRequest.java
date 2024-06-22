@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PeopleRequest {
+public class PersonRequest {
 
     private Long id;
 

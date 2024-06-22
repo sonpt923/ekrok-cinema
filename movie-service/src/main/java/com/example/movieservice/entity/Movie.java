@@ -42,7 +42,7 @@ public class Movie {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "release_ate")
+    @Column(name = "release_date")
     private Date releaseDate;
 
     @Column(name = "created_time")

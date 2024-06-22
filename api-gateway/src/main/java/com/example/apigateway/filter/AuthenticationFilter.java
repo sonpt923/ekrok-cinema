@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -21,6 +23,9 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
     @Autowired
     private WebClient.Builder webClient;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     public GatewayFilter apply(Object config) {
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
@@ -32,7 +37,13 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
                     authHeader = authHeader.substring(7);
                 }
                 try {
-                    Mono mono = webClient.build().get().uri("http://user-service/public/hello").retrieve().bodyToMono(String.class);
+                    Mono<ResponseEntity> mono = webClient.build().get()
+                            .uri("lb://user-service/public/hello")
+                            .retrieve().bodyToMono(ResponseEntity.class);
+
+                    mono.subscribe(s -> {
+                        System.out.println(s);
+                    });
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage());
                 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Entity
-@Table(name = "actor_movie")
+@Table(name = "movie_role")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +23,7 @@ public class MovieRole {
 
     @ManyToOne
     @JoinColumn(name = "id_people")
-    private People people;
+    private Person people;
 
     @ManyToOne
     @JoinColumn(name = "id_movie")

@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 import java.sql.Date;
 
 @Entity
-@Table(name = "actor")
+@Table(name = "people")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class People {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
