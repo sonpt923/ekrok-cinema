@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/genre")
+@RequestMapping("/movie")
 @EnableWrapResponse
 public class GenreController {
 
@@ -29,7 +29,7 @@ public class GenreController {
 
     @PostMapping("/find-genre-by-condition")
     public ResponseEntity findGenreByCondition(@RequestBody GenreRequest request, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(null, HttpStatus.OK);
+        return new ResponseEntity(genreService.getGenreByCondtion(request), HttpStatus.OK);
     }
 
 }

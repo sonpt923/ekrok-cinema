@@ -22,8 +22,8 @@ public class MovieRole {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_people")
-    private Person people;
+    @JoinColumn(name = "id_person")
+    private Person person;
 
     @ManyToOne
     @JoinColumn(name = "id_movie")
@@ -31,17 +31,5 @@ public class MovieRole {
 
     @Column(name = "role")
     private Integer role;
-
-    @Column(name = "created_time")
-    private Date createdTime;
-
-    @Column(name = "created_By")
-    private String createdBy;
-
-    @Column(name = "updated_time")
-    private Date updatedTime;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
 }

@@ -26,5 +26,16 @@ spring:
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: YES
 keycloak:
-  url_base: http://localhost:9090/realms/master/protocol/openid-connect/token
+  username: admin
+  password: admin
+  url:
+    base: http://localhost:9090/auth
+    token_master_endpoint: /realms/master/protocol/openid-connect/token
+  client:
+    master:
+      id: admin-cli
+    staff:
+      id:
+
+
 

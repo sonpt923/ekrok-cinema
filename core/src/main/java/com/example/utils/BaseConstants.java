@@ -5,16 +5,21 @@ public class BaseConstants {
     public static final String YES = "YES";
 
     public static final String SUCCESSFUL = "API000";
+
     public static final String SUCCESS = "SUCCESS";
 
     public static final String ERROR = "ERROR";
+
     public static final String ERROR_STATUS_ALIAS = "APP982";
 
     public static final String ERROR_SYSTEM = "APP001";
+
     public static final String ERROR_DUPLICATE = "APP002";
 
     public static final String ERROR_NOT_NULL = "APP003";
+
     public static final String ERROR_USER_NAME_EMAIL_EXIST = "APP004";
+
     public static final String ERROR_NOT_DECLARE = "APP005";
 
     public static final String ERROR_NOT_HAVE_PERMISSION = "APP006";
@@ -24,6 +29,7 @@ public class BaseConstants {
     public static final String ERROR_UNIQUE = "API500";
 
     public static final String ERROR_LOGIC = "API501";
+
     public static final String ERROR_DATA_USING = "API502";
 
     public static final String ERROR_DATA_NOT_FOUND = "API503";
@@ -72,25 +78,14 @@ public class BaseConstants {
     }
 
     public interface STATUS {
+
         Long ACTIVE = 1L;
+
         Long IN_ACTIVE = 0L;
     }
-
-    public interface SERVICE_PATH {
-        String 
-    }
-
 
     public static final String TOKEN_TYPE = "Bearer ";
 
     public static final String TEMPLE_SPLIT = "|!@#$%^&*()|";
-
-
-    public interface TYPE_QUESTION_ITEM {
-        String SINGLE = "Single";
-
-        String GROUP = "Group";
-    }
-
 
 }

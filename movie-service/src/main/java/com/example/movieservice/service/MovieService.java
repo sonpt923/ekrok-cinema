@@ -7,7 +7,7 @@ import com.example.movieservice.entity.Movie;
 
 public interface MovieService {
 
-    Movie createMovie(MovieRequest movieRequest, String token);
+    Object createMovie(MovieRequest movieRequest, String token);
 
     Movie updateMovie(MovieRequest movieRequest, String token);
 

@@ -13,6 +13,8 @@ public class PersonRequest {
 
     private String code;
 
+    private Integer role;
+
     private String image;
 
     private String name;

@@ -29,8 +29,8 @@ public class MovieController {
     }
 
     @PostMapping("/find-movie-by-condition")
-    public ResponseEntity findMovieByCondition(@RequestBody GenreRequest request, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity findMovieByCondition(@RequestBody MovieRequest request, @RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        return new ResponseEntity(movieService.getMovieBycondition(request), HttpStatus.OK);
     }
 
 

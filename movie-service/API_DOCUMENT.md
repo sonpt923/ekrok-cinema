@@ -96,49 +96,56 @@
 
 ```json
 {
-  "movie": {
-    "id": 2,
-    "code": "XI98DL92",
-    "name": "Doraemon và sứ sở thần tiên",
-    "ageRestriction": 18,
-    "duration": 60,
-    "poster": "",
-    "trailer": "",
-    "premiereDate": "2024-08-12",
-    "backdrops": [
-      {
-        "image": "image1.jpg"
-      },
-      {
-        "image": "image2.jpg"
-      }
-    ],
-    "crew": {
-      "producer": [
+  "code": "6a52994d-7150-4333-bcb9-07f1300c0212",
+  "status": 200,
+  "message": "OK",
+  "path": "/movie/public/test",
+  "timestamp": "2024-06-25 20:59:06",
+  "data": {
+    "movie": {
+      "id": 2,
+      "code": "XI98DL92",
+      "name": "Doraemon và sứ sở thần tiên",
+      "ageRestriction": 18,
+      "duration": 60,
+      "poster": "",
+      "trailer": "",
+      "premiereDate": "2024-08-12",
+      "backdrops": [
         {
-          "code": "92830942",
-          "name": "Homelander",
-          "profileImage": ""
+          "image": "image1.jpg"
+        },
+        {
+          "image": "image2.jpg"
         }
       ],
-      "director": [
+      "crew": {
+        "producer": [
+          {
+            "code": "92830942",
+            "name": "Homelander",
+            "profileImage": ""
+          }
+        ],
+        "director": [
+          {
+            "code": "23820942",
+            "name": "Achive",
+            "profileImage": ""
+          }
+        ]
+      },
+      "genre": [
         {
-          "code": "23820942",
-          "name": "Achive",
-          "profileImage": ""
+          "code": "ACTION",
+          "name": "action"
+        },
+        {
+          "code": "ACTION",
+          "name": "action"
         }
       ]
-    },
-    "genre": [
-      {
-        "code": "ACTION",
-        "name": "action"
-      },
-      {
-        "code": "ACTION",
-        "name": "action"
-      }
-    ]
+    }
   }
 }
 ```
@@ -227,4 +234,4 @@
 }
 ```
 
-## II People
+## II Person

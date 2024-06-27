@@ -4,6 +4,7 @@ import com.example.movieservice.dto.request.PersonRequest;
 import com.example.movieservice.dto.response.ListResponse;
 import com.example.movieservice.entity.Person;
 import com.example.movieservice.repository.PeopleRepository;
+import com.example.movieservice.service.CloudFlareService;
 import com.example.movieservice.service.PersonService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PersonServiceImpl implements PersonService {
+
+    @Autowired
+    private CloudFlareService cloudFlareService = new CloudFlareServiceImpl();
 
     @Autowired
     private PeopleRepository peopleRepository;

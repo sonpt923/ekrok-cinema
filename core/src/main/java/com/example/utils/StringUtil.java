@@ -53,6 +53,8 @@ public class StringUtil {
         }
         return str.substring(0, length);
     }
+
+
     public static boolean isListEmpty(List lst) {
         return lst == null || lst.isEmpty();
     }
