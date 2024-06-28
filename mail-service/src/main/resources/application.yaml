@@ -20,6 +20,6 @@ mail:
   smtp:
     port: 587
     username: sonptph25875@fpt.edu.vn
-    password: "******************"
+    password: aWJsYSBld3JoIHp3Y3kgY25kaA==
     host: smtp.gmail.com
     sender: EKROK-CINEMA

@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProvinceRequest {
 
-    private Long page;
+    private String search;
 
-    private Long pageSize;
+    private Integer page;
+
+    private Integer pageSize;
 
 }

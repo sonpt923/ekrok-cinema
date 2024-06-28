@@ -19,10 +19,10 @@ public class RoomRequest {
 
     private Integer status;
 
-    List<Chair> chairs;
+    private List<Chair> chairs;
 
-    private Long page;
+    private Integer page;
 
-    private Long pageSize;
+    private Integer pageSize;
 
 }
