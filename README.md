@@ -1,4 +1,4 @@
-![Image](https://avatars.githubusercontent.com/u/18380935?v=4)
+![Image](./logo.png)
 # EKROK-CINEMA
 
 ## I, service
