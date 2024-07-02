@@ -1,0 +1,1 @@
+<!--Mẫu email thông báo cho người dùng khi tài khoản của họ bị khóa.-->

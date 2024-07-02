@@ -1,0 +1,1 @@
+<!--Mẫu email cho quá trình đặt lại mật khẩu khi người dùng yêu cầu.-->

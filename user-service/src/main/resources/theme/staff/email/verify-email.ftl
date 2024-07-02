@@ -1,0 +1,1 @@
+<!--Mẫu email nhắc nhở người dùng xác minh địa chỉ email.-->
