@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class AppConfig {
 
     /**
-     * @webClient (as asynchronous) cho phép non-blocking
+     * @webClient (as synchronous) cho phép non-blocking
      * @restTemplate (synchronous) không cho phép non-blocking
      */
     @Bean

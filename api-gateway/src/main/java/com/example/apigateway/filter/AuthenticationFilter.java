@@ -23,9 +23,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory {
     @Autowired
     private WebClient.Builder webClient;
 
-    @Autowired
-    private RestTemplate restTemplate;
-
     public GatewayFilter apply(Object config) {
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {

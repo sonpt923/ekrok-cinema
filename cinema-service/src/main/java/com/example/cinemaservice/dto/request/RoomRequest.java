@@ -1,6 +1,7 @@
 package com.example.cinemaservice.dto.request;
 
 import com.example.cinemaservice.entity.Chair;
+import com.example.cinemaservice.entity.RoomType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class RoomRequest {
 
+    private String code;
+
     private String name;
 
     private BigDecimal price;
+
+    private RoomType roomType;
 
     private Integer status;
 

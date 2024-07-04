@@ -2,7 +2,7 @@ package com.example.exception;
 
 public class ValidationException extends AppException {
 
-    public ValidationException(int code, String message) {
+    public ValidationException(String code, String message) {
         super(code, message);
     }
 

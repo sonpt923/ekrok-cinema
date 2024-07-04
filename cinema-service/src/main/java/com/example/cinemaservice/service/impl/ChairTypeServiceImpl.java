@@ -1,5 +1,6 @@
 package com.example.cinemaservice.service.impl;
 
+import com.example.cinemaservice.entity.ChairType;
 import com.example.cinemaservice.repository.ChairRepository;
 import com.example.cinemaservice.repository.ChairTypeRepository;
 import com.example.cinemaservice.service.ChairService;
@@ -13,4 +14,13 @@ public class ChairTypeServiceImpl implements ChairTypeService {
     @Autowired
     private ChairTypeRepository chairTypeRepository;
 
+    @Override
+    public Object createChairType(ChairType chairType) {
+        return null;
+    }
+
+    @Override
+    public Object updatechairType(ChairType chairType) {
+        return null;
+    }
 }

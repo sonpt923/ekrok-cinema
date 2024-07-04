@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
@@ -36,17 +37,20 @@ public class Chair {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "created_time")
-    private LocalDateTime createdTime;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_time")
-    private LocalDateTime updatedTime;
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
+
+    @Column(name = "deleted_at")
+    private String deletedAt;
 
 
 }

@@ -1,6 +1,13 @@
 package com.example.cinemaservice.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -24,6 +31,10 @@ public class Room {
     @JoinColumn(name = "id_cinema", referencedColumnName = "id")
     private Cinema cinema;
 
+    @ManyToOne
+    @JoinColumn(name = "id_room_type", referencedColumnName = "id")
+    private RoomType roomType;
+
     @Column(name = "code")
     private String code;
 
@@ -36,17 +47,20 @@ public class Room {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "created_time")
-    private Date createdTime;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_time")
-    private Date updatedTime;
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
+
+    @Column(name = "deleted_at")
+    private String deletedAt;
 
 
 }

@@ -58,24 +58,16 @@ public class MailProvider {
             };
             Session session = Session.getInstance(props, auth);
             MimeMessage msg = new MimeMessage(session);
-
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
             msg.addHeader("format", "flowed");
             msg.addHeader("Content-Transfer-Encoding", "8bit");
-
             msg.setFrom(new InternetAddress("no_reply@example.com", "NoReply-JD"));
-
             msg.setReplyTo(InternetAddress.parse("no_reply@example.com", false));
-
             msg.setSubject(title, "UTF-8");
-
             msg.setText(content, "UTF-8");
-
             msg.setSentDate(new Date());
-
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receiver, false));
             Transport.send(msg);
-
             log.info("========== END SEND MAIL =========");
         } catch (Exception ex) {
             log.error(ex.getMessage(), ex);

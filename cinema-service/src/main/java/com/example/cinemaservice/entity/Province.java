@@ -1,11 +1,16 @@
 package com.example.cinemaservice.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 @Table(name = "province")
@@ -31,16 +36,19 @@ public class Province {
     @Column(name = "status")
     private Integer status;
 
+    @Column(name = "created_at")
+    private Date createdAt;
+
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "createdTime")
-    private LocalDateTime createdTime;
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "updated_time")
-    private LocalDateTime updatedTime;
+    @Column(name = "deleted_at")
+    private String deletedAt;
 
 }

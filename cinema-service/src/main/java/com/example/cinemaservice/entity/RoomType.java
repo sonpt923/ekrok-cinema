@@ -1,4 +1,4 @@
-package com.example.movieservice.entity;
+package com.example.cinemaservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,59 +7,59 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
-@Table(name = "movie")
 @Data
+@Table(name = "room_type")
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Movie {
+public class RoomType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "code")
     private String code;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "poster")
-    private String poster;
+    @Column(name = "price")
+    private BigDecimal price;
+
+    @Column(name = "image")
+    private String image;
 
     @Column(name = "trailer")
     private String trailer;
 
-    @Column(name = "age_restriction")
-    private Integer ageRestriction;
-
-    @Column(name = "duration")
-    private Integer duration;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "release_date")
-    private Date releaseDate;
+    @Column(name = "created_at")
+    private Date createdAt;
 
-    @Column(name = "created_time")
-    private Date createdTime;
-
-    @Column(name = "created_By")
+    @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_time")
-    private Date updatedTime;
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
+
+    @Column(name = "deleted_at")
+    private String deletedAt;
+
 
 }

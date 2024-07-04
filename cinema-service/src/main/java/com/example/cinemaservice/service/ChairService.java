@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ChairService {
 
-    void createListChair(List<Chair> listChair);
+    void createBatchChair(List<Chair> listChair);
 
 }

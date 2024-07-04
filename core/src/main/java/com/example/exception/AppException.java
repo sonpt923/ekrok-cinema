@@ -9,10 +9,10 @@ public class AppException extends RuntimeException {
 
     @Getter
     @Setter
-    private int code;
+    private String code;
     private String message;
 
-    public AppException(int code, String message) {
+    public AppException(String code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -22,13 +22,13 @@ public class AppException extends RuntimeException {
         this.message = message;
     }
 
-    public AppException(Exception e, int code, String message) {
+    public AppException(Exception e, String code, String message) {
         super(e);
         this.code = code;
         this.message = message;
     }
 
-    public AppException withErrorCode(int code) {
+    public AppException withErrorCode(String code) {
         this.code = code;
         return this;
     }
