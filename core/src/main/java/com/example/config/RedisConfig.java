@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -28,23 +29,23 @@ public class RedisConfig {
     @Value("${spring.data.redis.havePassword}")
     private String havePassword;
 
-//    @Bean
-//    public JedisConnectionFactory redisConnectionFactory() {
-//        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-//        jedisConnectionFactory.setHostName(host);
-//        jedisConnectionFactory.setClientName(username);
-//        jedisConnectionFactory.setPort(port);
-//        if (havePassword.equals(BaseConstants.YES)) {
-//            jedisConnectionFactory.setPassword(new String(Base64.decodeBase64(password)));
-//        }
-//        return jedisConnectionFactory;
-//    }
-//
-//    @Bean
-//    public RedisTemplate redisTemplate(JedisConnectionFactory connectionFactory) {
-//        RedisTemplate template = new RedisTemplate<>();
-//        template.setConnectionFactory(connectionFactory);
-//        return template;
-//    }
+    @Bean
+    public JedisConnectionFactory jedisConnectionFactory() {
+        RedisStandaloneConfiguration redisConnection = new RedisStandaloneConfiguration();
+        redisConnection.setHostName(host);
+        redisConnection.setPort(port);
+        redisConnection.setUsername(username);
+        if (havePassword.equals(BaseConstants.YES)) {
+            redisConnection.setPassword(new String(Base64.decodeBase64(password)));
+        }
+        return new JedisConnectionFactory(redisConnection);
+    }
+
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(JedisConnectionFactory jedisConnectionFactory) {
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        template.setConnectionFactory(jedisConnectionFactory);
+        return template;
+    }
 
 }
