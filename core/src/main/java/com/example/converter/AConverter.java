@@ -20,7 +20,7 @@ public interface AConverter<DTO extends AItemDTO, MODEL extends AItemModel> {
             List<MODEL> target = source.stream().map(this::convertDTO2MODEL).collect(Collectors.toList());
             return target;
         } else {
-            throw new SystemException(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            throw new SystemException(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()),
                     "Occur error when convert data from " + DTO.BASIC_NAME + " to " + MODEL.BASIC_NAME + "!!!");
         }
     }
@@ -30,7 +30,7 @@ public interface AConverter<DTO extends AItemDTO, MODEL extends AItemModel> {
             List<DTO> target = source.stream().map(this::convertMODEL2DTO).collect(Collectors.toList());
             return target;
         } else {
-            throw new SystemException(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            throw new SystemException(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()),
                     "Occur error when convert data from " + MODEL.BASIC_NAME + " to " + DTO.BASIC_NAME + "!!!");
         }
     }

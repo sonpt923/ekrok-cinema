@@ -8,4 +8,8 @@ public interface ChairService {
 
     void createBatchChair(List<Chair> listChair);
 
+    void udpateChair(Chair chair);
+
+    Chair getDetailChair(Chair chair);
+
 }

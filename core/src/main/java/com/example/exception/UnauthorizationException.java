@@ -2,7 +2,7 @@ package com.example.exception;
 
 public class UnauthorizationException extends AppException {
 
-    public UnauthorizationException(int code, String message) {
+    public UnauthorizationException(String code, String message) {
         super(code, message);
     }
 
@@ -13,4 +13,5 @@ public class UnauthorizationException extends AppException {
     public UnauthorizationException() {
         super("You don't have permission access to resource!!");
     }
+
 }

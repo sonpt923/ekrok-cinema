@@ -22,4 +22,14 @@ public class ChairServiceImpl implements ChairService {
     public void createBatchChair(List<Chair> listChair) {
 
     }
+
+    @Override
+    public void udpateChair(Chair chair) {
+
+    }
+
+    @Override
+    public Chair getDetailChair(Chair chair) {
+        return null;
+    }
 }

@@ -1,7 +1,6 @@
 CREATE SCHEMA `cinema-service`;
 
-use
-`cinema-service`;
+use `cinema-service`;
 
 CREATE TABLE `province`
 (
@@ -42,27 +41,54 @@ CREATE TABLE `cinema-service`.`cinema`
 );
 
 
+CREATE TABLE `room_type`
+(
+    `id`          BIGINT       NOT NULL AUTO_INCREMENT,
+    `id_cinema`   BIGINT       NOT NULL,
+    `code`        VARCHAR(45)  NOT NULL,
+    `name`        VARCHAR(145) NOT NULL,
+    `price`       DECIMAL      NOT NULL,
+    `image`       VARCHAR(45)  NOT NULL,
+    `trailer`     VARCHAR(45)  NOT NULL,
+    `description` VARCHAR(345) NOT NULL,
+    `status`      INT          NOT NULL,
+    `created_by`  VARCHAR(45)  NOT NULL,
+    `created_at`  DATETIME     NOT NULL default NOW(),
+    `updated_by`  VARCHAR(45) NULL,
+    `updated_at`  DATETIME NULL,
+    `deleted_at`  DATETIME NULL,
+    PRIMARY KEY (`id`)
+);
+
+
 
 CREATE TABLE `cinema-service`.`room`
 (
-    `id`         BIGINT       NOT NULL AUTO_INCREMENT,
-    `id_cinema`  BIGINT       NOT NULL,
-    `code`       VARCHAR(45)  NOT NULL,
-    `name`       VARCHAR(145) NOT NULL,
-    `price`      DECIMAL      NOT NULL,
-    `status`     INT          NOT NULL,
-    `created_by` VARCHAR(45)  NOT NULL,
-    `created_at` DATETIME     NOT NULL default NOW(),
-    `updated_by` VARCHAR(45) NULL,
-    `updated_at` DATETIME NULL,
-    `deleted_at` DATETIME NULL,
+    `id`           BIGINT       NOT NULL AUTO_INCREMENT,
+    `id_cinema`    BIGINT       NOT NULL,
+    `id_room_type` BIGINT       NOT NULL,
+    `code`         VARCHAR(45)  NOT NULL,
+    `name`         VARCHAR(145) NOT NULL,
+    `price`        DECIMAL      NOT NULL,
+    `status`       INT          NOT NULL,
+    `created_by`   VARCHAR(45)  NOT NULL,
+    `created_at`   DATETIME     NOT NULL default NOW(),
+    `updated_by`   VARCHAR(45) NULL,
+    `updated_at`   DATETIME NULL,
+    `deleted_at`   DATETIME NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-    INDEX        `FK_ROOM_CINEMA_idx` (`id_cinema` ASC) VISIBLE,
+    INDEX          `FK_ROOM_CINEMA_idx` (`id_cinema` ASC) VISIBLE,
     CONSTRAINT `FK_ROOM_CINEMA`
         FOREIGN KEY (`id_cinema`)
             REFERENCES `cinema-service`.`cinema` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    INDEX          `FK_ROOM_ROOM_TYPE_idx` (`id_room_type` ASC) VISIBLE,
+    CONSTRAINT `FK_ROOM_ROOM_TYPE`
+        FOREIGN KEY (`id_room_type`)
+            REFERENCES `cinema-service`.`room_type` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 
@@ -112,3 +138,5 @@ CREATE TABLE `cinema-service`.`chair`
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
 );
+
+

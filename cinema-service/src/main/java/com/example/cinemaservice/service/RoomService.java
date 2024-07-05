@@ -10,4 +10,6 @@ public interface RoomService {
 
     Object getRoomByCondition(RoomRequest request, String username);
 
+    Object getRoom(RoomRequest request);
+
 }

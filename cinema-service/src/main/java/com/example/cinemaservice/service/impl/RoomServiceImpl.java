@@ -1,18 +1,26 @@
 package com.example.cinemaservice.service.impl;
 
 import com.example.cinemaservice.dto.request.RoomRequest;
+import com.example.cinemaservice.dto.response.ListResponse;
 import com.example.cinemaservice.entity.Room;
 import com.example.cinemaservice.repository.RoomRepository;
 import com.example.cinemaservice.service.ChairService;
 import com.example.cinemaservice.service.RoomService;
+import com.example.cinemaservice.service.RoomTypeService;
 import com.example.cinemaservice.utils.Constant;
 import com.example.exception.ValidationException;
 import com.example.service.MyDictionary;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -25,6 +33,12 @@ public class RoomServiceImpl implements RoomService {
 
     @Autowired
     private ChairService chairService;
+
+    @Autowired
+    private RoomTypeService roomTypeService;
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Override
     public Object updateRoom(RoomRequest request, String username) {
@@ -69,6 +83,41 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Object getRoomByCondition(RoomRequest request, String username) {
+        ListResponse<Object> listResponse = new ListResponse<>();
+        StringBuilder sql = new StringBuilder();
+        Map<String, Object> params = new HashMap<>();
+
+        sql.append(" SELECT * FROM HELLO_WOLRD ");
+        sql.append(" WHERE 1 = 1");
+
+        if (!StringUtil.stringIsNullOrEmty(request.getName())) {
+            sql.append(" s.hello = :helllo");
+            params.put("", request.getName());
+        }
+
+        Query query = entityManager.createNativeQuery(sql.toString());
+        params.forEach(query::setParameter);
+
+        Object object = query.getResultList();
+
+        sql.setLength(0);
+        params.clear();
+
+        sql.append(" SELECT COUNT(*) FROM HELLO_WOLRD");
+
+        query = entityManager.createNativeQuery(sql.toString());
+        params.forEach(query::setParameter);
+
+        Integer totalRecord = ((Integer) query.getSingleResult()).intValue();
+
+        listResponse.setListResponse((List<Object>) listResponse);
+        listResponse.setTotalRecord(totalRecord);
+
+        return listResponse;
+    }
+
+    @Override
+    public Object getRoom(RoomRequest request) {
         return null;
     }
 
@@ -90,9 +139,12 @@ public class RoomServiceImpl implements RoomService {
             throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(dictionary.get("ERROR.ERROR.FIELD_IS_REQUIRED", "room type")));
         }
 
+        if (StringUtil.stringIsNullOrEmty(request.getStatus())) {
+            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(dictionary.get("ERROR.FIELD_IS_REQUIRED", "status")));
+        }
 
-        //TODO: kiem tra code, kiem tra id cua room type
-
-
+        if (!StringUtil.stringIsNullOrEmty(roomTypeService.getRoomTypeById(request.getRoomType().getId()))) {
+            throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, String.format(dictionary.get("ERROR.NOT_FOUND_DATA")));
+        }
     }
 }

@@ -8,4 +8,6 @@ public interface RoomTypeService {
 
     Object updateRoomType(RoomType roomType);
 
+    Object getRoomTypeById(long id);
+
 }

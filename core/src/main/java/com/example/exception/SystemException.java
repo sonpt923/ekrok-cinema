@@ -2,7 +2,7 @@ package com.example.exception;
 
 public class SystemException extends AppException {
 
-    public SystemException(int code, String message) {
+    public SystemException(String code, String message) {
         super(code, message);
     }
 

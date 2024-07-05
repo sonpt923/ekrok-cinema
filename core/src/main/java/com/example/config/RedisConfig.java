@@ -28,23 +28,23 @@ public class RedisConfig {
     @Value("${spring.data.redis.havePassword}")
     private String havePassword;
 
-    @Bean
-    public JedisConnectionFactory redisConnectionFactory() {
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-        jedisConnectionFactory.setHostName(host);
-        jedisConnectionFactory.setClientName(username);
-        jedisConnectionFactory.setPort(port);
-        if (havePassword.equals(BaseConstants.YES)) {
-            jedisConnectionFactory.setPassword(new String(Base64.decodeBase64(password)));
-        }
-        return jedisConnectionFactory;
-    }
-
-    @Bean
-    public RedisTemplate redisTemplate(JedisConnectionFactory connectionFactory) {
-        RedisTemplate template = new RedisTemplate<>();
-        template.setConnectionFactory(connectionFactory);
-        return template;
-    }
+//    @Bean
+//    public JedisConnectionFactory redisConnectionFactory() {
+//        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+//        jedisConnectionFactory.setHostName(host);
+//        jedisConnectionFactory.setClientName(username);
+//        jedisConnectionFactory.setPort(port);
+//        if (havePassword.equals(BaseConstants.YES)) {
+//            jedisConnectionFactory.setPassword(new String(Base64.decodeBase64(password)));
+//        }
+//        return jedisConnectionFactory;
+//    }
+//
+//    @Bean
+//    public RedisTemplate redisTemplate(JedisConnectionFactory connectionFactory) {
+//        RedisTemplate template = new RedisTemplate<>();
+//        template.setConnectionFactory(connectionFactory);
+//        return template;
+//    }
 
 }

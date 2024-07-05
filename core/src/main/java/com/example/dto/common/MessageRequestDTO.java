@@ -13,10 +13,16 @@ import java.util.Map;
 public class MessageRequestDTO extends AItemDTO {
 
     private String requestMethod;
+
     private String requestPath;
+
     private Map<String, String> urlParam;
+
     private String pathParam;
+
     private Map<String, Object> bodyParam;
+
     private Map<String, String> headerParam;
+
     private boolean auth;
 }

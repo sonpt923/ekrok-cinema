@@ -8,7 +8,19 @@ spring:
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+    cache:
+      type: redis
+      redis:
+        cache-null-values: false
+        use-key-prefix: true
+        time-to-live: 3000
+  data:
+    redis:
+      host: redis-19160.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com
+      port: 19160
+      username: default
+      password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
+      havePassword: YES
 org:
   jobrunr:
     background-job-server:

@@ -30,4 +30,6 @@ public class RoomRequest {
 
     private Integer pageSize;
 
+    private Long idCienma;
+
 }
