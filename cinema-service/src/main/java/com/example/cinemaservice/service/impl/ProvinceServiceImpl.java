@@ -43,6 +43,5 @@ public class ProvinceServiceImpl implements ProvinceService {
             throw new ValidationException(BaseConstants.ERROR_NOT_NULL,
                     String.format(dictionary.get("ERROR.FIELD_IS_REQUIRED", "name")));
         }
-
     }
 }

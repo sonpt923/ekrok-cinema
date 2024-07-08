@@ -25,12 +25,12 @@ public class CinemaPublicController {
     }
 
     @PostMapping("/city")
-    public ResponseEntity getAllCity() {
+    public ResponseEntity getCities() {
         return null;
     }
 
     @PostMapping("/")
-    public ResponseEntity getAllmove() {
+    public ResponseEntity getMoves() {
         return null;
     }
 

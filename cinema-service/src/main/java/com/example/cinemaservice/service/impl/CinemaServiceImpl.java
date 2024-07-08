@@ -8,6 +8,7 @@ import com.example.service.MyDictionary;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,9 @@ public class CinemaServiceImpl implements CinemaService {
 
     @Autowired
     private MyDictionary dictionary;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     @Transactional

@@ -1,4 +1,4 @@
 package com.example.userservice.service;
 
-public interface KeycloakMasterService {
+public interface UserService {
 }

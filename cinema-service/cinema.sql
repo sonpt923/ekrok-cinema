@@ -1,12 +1,13 @@
 CREATE SCHEMA `cinema-service`;
 
-use `cinema-service`;
+use
+`cinema-service`;
 
 CREATE TABLE `province`
 (
     `id`         bigint       NOT NULL AUTO_INCREMENT,
-    `code`       varchar(45)  NOT NULL,
-    `name`       varchar(45)  NOT NULL,
+    `code`       varchar(45)  NOT NULL unique,
+    `name`       varchar(45)  NOT NULL unique,
     `image`      varchar(145) NOT NULL,
     `status`     INT          NOT NULL,
     `created_by` VARCHAR(45)  NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE `province`
 CREATE TABLE `cinema-service`.`cinema`
 (
     `id`          BIGINT       NOT NULL AUTO_INCREMENT,
-    `code`        VARCHAR(45)  NOT NULL,
+    `code`        VARCHAR(45)  NOT NULL unique,
     `id_province` BIGINT       NOT NULL,
     `name`        VARCHAR(145) NOT NULL,
     `address`     VARCHAR(245) NOT NULL,
@@ -45,8 +46,8 @@ CREATE TABLE `room_type`
 (
     `id`          BIGINT       NOT NULL AUTO_INCREMENT,
     `id_cinema`   BIGINT       NOT NULL,
-    `code`        VARCHAR(45)  NOT NULL,
-    `name`        VARCHAR(145) NOT NULL,
+    `code`        VARCHAR(45)  NOT NULL unique,
+    `name`        VARCHAR(145) NOT NULL unique,
     `price`       DECIMAL      NOT NULL,
     `image`       VARCHAR(45)  NOT NULL,
     `trailer`     VARCHAR(45)  NOT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE `cinema-service`.`room`
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `id_cinema`    BIGINT       NOT NULL,
     `id_room_type` BIGINT       NOT NULL,
-    `code`         VARCHAR(45)  NOT NULL,
+    `code`         VARCHAR(45)  NOT NULL unique,
     `name`         VARCHAR(145) NOT NULL,
     `price`        DECIMAL      NOT NULL,
     `status`       INT          NOT NULL,
@@ -97,8 +98,8 @@ CREATE TABLE `cinema-service`.`room`
 CREATE TABLE `cinema-service`.`chair_type`
 (
     `id`         BIGINT       NOT NULL AUTO_INCREMENT,
-    `code`       VARCHAR(45)  NOT NULL,
-    `name`       VARCHAR(145) NOT NULL,
+    `code`       VARCHAR(45)  NOT NULL unique,
+    `name`       VARCHAR(145) NOT NULL unique,
     `status`     INT          NOT NULL,
     `price`      DECIMAL      NOT NULL,
     `created_by` VARCHAR(45)  NOT NULL,
@@ -116,8 +117,8 @@ CREATE TABLE `cinema-service`.`chair`
     `id`            BIGINT      NOT NULL AUTO_INCREMENT,
     `id_room`       BIGINT      NOT NULL,
     `id_chair_type` BIGINT      NOT NULL,
-    `code`          VARCHAR(45) NOT NULL,
-    `position`      VARCHAR(45) NOT NULL,
+    `code`          VARCHAR(45) NOT NULL unique,
+    `position`      VARCHAR(45) NOT NULL unique,
     `status`        INT         NOT NULL,
     `created_by`    VARCHAR(45) NOT NULL,
     `created_at`    DATETIME    NOT NULL default NOW(),

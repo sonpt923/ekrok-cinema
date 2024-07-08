@@ -8,13 +8,12 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@RedisHash(value = "DEMO", timeToLive = 100000L)
+@RedisHash(value = "demo", timeToLive = 100000L)
 public class DemoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package com.example.cinemaservice.entity;
+package com.example.userservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,15 +10,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
-@Table(name = "chair")
+@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ChairType {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,28 +27,25 @@ public class ChairType {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "full_name")
+    private String fullName;
 
-    @Column(name = "price")
-    private BigDecimal price;
-
-    @Column(name = "status")
-    private Integer status;
-
-    @Column(name = "created_at")
-    private Date createdAt;
+    @Column(name = "birth_day")
+    private Date birthDay;
 
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "updated_at")
-    private Date updatedAt;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
     @Column(name = "deleted_at")
-    private String deletedAt;
+    private Date deletedAt;
 
 }

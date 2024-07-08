@@ -4,7 +4,7 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8088"
   datasource:
-    url: jdbc:mysql://localhost:3306/keycloak?useSSL=true
+    url: jdbc:mysql://localhost:3306/user-service?useSSL=true
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -25,17 +25,6 @@ spring:
       username: default
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: YES
-keycloak:
-  username: admin
-  password: admin
-  url:
-    base: http://localhost:9090/auth
-    token_master_endpoint: /realms/master/protocol/openid-connect/token
-  client:
-    master:
-      id: admin-cli
-    staff:
-      id:
 
 
 
