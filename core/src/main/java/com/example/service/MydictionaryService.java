@@ -1,6 +1,6 @@
 package com.example.service;
 
-public interface MyDictionary {
+public interface MydictionaryService {
 
     String get(String key, Object[] params);
 

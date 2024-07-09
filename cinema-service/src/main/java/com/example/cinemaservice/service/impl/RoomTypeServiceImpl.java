@@ -4,7 +4,7 @@ import com.example.cinemaservice.entity.RoomType;
 import com.example.cinemaservice.repository.RoomTypeRepository;
 import com.example.cinemaservice.service.RoomTypeService;
 import com.example.exception.ValidationException;
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class RoomTypeServiceImpl implements RoomTypeService {
     private RoomTypeRepository roomTypeRepository;
 
     @Autowired
-    private MyDictionary dictionary;
+    private MydictionaryService dictionary;
 
     @Override
     public Object createRoomType(RoomType roomType) {

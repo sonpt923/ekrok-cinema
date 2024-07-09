@@ -4,7 +4,7 @@ import com.example.cinemaservice.entity.Province;
 import com.example.cinemaservice.repository.ProvinceRepository;
 import com.example.cinemaservice.service.ProvinceService;
 import com.example.exception.ValidationException;
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class ProvinceServiceImpl implements ProvinceService {
     private ProvinceRepository provinceRepository;
 
     @Autowired
-    private MyDictionary dictionary;
+    private MydictionaryService dictionary;
 
 
     @Override

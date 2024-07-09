@@ -4,7 +4,7 @@ import com.example.cinemaservice.entity.Cinema;
 import com.example.cinemaservice.repository.CinemaRepository;
 import com.example.cinemaservice.service.CinemaService;
 import com.example.exception.ValidationException;
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class CinemaServiceImpl implements CinemaService {
     private CinemaRepository cinemaRepository;
 
     @Autowired
-    private MyDictionary dictionary;
+    private MydictionaryService dictionary;
 
     @Autowired
     private RedisTemplate redisTemplate;

@@ -4,7 +4,7 @@ import com.example.cinemaservice.entity.ChairType;
 import com.example.cinemaservice.repository.ChairTypeRepository;
 import com.example.cinemaservice.service.ChairTypeService;
 import com.example.exception.ValidationException;
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class ChairTypeServiceImpl implements ChairTypeService {
     private ChairTypeRepository chairTypeRepository;
 
     @Autowired
-    private MyDictionary dictionary;
+    private MydictionaryService dictionary;
 
     @Autowired
     private RedisTemplate redisTemplate;

@@ -1,6 +1,6 @@
 package com.example.service.impl;
 
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class MyDictionaryServiceImpl implements MyDictionary, Serializable {
+public class MyDictionaryServiceImpl implements MydictionaryService, Serializable {
 
     private static final long serialVersionUID = 1L;
 

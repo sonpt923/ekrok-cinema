@@ -9,7 +9,7 @@ import com.example.cinemaservice.service.RoomService;
 import com.example.cinemaservice.service.RoomTypeService;
 import com.example.cinemaservice.utils.Constant;
 import com.example.exception.ValidationException;
-import com.example.service.MyDictionary;
+import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import jakarta.persistence.EntityManager;
@@ -29,7 +29,7 @@ public class RoomServiceImpl implements RoomService {
     private RoomRepository roomRepository;
 
     @Autowired
-    private MyDictionary dictionary;
+    private MydictionaryService dictionary;
 
     @Autowired
     private ChairService chairService;
