@@ -1,0 +1,25 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: mail-delivery-service
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      time-to-live: 3000
+  data:
+    redis:
+      host: redis-19160.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com
+      port: 19160
+      username: default
+      password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
+      havePassword: YES
+mail:
+  smtp:
+    port: 587
+    username: sonptph25875@fpt.edu.vn
+    password: aWJsYSBld3JoIHp3Y3kgY25kaA==
+    host: smtp.gmail.com
+    sender: EKROK-CINEMA

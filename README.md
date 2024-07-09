@@ -1,4 +1,4 @@
-![Image](./logo.png)
+![Image](https://pub-5dc338acc7cf42689f4a62568c3ea41b.r2.dev/logo.png)
 # EKROK-CINEMA
 
 ## I, service
