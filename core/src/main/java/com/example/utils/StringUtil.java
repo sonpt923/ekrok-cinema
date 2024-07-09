@@ -6,9 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class StringUtil {
 
@@ -58,4 +56,13 @@ public class StringUtil {
     public static boolean isListEmpty(List lst) {
         return lst == null || lst.isEmpty();
     }
+
+    public static String generateString() {
+        String str = UUID.randomUUID().toString();
+        String[] strings = str.split("\\D");
+        for (String s : strings) {
+
+        }
+    }
+
 }

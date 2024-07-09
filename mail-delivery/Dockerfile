@@ -2,10 +2,11 @@ FROM openjdk:17.0.2
 
 MAINTAINER sonpt03
 
-COPY target/mail-service-1.0.jar app.jar
+COPY target/mail-delivery-1.0.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
 
+ENV SPRING_SECURITY_JWT_SECRET_KEY="eyJhbGciOiJIUzUxMiJ9eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcwMTA1NjM3OSwiaWF0IjoxNzAx"
 ENV SPRING_SECURITY_JWT_EXPIRATION_TIME="5"
 ENV SPRING_DATASOURCE_URL="jdbc:mysql://localhost:3306/user?useSSL=true"
 ENV SPRING_DATASOURCE_USERNAME="root"
