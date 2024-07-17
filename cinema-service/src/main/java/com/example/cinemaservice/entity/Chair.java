@@ -1,12 +1,16 @@
 package com.example.cinemaservice.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "chair")
@@ -20,13 +24,11 @@ public class Chair {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_room", referencedColumnName = "id")
-    private Room room;
+    @Column(name = "id_room")
+    private Long room;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_chair_type", referencedColumnName = "id")
-    private ChairType chairType;
+    @Column(name = "id_chair_type")
+    private Long chairType;
 
     @Column(name = "code")
     private String code;

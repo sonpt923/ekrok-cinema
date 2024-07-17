@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.File;
 
@@ -18,10 +17,8 @@ public class S3ServiceImpl implements S3Service {
     @Autowired
     private S3Client s3Client;
 
-    public void uploadImage(String imageName, File image) {
-
+    public String uploadImage(String imageName, File image) {
+        return "";
     }
-
-
 
 }

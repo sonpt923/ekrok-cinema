@@ -2,6 +2,7 @@ package com.example.cinemaservice.controller;
 
 import com.example.cinemaservice.entity.RoomType;
 import com.example.cinemaservice.service.RoomTypeService;
+import com.example.config.EnableWrapResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/movie")
+@EnableWrapResponse
 public class RoomTypeController {
 
     @Autowired

@@ -18,6 +18,9 @@ public class ChairServiceImpl implements ChairService {
     @Autowired
     private ChairTypeService chairTypeService;
 
+//    @Autowired
+//    private RedisTemplate redisTemplate;
+
     @Override
     public void createBatchChair(List<Chair> listChair) {
 

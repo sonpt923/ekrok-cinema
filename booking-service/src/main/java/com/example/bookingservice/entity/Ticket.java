@@ -1,11 +1,15 @@
 package com.example.bookingservice.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
@@ -23,17 +27,14 @@ public class Ticket {
     @Column(name = "id_chair")
     private Long idChair;
 
-    @ManyToOne
-    @JoinColumn(name = "id_type_ticket", referencedColumnName = "id")
-    private TypeTicket typeTicket;
+    @Column(name = "id_type_ticket")
+    private Long typeTicket;
 
-    @ManyToOne
-    @JoinColumn(name = "id_show_time", referencedColumnName = "id")
-    private ShowTime showTime;
+    @Column(name = "id_show_time")
+    private Long showTime;
 
-    @ManyToOne
-    @JoinColumn(name = "id_order", referencedColumnName = "id")
-    private Order order;
+    @Column(name = "id_order")
+    private Long order;
 
     @Column(name = "code")
     private String code;
@@ -44,19 +45,17 @@ public class Ticket {
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "created_time")
-    private Date createdTime;
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "updated_time")
-    private Date updatedTime;
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
-    @Column(name = "delted_time")
-    private Date deleted_time;
+    @Column(name = "delted_at")
+    private Date deletedAt;
 
-    @Column(name = "deleted_by")
-    private String deletedBy;
 
 }

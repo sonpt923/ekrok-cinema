@@ -56,13 +56,4 @@ public class StringUtil {
     public static boolean isListEmpty(List lst) {
         return lst == null || lst.isEmpty();
     }
-
-    public static String generateString() {
-        String str = UUID.randomUUID().toString();
-        String[] strings = str.split("\\D");
-        for (String s : strings) {
-
-        }
-    }
-
 }

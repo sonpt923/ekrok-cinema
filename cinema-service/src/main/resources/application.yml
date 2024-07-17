@@ -2,7 +2,7 @@ spring:
   application:
     name: cinema-service
   config:
-    import: "optional:configserver:http://localhost:8088"
+    import: "optional:configserver:http://localhost:8888"
   datasource:
     url: jdbc:mysql://localhost:3306/cinema-service
     username: root
@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     jpa:
       hibernate:
-        ddl-auto: none
+        ddl-auto: create
       show-sql: true
     cache:
       type: redis

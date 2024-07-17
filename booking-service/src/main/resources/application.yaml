@@ -34,5 +34,5 @@ spring:
       port: 19160
       username: default
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
-      havePassword: YES
+      havePassword: "YES"
 

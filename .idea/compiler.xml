@@ -15,6 +15,7 @@
         <module name="core" />
         <module name="discount-service" />
         <module name="schedule-service" />
+        <module name="mail-delivery" />
         <module name="booking-service" />
         <module name="api-gateway" />
         <module name="config-sever" />
@@ -38,6 +39,7 @@
       <module name="department-service" options="-parameters" />
       <module name="discount-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
+      <module name="mail-delivery" options="-parameters" />
       <module name="mail-service" options="-parameters" />
       <module name="movie-service" options="-parameters" />
       <module name="notification-service" options="-parameters" />

@@ -1,12 +1,16 @@
 package com.example.movieservice.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "movie_role")
@@ -21,13 +25,11 @@ public class MovieRole {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_person")
-    private Person person;
+    @Column(name = "id_person")
+    private Long person;
 
-    @ManyToOne
-    @JoinColumn(name = "id_movie")
-    private Movie movieId;
+    @Column(name = "id_movie")
+    private Long movie;
 
     @Column(name = "role")
     private Integer role;

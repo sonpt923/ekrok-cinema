@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -31,14 +30,14 @@ public class RedisConfig {
 
     @Bean
     public JedisConnectionFactory jedisConnectionFactory() {
-        RedisStandaloneConfiguration redisConnection = new RedisStandaloneConfiguration();
+        JedisConnectionFactory redisConnection = new JedisConnectionFactory();
         redisConnection.setHostName(host);
         redisConnection.setPort(port);
-        redisConnection.setUsername(username);
+        redisConnection.setClientName(username);
         if (havePassword.equals(BaseConstants.YES)) {
             redisConnection.setPassword(new String(Base64.decodeBase64(password)));
         }
-        return new JedisConnectionFactory(redisConnection);
+        return redisConnection;
     }
 
     @Bean

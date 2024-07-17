@@ -6,8 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtProvider extends BaseJwtProvider {
 
-    // gen token
+    private static final String PUBLIC_KEY_FILE = "../../../public_key.pem";
 
-    // save token vao redis, tra ra value tuong ung
 
 }

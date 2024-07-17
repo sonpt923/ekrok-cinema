@@ -12,14 +12,20 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "permisson")
+@Table(name = "group")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Group {
 
     @Id
-    @Column(name = "group_user")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "name")
+    private String name;
 
 }

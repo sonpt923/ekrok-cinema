@@ -2,7 +2,7 @@ package com.example.bookingservice.util;
 
 public class Constant {
 
-    public interface showtime_status {
+    public interface showtime {
 
         Integer CANCELLATION = 0;
 
