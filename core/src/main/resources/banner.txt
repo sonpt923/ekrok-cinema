@@ -6,4 +6,4 @@ ${AnsiColor.BRIGHT_CYAN}
 |____/ \___/|_| |_| .__/ \__|  '  |____| .__|_| |_|_| |_\__, | / / / /
 ==================|_|==================|_|==============|___/=/_/_/_/
 
-${AnsiColor.GREEN} :: Spring Boot Framework SONP-SPRING :: ${AnsiColor.BRIGHT_RED}                   ${spring-boot.formatted-version} ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN} :: Spring Boot Framework SONPT-SPRING :: ${AnsiColor.BRIGHT_RED}                   ${spring-boot.formatted-version} ${AnsiColor.DEFAULT}

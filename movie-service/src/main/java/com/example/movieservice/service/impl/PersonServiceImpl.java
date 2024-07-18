@@ -6,9 +6,9 @@ import com.example.movieservice.entity.Person;
 import com.example.movieservice.repository.PeopleRepository;
 import com.example.movieservice.service.CloudFlareService;
 import com.example.movieservice.service.PersonService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PersonServiceImpl implements PersonService {

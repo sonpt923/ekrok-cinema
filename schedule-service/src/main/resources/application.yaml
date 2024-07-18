@@ -29,3 +29,10 @@ org:
       enabled: true
       auth-enabled: false
       port: 8000
+cloudflare:
+  r2:
+    access-key-id: NDg5MDEwY2MyNTc3NWY0M2IxMTMxNWRhOGM5ZThlY2Y=
+    secret-access-key: ODNjZmI2ZmMyNDg1YjJiZGJjNjUyNDc4ZWM0ZGFiNGVhNjlmNTQ2ZjM2MmRjM2Y0ODNiZmRhN2E1M2Y3ZDg2Zg==
+    bucket-name: ekrok-cinema
+    region: auto
+    endpoint: https://d06c0f7e9f2d0c33fee98a0934f64d09.r2.cloudflarestorage.com

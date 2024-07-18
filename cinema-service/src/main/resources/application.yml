@@ -8,6 +8,16 @@ spring:
     username: root
     password: Son191203
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      read-only: false
+      leak-detection-threshold: 30000
+      pool-name: Admin_Pool
+      idleTimeout: 60000
+      maxLifetime: 60000
+      connectionTimeout: 60000
+      minimumIdle: 5
+      maximum-pool-size: 30
+      connection-test-query: SELECT 1 FROM DUAL
     jpa:
       hibernate:
         ddl-auto: create

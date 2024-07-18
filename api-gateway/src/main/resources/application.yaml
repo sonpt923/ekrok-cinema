@@ -9,6 +9,7 @@ spring:
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: "YES"
 zuul:
+  prefix: /api
   routes:
     cinema-service:
       service-id: cinema-service

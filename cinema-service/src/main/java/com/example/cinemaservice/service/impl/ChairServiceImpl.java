@@ -5,6 +5,7 @@ import com.example.cinemaservice.repository.ChairRepository;
 import com.example.cinemaservice.service.ChairService;
 import com.example.cinemaservice.service.ChairTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +19,8 @@ public class ChairServiceImpl implements ChairService {
     @Autowired
     private ChairTypeService chairTypeService;
 
-//    @Autowired
-//    private RedisTemplate redisTemplate;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public void createBatchChair(List<Chair> listChair) {

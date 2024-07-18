@@ -44,22 +44,20 @@ public class MovieServiceImpl implements MovieService {
             List<MovieGenre> listMovieGenre = new ArrayList<>();
             for (Genre genre : movieRequest.getGenres()) {
                 MovieGenre movieGenre = new MovieGenre();
-                movieGenre.setMovie(movie);
-                movieGenre.setGenre(genre);
+                movieGenre.setMovie(1L);
+                movieGenre.setGenre(1L);
                 listMovieGenre.add(movieGenre);
             }
             movieGenreService.createBatchMovieGenre(listMovieGenre);
-
             List<MovieRole> listMovieRole = new ArrayList<>();
             for (PersonRequest personRequest : movieRequest.getPersons()) {
                 MovieRole movieRole = new MovieRole();
-                movieRole.setPerson(Person.builder().id(personRequest.getId()).build());
-                movieRole.setMovieId(movie);
+                movieRole.setPerson(1L);
+                movieRole.setMovie(1L);
                 movieRole.setRole(personRequest.getRole());
             }
 
             return new MessageResponseDTO<>(200, "", "", "", "");
-
         }
         return null;
     }
