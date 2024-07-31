@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableWrapResponse
-@RequestMapping("/user")
+@RequestMapping("/")
 public class UserInfoController {
 
     @Autowired

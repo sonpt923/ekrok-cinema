@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableWrapResponse
-@RequestMapping("/user/menu")
+@RequestMapping("/menu")
 public class MenuController {
 
     @Autowired

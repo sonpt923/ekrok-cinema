@@ -1,175 +1,163 @@
 version: '3'
 services:
-#  user-service:
-#    image: user-service
-#    container_name: user-service
-#    build:
-#      context: ./user-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - DATABASE_URL=jdbc:mysql://database:3306/userdb
-#
-#  discount-service:
-#    image: discount-service
-#    container_name: discount-service
-#    build:
-#      context: ./discount-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - DATABASE_URL=jdbc:mysql://database:3306/userdb
-#
-#  api-gateway:
-#    image: api-gateway
-#    container_name: api-gateway
-#    build:
-#      context: ./api-gateway
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  booking-service:
-#    image: booking-service
-#    container_name: booking-service
-#    build:
-#      context: ./booking-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  notification-service:
-#    image: notification-service
-#    container_name: notification-service
-#    build:
-#      context: ./notification-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  cinema-service:
-#    image: cinema-service
-#    container_name: cinema-service
-#    build:
-#      context: ./cinema-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  config-service:
-#    image: config-service
-#    container_name: config-service
-#    build:
-#      context: ./config-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  mail-service:
-#    image: mail-service
-#    container_name: mail-service
-#    build:
-#      context: ./mail-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  movie-service:
-#    image: movie-service
-#    container_name: movie-service
-#    build:
-#      context: ./movie-service
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  registry-service:
-#    image: service-registry
-#    container_name: service-registry
-#    build:
-#      context: ./service-registry
-#    networks:
-#      - ekrok-networks
-#    environment:
-#      - hello=hello
-#
-#  redis:
-#    image: redis:latest
-#    container_name: redis
-#    environment:
-#      - REDIS_PASSWORD=N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
-#    volumes:
-#      - cache/data
-#    ports:
-#      - "6379:6379"
-#  elasticsearch:
-#    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
-#    container_name: elasticsearch
-#    environment:
-#      - discovery.type=single-node
-#      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-#    ports:
-#      - "9200:9200"
-#    volumes:
-#      - esdata:/usr/share/elasticsearch/data
-#
-#  kibana:
-#    image: docker.elastic.co/kibana/kibana:7.17.0
-#    container_name: kibana
-#    ports:
-#      - "5601:5601"
-#    depends_on:
-#      - elasticsearch
-#
-#  logstash:
-#    image: docker.elastic.co/logstash/logstash:7.17.0
-#    container_name: logstash
-#    volumes:
-#      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-#      - ./logs:/usr/share/logstash/logs
-#    ports:
-#      - "5044:5044"
-#      - "9600:9600"
-#    depends_on:
-#      - elasticsearch
-#  zookeeper:
-#    image: bitnami/zookeeper:3
-#    container_name: zookeeper
-#    ports:
-#      - "2181:2181"
-#    environment:
-#      - ALLOW_ANONYMOUS_LOGIN=yes
-#
-#  kafka:
-#    image: bitnami/kafka:latest
-#    container_name: kafka
-#    ports:
-#      - "9092:9092"
-#    environment:
-#      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-#      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
-#    depends_on:
-#      - zookeeper
-#
-#  kafka-ui:
-#    image: provectuslabs/kafka-ui:latest
-#    container_name: kafka-ui
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      - KAFKA_CLUSTERS_0_NAME=local-kafka
-#      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
-#      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
-#    depends_on:
-#      - kafka
-#      - zookeeper
+  #  user-service:
+  #    image: user-service
+  #    container_name: user-service
+  #    build:
+  #      context: ./user-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+  #
+  #  discount-service:
+  #    image: discount-service
+  #    container_name: discount-service
+  #    build:
+  #      context: ./discount-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - DATABASE_URL=jdbc:mysql://database:3306/userdb
+  #
+  #  api-gateway:
+  #    image: api-gateway
+  #    container_name: api-gateway
+  #    build:
+  #      context: ./api-gateway
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  booking-service:
+  #    image: booking-service
+  #    container_name: booking-service
+  #    build:
+  #      context: ./booking-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  notification-service:
+  #    image: notification-service
+  #    container_name: notification-service
+  #    build:
+  #      context: ./notification-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  cinema-service:
+  #    image: cinema-service
+  #    container_name: cinema-service
+  #    build:
+  #      context: ./cinema-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  config-service:
+  #    image: config-service
+  #    container_name: config-service
+  #    build:
+  #      context: ./config-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  mail-service:
+  #    image: mail-service
+  #    container_name: mail-service
+  #    build:
+  #      context: ./mail-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  movie-service:
+  #    image: movie-service
+  #    container_name: movie-service
+  #    build:
+  #      context: ./movie-service
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  registry-service:
+  #    image: service-registry
+  #    container_name: service-registry
+  #    build:
+  #      context: ./service-registry
+  #    networks:
+  #      - ekrok-networks
+  #    environment:
+  #      - hello=hello
+  #
+  #  redis:
+  #    image: redis:latest
+  #    container_name: redis
+  #    environment:
+  #      - REDIS_PASSWORD=N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
+  #    volumes:
+  #      - cache/data
+  #    ports:
+  #      - "6379:6379"
+  #  elasticsearch:
+  #    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+  #    container_name: elasticsearch
+  #    environment:
+  #      - discovery.type=single-node
+  #      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+  #    ports:
+  #      - "9200:9200"
+  #    volumes:
+  #      - esdata:/usr/share/elasticsearch/data
+  #
+  #  kibana:
+  #    image: docker.elastic.co/kibana/kibana:7.17.0
+  #    container_name: kibana
+  #    ports:
+  #      - "5601:5601"
+  #    depends_on:
+  #      - elasticsearch
+  #
+  #  logstash:
+  #    image: docker.elastic.co/logstash/logstash:7.17.0
+  #    container_name: logstash
+  #    volumes:
+  #      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  #      - ./logs:/usr/share/logstash/logs
+  #    ports:
+  #      - "5044:5044"
+  #      - "9600:9600"
+  #    depends_on:
+  #      - elasticsearch
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: bitnami/kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+    depends_on:
+      - zookeeper
 
 volumes:
   cache:
@@ -179,3 +167,4 @@ volumes:
 
 networks:
   ekrok-networks:
+    driver: bridge

@@ -1,4 +1,7 @@
 package com.example.notificationservice.service;
 
-public interface NotifyService{
+public interface NotificationService {
+
+
+
 }

@@ -8,4 +8,8 @@ public interface UserService {
 
     Object updateUser(UserRequest userRequest);
 
+    Object deleteUser(UserRequest userRequest);
+
+    Object findAll(UserRequest userRequest);
+
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableWrapResponse
-@RequestMapping("/user/public")
+@RequestMapping("/public")
 public class PublicController {
 
     @GetMapping("/test")

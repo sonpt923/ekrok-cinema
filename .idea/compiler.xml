@@ -19,13 +19,13 @@
         <module name="booking-service" />
         <module name="api-gateway" />
         <module name="config-sever" />
-        <module name="mail-service" />
         <module name="service-registry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chat-service" target="17" />
       <module name="employee-service" target="17" />
+      <module name="mail-service" target="11" />
       <module name="notify-service" target="17" />
     </bytecodeTargetLevel>
   </component>

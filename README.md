@@ -1,4 +1,5 @@
 ![Image](https://pub-5dc338acc7cf42689f4a62568c3ea41b.r2.dev/logo.png)
+
 # EKROK-CINEMA
 
 ## I, service
@@ -66,11 +67,11 @@
 - **AWS**:
     - RDS: sử dụng để làm cơ ở dữ liệu ...
     - EC2: su dụng để ...
-    - S3 Bucket: lưu tru du lieu (file, video...)
+    - S3 Bucket (cloudflare): lưu tru du lieu (file, video...)
 
 ## 4, Message Queue
 
-- **RabbitMQ**:
+- **Kafka**:
 
 ## 5, Docker
 

@@ -52,6 +52,13 @@ public class StringUtil {
         return str.substring(0, length);
     }
 
+    public static String genUsernameFromFullname(String fullname) {
+        String[] em = fullname.split("\\s");
+        String username = "";
+        username = em[0].toString();
+        return username.toLowerCase();
+    }
+
 
     public static boolean isListEmpty(List lst) {
         return lst == null || lst.isEmpty();

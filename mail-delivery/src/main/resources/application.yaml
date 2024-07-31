@@ -16,6 +16,10 @@ spring:
       username: default
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: YES
+  kafka:
+    consumer:
+      bootstrap-servers: localhost
+      group-id: group_id
 mail:
   smtp:
     port: 587

@@ -27,7 +27,6 @@ public class Room {
     private Long id;
 
     @Column(name = "id_cinema")
-    @JoinColumn(name = "id_cinema", referencedColumnName = "id")
     private Long cinema;
 
     @Column(name = "id_room_type")

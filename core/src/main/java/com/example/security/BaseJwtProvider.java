@@ -7,5 +7,12 @@ public class BaseJwtProvider {
 
     private static final String PRIVATE_KEY_FILE = "../../../private_key.pem";
 
+    // get information from token
+
+    // get username from token
+
+    //
+
+
 
 }
