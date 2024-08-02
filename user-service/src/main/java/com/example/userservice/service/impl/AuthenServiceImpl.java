@@ -1,5 +1,6 @@
 package com.example.userservice.service.impl;
 
+import com.example.exception.AppException;
 import com.example.exception.ValidationException;
 import com.example.service.MydictionaryService;
 import com.example.userservice.dto.request.UserRequest;
@@ -12,10 +13,16 @@ import com.example.userservice.security.JwtProvider;
 import com.example.userservice.service.AuthenService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class AuthenServiceImpl implements AuthenService {
@@ -54,7 +61,7 @@ public class AuthenServiceImpl implements AuthenService {
             if (passwordEncoder.matches(user.getPassword(), user.getPassword())) {
                 // create token
                 // luu vao cache
-                // cho nguoi dung dang key:value
+                return new HashMap<>(Map.of("authen-key", ""));
             }
         }
         throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.DATA_IS_EXIST"));
@@ -62,6 +69,7 @@ public class AuthenServiceImpl implements AuthenService {
 
     @Override
     public Object register(UserRequest request) {
+        validateRegister(request);
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
@@ -69,7 +77,11 @@ public class AuthenServiceImpl implements AuthenService {
                 .fullName(request.getFullName())
                 .createdBy(request.getUsername())
                 .build();
-        return null;
+        ResponseEntity response = restTemplate.getForEntity("", Object.class);
+        if (response.getStatusCodeValue() == 200) {
+            return userRepository.save(user);
+        }
+        throw new AppException(BaseConstants.ERROR_CREATE_STAFF, dictionaryService.get("ERROR.CREATE_ACCOUNT_FAIL"));
     }
 
     @Override
@@ -100,5 +112,30 @@ public class AuthenServiceImpl implements AuthenService {
             return null;
         }
         return null;
+    }
+
+
+    private void validateRegister(UserRequest request) {
+
+        if (StringUtil.stringIsNullOrEmty(request.getUsername())) {
+            throw new ValidationException(BaseConstants
+                    .ERROR_NOT_NULL, String.format(dictionaryService.get(""), ""));
+        }
+
+        if (StringUtil.stringIsNullOrEmty(request.getPassword())) {
+            throw new ValidationException(BaseConstants.ERROR_PASSWORD_NOT_NULL
+                    , String.format(dictionaryService.get(""), ""));
+        }
+
+        if (StringUtil.stringIsNullOrEmty(request.getConfirmPassword())) {
+            throw new ValidationException(BaseConstants.ERROR_PASSWORD_NOT_NULL,
+                    String.format(dictionaryService.get("ERROR.CHANGE_PASS.001"), ""));
+        }
+
+        if (StringUtil.stringIsNullOrEmty(request.getBirthDay())) {
+            throw new ValidationException(BaseConstants
+                    .ERROR_NOT_NULL, String.format(dictionaryService.get(""), ""));
+        }
+
     }
 }

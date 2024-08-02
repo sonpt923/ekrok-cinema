@@ -43,4 +43,9 @@ public class GroupController {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
+    @GetMapping()
+    public ResponseEntity listGroups() {
+        return new ResponseEntity(null, HttpStatus.OK);
+    }
+
 }
