@@ -34,15 +34,15 @@ public class AuthenController {
         return new ResponseEntity(authenService.register(request), HttpStatus.OK);
     }
 
-    @PostMapping("/register-by-google")
-    public ResponseEntity registerByGoogle() {
-        return new ResponseEntity(null, HttpStatus.OK);
-    }
-
-    @PostMapping("/login-by-google")
-    public ResponseEntity loginByGoogle() {
-        return new ResponseEntity(null, HttpStatus.OK);
-    }
+//    @PostMapping("/register-by-google")
+//    public ResponseEntity registerByGoogle() {
+//        return new ResponseEntity(null, HttpStatus.OK);
+//    }
+//
+//    @PostMapping("/login-by-google")
+//    public ResponseEntity loginByGoogle() {
+//        return new ResponseEntity(null, HttpStatus.OK);
+//    }
 
     @PostMapping("/forgot-password")
     public ResponseEntity forgotPassword(@RequestBody User user) {

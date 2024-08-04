@@ -11,11 +11,10 @@ import com.example.userservice.repository.redis.OTPCacheRepository;
 import com.example.userservice.repository.redis.TokenCacheRepository;
 import com.example.userservice.security.JwtProvider;
 import com.example.userservice.service.AuthenService;
+import com.example.userservice.service.feign.NotificationService;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class AuthenServiceImpl implements AuthenService {
@@ -48,20 +48,18 @@ public class AuthenServiceImpl implements AuthenService {
     @Autowired
     private OTPCacheRepository otpCacheRepository;
 
-
-    @Override
-    public Object createAccount() {
-        return null;
-    }
+    @Autowired
+    private NotificationService notificationService;
 
     @Override
     public Object login(User request) {
         User user = userRepository.findUserByUsername(request.getUsername());
         if (!StringUtil.stringIsNullOrEmty(user)) {
             if (passwordEncoder.matches(user.getPassword(), user.getPassword())) {
-                // create token
-                // luu vao cache
-                return new HashMap<>(Map.of("authen-key", ""));
+                String token = jwtProvider.generateTokenRSA(request.getEmail());
+                OTPCache otpCache = new OTPCache(UUID.randomUUID().toString(), user.getUsername(), token);
+                otpCacheRepository.save(otpCache);
+                return new HashMap<>(Map.of("authen-key", token));
             }
         }
         throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.DATA_IS_EXIST"));
@@ -93,9 +91,9 @@ public class AuthenServiceImpl implements AuthenService {
         if (StringUtil.stringIsNullOrEmty(email)) {
             throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.NOT_FOUND_DATA"));
         }
-        OTPCache otpCache = new OTPCache(StringUtil.generateString(8), user.getUsername());
+        OTPCache otpCache = new OTPCache(user.getUsername(), StringUtil.generateString(8), user.getUsername());
         otpCacheRepository.save(otpCache);
-        // send thong bao sang mail-service
+        notificationService.sendNotification(null);
         return null;
     }
 

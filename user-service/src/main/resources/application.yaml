@@ -25,6 +25,18 @@ spring:
       username: default
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: "YES"
+  rest:
+    notification:
+      name: notification-service
+      url: ""
+    booking:
+     name: booking-service
+     url:
+    cinema:
+      name: cinema-service
+      url: ""
+
+
 frontend:
   host: http://localhost:3000
   url:

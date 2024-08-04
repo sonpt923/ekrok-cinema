@@ -9,25 +9,19 @@ import com.example.userservice.entity.User;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.service.GroupUserService;
 import com.example.userservice.service.UserService;
+import com.example.userservice.service.feign.NotificationService;
 import com.example.userservice.utils.Constant;
 import com.example.utils.BaseConstants;
 import com.example.utils.StringUtil;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
-import javax.ws.rs.core.HttpHeaders;
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -46,7 +40,7 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private NotificationService notificationService;
 
     @Autowired
     private GroupUserService groupUserService;
@@ -64,21 +58,10 @@ public class UserServiceImpl implements UserService {
                 .status(Constant.user.ACTIVE).password(password)
                 .username(username).build();
         // gui mail thong bao cho user
-        MultiValueMap<String, Object> header = new LinkedMultiValueMap<>();
-        header.add(HttpHeaders.CONTENT_TYPE, "json");
-        header.add("auth-api-key", "axo-lke-oks");
-        header.add("mail-type", "");
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("username", username);
-        body.put("password", password);
-
-        HttpEntity entity = new HttpEntity(body, header);
-        ResponseEntity response = restTemplate
-                .exchange("lb://mail-service/public/send-information", HttpMethod.POST, entity, ResponseEntity.class);
-        if (response.getStatusCode() != HttpStatus.OK) {
-            throw new SystemException("", "");
-        }
+//        Map<String, Object> response = (Map<String, Object>) notificationService.sendNotification(null);
+//        if (response.getStatusCode() != HttpStatus.OK) {
+//            throw new SystemException("", "");
+//        }
         // them user vao nhom duoc chi dinh
         user = repository.save(user);
         // put image len s3
@@ -98,18 +81,7 @@ public class UserServiceImpl implements UserService {
                 .fullName(userRequest.getFullName()).image("")
                 .status(Constant.user.ACTIVE).password(password)
                 .username(username).build();
-        // gui mail thong bao cho user
-        MultiValueMap<String, Object> header = new LinkedMultiValueMap<>();
-        header.add("", "");
-        header.add("", "");
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("username", username);
-        body.put("password", password);
-
-        HttpEntity entity = new HttpEntity(body, header);
-        ResponseEntity response = restTemplate
-                .exchange("lb://mail-service/public/send-information", HttpMethod.POST, entity, ResponseEntity.class);
+        ResponseEntity response = new ResponseEntity<>();
         if (response.getStatusCode() != HttpStatus.OK) {
             throw new SystemException("", "");
         }

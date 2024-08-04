@@ -19,6 +19,9 @@ public class OTPCache {
     @Indexed
     private String key;
 
+    @Indexed
     private String value;
+
+    private String token;
 
 }

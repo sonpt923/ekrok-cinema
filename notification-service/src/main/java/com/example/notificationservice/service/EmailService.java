@@ -15,4 +15,6 @@ public interface EmailService {
 
     Object deleteTemplate(EmailRequest request);
 
+    Object sendOTP(EmailRequest request);
+
 }

@@ -5,8 +5,6 @@ import com.example.userservice.entity.User;
 
 public interface AuthenService {
 
-    Object createAccount();
-
     Object login(User user);
 
     Object register(UserRequest request);

@@ -45,5 +45,10 @@ public class EmailController {
         return new ResponseEntity<>(emailService.deleteTemplate(request), HttpStatus.OK);
     }
 
+    @PostMapping("/send-otp")
+    public ResponseEntity sendOTP(@RequestBody EmailRequest request) {
+        return new ResponseEntity(emailService.sendOTP(request), HttpStatus.OK);
+    }
+
 
 }

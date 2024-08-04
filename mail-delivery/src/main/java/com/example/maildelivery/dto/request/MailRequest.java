@@ -1,4 +1,4 @@
-package com.example.notificationservice.dto.request;
+package com.example.maildelivery.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class EmailRequest {
+public class MailRequest {
 
-    private String code;
+    private String title;
 
-    private String name;
+    private String content;
 
-    private String subject;
+    private String reciever;
 
 }

@@ -5,6 +5,7 @@ import com.example.notificationservice.model.EmailTemplate;
 import com.example.notificationservice.repository.EmailTemplateRepository;
 import com.example.notificationservice.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -12,6 +13,9 @@ public class EmailServiceImpl implements EmailService {
 
     @Autowired
     private EmailTemplateRepository emailRepository;
+
+    @Autowired
+    private KafkaTemplate kafkaTemplate;
 
     @Override
     public Object getTemplate(EmailRequest request) {
@@ -35,6 +39,11 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public Object deleteTemplate(EmailRequest request) {
+        return null;
+    }
+
+    @Override
+    public Object sendOTP(EmailRequest request) {
         return null;
     }
 }

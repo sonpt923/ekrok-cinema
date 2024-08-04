@@ -7,8 +7,11 @@ import com.example.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,21 +25,21 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/create-user")
-    public ResponseEntity createAccount(@ModelAttribute User user) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity createAccount(@ModelAttribute UserRequest request) {
+        return new ResponseEntity(userService.createUser(request), HttpStatus.OK);
     }
 
-    @PostMapping("/update-user")
-    public ResponseEntity updateAccount() {
-        return new ResponseEntity(null, HttpStatus.OK);
+    @PutMapping("/update-user")
+    public ResponseEntity updateAccount(UserRequest request) {
+        return new ResponseEntity(userService.updateUser(request), HttpStatus.OK);
     }
 
-    @PostMapping("/delete-user")
+    @DeleteMapping("/delete-user")
     public ResponseEntity deleteAccount() {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
-    @PostMapping("/find-all")
+    @GetMapping("/find-all")
     public ResponseEntity findAll(@RequestBody UserRequest request){
         return new ResponseEntity(null, HttpStatus.OK);
     }

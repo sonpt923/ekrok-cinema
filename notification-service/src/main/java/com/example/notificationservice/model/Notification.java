@@ -21,5 +21,7 @@ public class Notification {
 
     private Date createdAt;
 
+    private Date createdBy;
+
 
 }
