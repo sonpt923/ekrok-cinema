@@ -24,22 +24,22 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/create-user")
+    @PostMapping("/create-account")
     public ResponseEntity createAccount(@ModelAttribute UserRequest request) {
         return new ResponseEntity(userService.createUser(request), HttpStatus.OK);
     }
 
-    @PutMapping("/update-user")
+    @PutMapping("/update-account")
     public ResponseEntity updateAccount(UserRequest request) {
         return new ResponseEntity(userService.updateUser(request), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete-user")
+    @DeleteMapping("/delete-account")
     public ResponseEntity deleteAccount() {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
-    @GetMapping("/find-all")
+    @GetMapping("/find-account-by-condition")
     public ResponseEntity findAll(@RequestBody UserRequest request){
         return new ResponseEntity(null, HttpStatus.OK);
     }

@@ -28,5 +28,4 @@ public class RoomTypeController {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
-
 }

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,22 +20,22 @@ public class ChairTypeController {
     private ChairTypeService chairTypeService;
 
     @PostMapping("/create-chair-type")
-    public ResponseEntity createChairType(@RequestBody ChairType chairType, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity createChairType(@RequestBody ChairType chairType) {
+        return new ResponseEntity(chairTypeService.createChairType(chairType), HttpStatus.OK);
     }
 
     @PostMapping("/update-chair-type")
-    public ResponseEntity updateChairType(@RequestBody ChairType chairType, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity updateChairType(@RequestBody ChairType chairType) {
+        return new ResponseEntity(chairTypeService.updatechairType(chairType), HttpStatus.OK);
     }
 
     @PostMapping("/get-chair-type-by-condition")
-    public ResponseEntity getChairTypeByCondition(@RequestBody ChairType chairType, @RequestHeader("Authorization") String token) {
+    public ResponseEntity getChairTypeByCondition(@RequestBody ChairType chairType) {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
     @PostMapping("/delete-chair-type")
-    public ResponseEntity deleteChairType(@RequestBody ChairType chairType, @RequestHeader("Authorization") String token) {
+    public ResponseEntity deleteChairType(@RequestBody ChairType chairType) {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 

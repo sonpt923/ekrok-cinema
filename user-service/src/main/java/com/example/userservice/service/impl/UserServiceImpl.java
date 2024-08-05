@@ -7,6 +7,7 @@ import com.example.service.MydictionaryService;
 import com.example.userservice.dto.request.UserRequest;
 import com.example.userservice.entity.User;
 import com.example.userservice.repository.UserRepository;
+import com.example.userservice.repository.customize.UserRepositoryCustom;
 import com.example.userservice.service.GroupUserService;
 import com.example.userservice.service.UserService;
 import com.example.userservice.service.feign.NotificationService;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
-import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,6 +45,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private GroupUserService groupUserService;
 
+    @Autowired
+    private UserRepositoryCustom userRepositoryCustom;
+
     @Override
     @Transactional
     public Object createUser(UserRequest userRequest) {
@@ -55,17 +58,16 @@ public class UserServiceImpl implements UserService {
         User user = User.builder()
                 .birthDay(userRequest.getBirthDay()).email(userRequest.getEmail())
                 .fullName(userRequest.getFullName()).image("")
-                .status(Constant.user.ACTIVE).password(password)
+                .status(userRequest.getStatus()).password(password)
                 .username(username).build();
-        // gui mail thong bao cho user
-//        Map<String, Object> response = (Map<String, Object>) notificationService.sendNotification(null);
-//        if (response.getStatusCode() != HttpStatus.OK) {
-//            throw new SystemException("", "");
-//        }
+        ResponseEntity response = notificationService.sendNotification(null);
+        if (response.getStatusCode() != HttpStatus.OK) {
+            throw new SystemException("", "");
+        }
         // them user vao nhom duoc chi dinh
         user = repository.save(user);
         // put image len s3
-//        awsConfig.s3Client().putObject(file, "")
+//        awsConfig.s3Client().putObject()
         return user;
     }
 
@@ -81,7 +83,7 @@ public class UserServiceImpl implements UserService {
                 .fullName(userRequest.getFullName()).image("")
                 .status(Constant.user.ACTIVE).password(password)
                 .username(username).build();
-        ResponseEntity response = new ResponseEntity<>();
+        ResponseEntity response = notificationService.sendNotification(null);
         if (response.getStatusCode() != HttpStatus.OK) {
             throw new SystemException("", "");
         }
@@ -93,16 +95,19 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Object deleteUser(UserRequest userRequest) {
+        // lây nhóm quyền từ cache
+        // kiểm tra xem có được xóa hay không
         if (StringUtil.stringIsNullOrEmty(userRequest.getId())) {
-
         }
-
         return null;
     }
 
     @Override
-    public Object findAll(UserRequest userRequest) {
-        return null;
+    public Object findAccountByCondition(UserRequest userRequest) {
+        // lây nhóm quyền từ cache
+        // kiểm tra quyền search
+        // kiểm tra xe được search đến đâu
+        return userRepositoryCustom.findAccountByCondition(userRequest);
     }
 
     private void validateCreateUser(UserRequest userRequest) {
@@ -133,14 +138,6 @@ public class UserServiceImpl implements UserService {
         if (StringUtil.stringIsNullOrEmty(userRequest.getPhone())) {
 //            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(dictionary))
         }
-    }
-
-    private void validateDeleteUser(UserRequest request) {
-
-        if (StringUtil.stringIsNullOrEmty(request.getId())) {
-
-        }
-
     }
 
 }

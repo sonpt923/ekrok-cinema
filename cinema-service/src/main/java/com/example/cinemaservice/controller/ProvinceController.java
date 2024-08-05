@@ -21,16 +21,16 @@ public class ProvinceController {
     private ProvinceService provinceService;
 
     @PostMapping(value = "/create-province")
-    public ResponseEntity createProvince(@RequestBody Province province, @RequestHeader("Authorization") String token) {
+    public ResponseEntity createProvince(@RequestBody Province province) {
         return new ResponseEntity(provinceService.createProvice(province), HttpStatus.OK);
     }
 
     @PostMapping("/update-province")
-    public ResponseEntity updateProvince(@RequestBody Province province, @RequestHeader("Authorization") String token) {
+    public ResponseEntity updateProvince(@RequestBody Province province) {
         return new ResponseEntity(provinceService.updateProvice(province), HttpStatus.OK);
     }
 
-    @PostMapping("/get-province-by-condition")
+    @PostMapping("/find-province-by-condition")
     public ResponseEntity getProvinceByCondition(@RequestBody Province province) {
         return new ResponseEntity(null, HttpStatus.OK);
     }

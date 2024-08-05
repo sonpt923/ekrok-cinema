@@ -20,4 +20,6 @@ public class Constant {
 
     }
 
+    public static final Integer OTP_LENGTH = 9;
+
 }

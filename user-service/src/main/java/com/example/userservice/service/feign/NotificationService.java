@@ -1,6 +1,7 @@
 package com.example.userservice.service.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,10 +14,10 @@ import javax.management.Notification;
 public interface NotificationService {
 
     @PostMapping(value = "/")
-    Object sendNotification(@RequestBody Notification notification);
+    ResponseEntity<?> sendNotification(@RequestBody Notification notification);
 
     @PostMapping(value = "")
-    Object sendMailOTPConfirmation(@RequestParam("email") String email);
+    ResponseEntity<?> sendMailOTPConfirmation(@RequestParam("email") String email);
 
 
 }

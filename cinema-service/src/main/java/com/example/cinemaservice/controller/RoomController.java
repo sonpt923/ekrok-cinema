@@ -23,18 +23,18 @@ public class RoomController {
     private RoomService roomService;
 
     @PostMapping("/create-room")
-    public ResponseEntity createRoom(@RequestBody RoomRequest request, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(roomService.createRoome(request, token), HttpStatus.OK);
+    public ResponseEntity createRoom(@RequestBody RoomRequest request) {
+        return new ResponseEntity(roomService.createRoome(request), HttpStatus.OK);
     }
 
     @PostMapping("/update-room")
-    public ResponseEntity updateRoome(@RequestBody RoomRequest request, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(roomService.updateRoom(request, token), HttpStatus.OK);
+    public ResponseEntity updateRoome(@RequestBody RoomRequest request) {
+        return new ResponseEntity(roomService.updateRoom(request), HttpStatus.OK);
     }
 
     @PostMapping("/get-room-by-condition")
-    public ResponseEntity getRoomByCondition(@RequestBody RoomRequest request, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(roomService.getRoomByCondition(request, token), HttpStatus.OK);
+    public ResponseEntity getRoomByCondition(@RequestBody RoomRequest request) {
+        return new ResponseEntity(roomService.getRoomByCondition(request), HttpStatus.OK);
     }
 
     @GetMapping("/")

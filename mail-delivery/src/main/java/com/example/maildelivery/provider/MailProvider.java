@@ -2,8 +2,6 @@ package com.example.maildelivery.provider;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -21,8 +19,6 @@ import java.util.Properties;
 @Component
 @Slf4j
 public class MailProvider {
-
-    private static final Logger logger = LoggerFactory.getLogger(MailProvider.class);
 
     @Value("${mail.smtp.port}")
     private Integer port;
@@ -68,7 +64,7 @@ public class MailProvider {
             msg.setFrom(new InternetAddress("no_reply@example.com", "NoReply-JD"));
             msg.setReplyTo(InternetAddress.parse("no_reply@example.com", false));
             msg.setSubject(title, "UTF-8");
-            msg.setText(content, "UTF-8");
+            msg.setContent(content, "text/html; charset=UTF-8");
             msg.setSentDate(new Date());
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receiver, false));
             Transport.send(msg);

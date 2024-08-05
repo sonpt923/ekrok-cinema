@@ -1,5 +1,6 @@
 package com.example.cinemaservice.controller;
 
+import com.example.cinemaservice.dto.request.CinemaRequest;
 import com.example.cinemaservice.entity.Cinema;
 import com.example.cinemaservice.service.CinemaService;
 import com.example.config.EnableWrapResponse;
@@ -21,17 +22,17 @@ public class CinemaController {
     private CinemaService cinemaService;
 
     @PostMapping("/create-cinema")
-    public ResponseEntity createCinema(@RequestBody Cinema cinema, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity createCinema(@RequestBody CinemaRequest request) {
+        return new ResponseEntity(cinemaService.createCinema(request), HttpStatus.OK);
     }
 
     @PostMapping("/update-cinema")
-    public ResponseEntity updateCinema(@RequestBody Cinema cinema, @RequestHeader("Authorization") String token) {
+    public ResponseEntity updateCinema(@RequestBody Cinema cinema) {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
-    @PostMapping("/get-cinema-by-condition")
-    public ResponseEntity getAllByCondition(@RequestBody Cinema cinema, @RequestHeader("Authorization") String token) {
+    @PostMapping("/find-cinema-by-condition")
+    public ResponseEntity getAllByCondition(@RequestBody Cinema cinema) {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 

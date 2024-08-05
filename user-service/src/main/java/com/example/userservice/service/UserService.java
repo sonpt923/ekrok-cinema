@@ -10,6 +10,6 @@ public interface UserService {
 
     Object deleteUser(UserRequest userRequest);
 
-    Object findAll(UserRequest userRequest);
+    Object findAccountByCondition(UserRequest userRequest);
 
 }

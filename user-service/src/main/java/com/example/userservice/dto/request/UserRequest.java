@@ -28,6 +28,8 @@ public class UserRequest {
 
     private String image;
 
+    private Integer status;
+
     private Integer page;
 
     private Integer pageSize;

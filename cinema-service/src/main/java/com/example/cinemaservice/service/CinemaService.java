@@ -1,11 +1,11 @@
 package com.example.cinemaservice.service;
 
-import com.example.cinemaservice.entity.Cinema;
+import com.example.cinemaservice.dto.request.CinemaRequest;
 
 public interface CinemaService {
 
-    Object createCinema(Cinema cinema);
+    Object createCinema(CinemaRequest request);
 
-    Object updateCinema(Cinema cinema);
+    Object updateCinema(CinemaRequest request);
 
 }
