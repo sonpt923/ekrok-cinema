@@ -32,14 +32,14 @@ public class RoomController {
         return new ResponseEntity(roomService.updateRoom(request), HttpStatus.OK);
     }
 
-    @PostMapping("/get-room-by-condition")
+    @PostMapping("/find-room-by-condition")
     public ResponseEntity getRoomByCondition(@RequestBody RoomRequest request) {
         return new ResponseEntity(roomService.getRoomByCondition(request), HttpStatus.OK);
     }
 
-    @GetMapping("/")
+    @GetMapping("/get-room")
     public ResponseEntity getRoom(@PathVariable Long idRoom) {
-        return new ResponseEntity(null, HttpStatus.OK);
+        return new ResponseEntity(roomService.getRoom(idRoom), HttpStatus.OK);
     }
 
 }

@@ -3,8 +3,8 @@ package com.example.notificationservice.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "notifications")
-public class EmailTemplate {
+@Document(collection = "mail_template")
+public class MailTemplate {
 
     @Id
     private String id;
@@ -16,8 +16,6 @@ public class EmailTemplate {
     private String subject;
 
     private String content;
-
-    private String body;
 
     private String createdBy;
 

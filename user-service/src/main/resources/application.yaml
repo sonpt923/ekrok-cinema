@@ -26,17 +26,15 @@ spring:
       password: UW1mVlhCWk5wakRxUkQ1MnZmdHlxYjVQZm9Ta0djYjk=
       havePassword: "YES"
   rest:
-    notification:
+    notification-service:
       name: notification-service
-      url: ""
-    booking:
-     name: booking-service
-     url:
-    cinema:
+    booking-service:
+      name: booking-service
+    cinema-service:
       name: cinema-service
-      url: ""
-
-
+  security:
+    jwt:
+      expiration_time: 1000 #hour
 frontend:
   host: http://localhost:3000
   url:
@@ -48,5 +46,3 @@ cloudflare:
     bucket-name: ekrok-cinema
     region: auto
     endpoint: https://d06c0f7e9f2d0c33fee98a0934f64d09.r2.cloudflarestorage.com
-
-

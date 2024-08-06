@@ -28,4 +28,9 @@ public class RoomTypeController {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
+    @PostMapping("/find-room-type")
+    public ResponseEntity findRoomType(RoomType roomType) {
+        return new ResponseEntity(null, HttpStatus.OK);
+    }
+
 }

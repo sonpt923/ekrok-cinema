@@ -1,5 +1,6 @@
 package com.example.cinemaservice.repository.customize.impl;
 
+import com.example.cinemaservice.dto.request.ProvinceRequest;
 import com.example.cinemaservice.repository.customize.ProvinceRepositoryCustom;
 import com.example.dto.base.ListDataResponse;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,7 @@ public class ProvinceRepositoryCustomImpl implements ProvinceRepositoryCustom {
     private EntityManager entityManager;
 
     @Override
-    public ListDataResponse findProviceByCondition(String provinceName) {
+    public ListDataResponse findProviceByCondition(ProvinceRequest request) {
 
         ListDataResponse listDataResponse = new ListDataResponse();
         StringBuilder sql = new StringBuilder();

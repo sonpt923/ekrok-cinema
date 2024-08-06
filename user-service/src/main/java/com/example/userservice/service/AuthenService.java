@@ -5,7 +5,7 @@ import com.example.userservice.entity.User;
 
 public interface AuthenService {
 
-    Object login(User user);
+    Object login(User user) throws Exception;
 
     Object register(UserRequest request);
 

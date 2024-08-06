@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.management.Notification;
 
 @Component
-@FeignClient(name = "${spring.rest.notification.name")
+@FeignClient(name = "notification-service")
 public interface NotificationService {
 
     @PostMapping(value = "/")

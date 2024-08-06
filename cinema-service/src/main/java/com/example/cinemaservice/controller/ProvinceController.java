@@ -1,5 +1,6 @@
 package com.example.cinemaservice.controller;
 
+import com.example.cinemaservice.dto.request.ProvinceRequest;
 import com.example.cinemaservice.entity.Province;
 import com.example.cinemaservice.service.ProvinceService;
 import com.example.config.EnableWrapResponse;
@@ -31,8 +32,8 @@ public class ProvinceController {
     }
 
     @PostMapping("/find-province-by-condition")
-    public ResponseEntity getProvinceByCondition(@RequestBody Province province) {
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity getProvinceByCondition(@RequestBody ProvinceRequest request) {
+        return new ResponseEntity(provinceService.findProviceByCondition(request), HttpStatus.OK);
     }
 
 }

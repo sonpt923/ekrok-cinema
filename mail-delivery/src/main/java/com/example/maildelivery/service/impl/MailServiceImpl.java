@@ -16,4 +16,11 @@ public class MailServiceImpl implements MailService {
     public void sendOTP(MailRequest request) {
         provider.sendMail(request.getTitle(), request.getContent(), request.getReciever());
     }
+
+    @Override
+    public void sendBookingMail(MailRequest request) {
+        provider.sendMail(request.getTitle(), request.getContent(), request.getReciever());
+    }
+
+
 }

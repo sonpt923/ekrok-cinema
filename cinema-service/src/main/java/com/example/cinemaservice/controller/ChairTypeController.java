@@ -29,7 +29,7 @@ public class ChairTypeController {
         return new ResponseEntity(chairTypeService.updatechairType(chairType), HttpStatus.OK);
     }
 
-    @PostMapping("/get-chair-type-by-condition")
+    @PostMapping("/find-chair-type-by-condition")
     public ResponseEntity getChairTypeByCondition(@RequestBody ChairType chairType) {
         return new ResponseEntity(null, HttpStatus.OK);
     }

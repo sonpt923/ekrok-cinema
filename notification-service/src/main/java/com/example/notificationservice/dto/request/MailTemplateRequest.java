@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class EmailRequest {
+public class MailTemplateRequest {
 
-    private String code;
-
-    private String name;
-
-    private String subject;
+    private Long id;
 
 }

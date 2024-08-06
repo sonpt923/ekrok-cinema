@@ -1,34 +1,32 @@
 package com.example.cinemaservice.dto.response;
 
-import com.example.cinemaservice.entity.Chair;
-import com.example.cinemaservice.entity.RoomType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-public interface RoomResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+public class RoomResponse {
 
-    Long getId();
+    private Integer id;
 
-    String getCode();
+    private String code;
 
-    String getName();
+    private String name;
 
-    String getCinema();
+    private String cinema;
 
-    RoomType getRoomType();
+    private String roomType;
 
-    Chair getChair();
+    private ChairResponse chair;
 
-    BigDecimal getPrice();
+    private BigDecimal price;
 
-    Long getStatus();
-
-    String getCreatedAt();
-
-    String getCreatedBy();
-
-    String getUpdatedAt();
-
-    String getUpdatedBy();
+    private Integer status;
 
 }

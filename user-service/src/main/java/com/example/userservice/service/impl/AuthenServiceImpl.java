@@ -1,6 +1,7 @@
 package com.example.userservice.service.impl;
 
 import com.example.exception.AppException;
+import com.example.exception.SystemException;
 import com.example.exception.ValidationException;
 import com.example.service.MydictionaryService;
 import com.example.userservice.dto.request.UserRequest;
@@ -55,11 +56,16 @@ public class AuthenServiceImpl implements AuthenService {
         User user = userRepository.findUserByUsername(request.getUsername());
         if (!StringUtil.stringIsNullOrEmty(user)) {
             if (passwordEncoder.matches(user.getPassword(), user.getPassword())) {
-                String token = jwtProvider.generateTokenRSA(request.getEmail());
-                String key = UUID.randomUUID().toString();
-                TokenCache cache = new TokenCache(key, token);
-                tokenCacheRepository.save(cache);
-                return new HashMap<>(Map.of("authen-key", key));
+                try {
+                    String token = jwtProvider.generateTokenRSA(request.getEmail());
+                    String key = UUID.randomUUID().toString();
+                    TokenCache cache = new TokenCache(key, token);
+                    tokenCacheRepository.save(cache);
+                    return new HashMap<>(Map.of("authen-key", key));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new AppException("", "");
+                }
             }
         }
         throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.DATA_IS_EXIST"));
@@ -98,7 +104,7 @@ public class AuthenServiceImpl implements AuthenService {
         if (response.getStatusCode() == HttpStatus.OK) {
             return null;
         }
-        throw new AppException("", "");
+        throw new SystemException("", "");
     }
 
     @Override
@@ -113,11 +119,12 @@ public class AuthenServiceImpl implements AuthenService {
             userRepository.save(user);
             return null;
         }
-        throw new AppException("", "");
+        throw new SystemException("", "");
     }
 
 
     private void validateRegister(UserRequest request) {
+
         if (StringUtil.stringIsNullOrEmty(request.getUsername())) {
             throw new ValidationException(BaseConstants
                     .ERROR_NOT_NULL, String.format(dictionaryService.get(""), ""));
@@ -137,6 +144,5 @@ public class AuthenServiceImpl implements AuthenService {
             throw new ValidationException(BaseConstants
                     .ERROR_NOT_NULL, String.format(dictionaryService.get(""), ""));
         }
-
     }
 }

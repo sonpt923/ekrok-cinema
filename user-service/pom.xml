@@ -8,17 +8,19 @@
         <version>2.3.12.RELEASE</version>
         <relativePath/>
     </parent>
+
     <groupId>com.example</groupId>
     <artifactId>user-service</artifactId>
     <version>1.0</version>
     <name>user-service</name>
     <description>user-service</description>
+
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <artifactId>core</artifactId>
             <version>1.0</version>
@@ -52,7 +54,6 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -80,5 +81,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

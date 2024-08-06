@@ -15,7 +15,6 @@
 	<description>mail-delivery</description>
 	<properties>
 		<java.version>11</java.version>
-		<spring-cloud.version>Hoxton.SR12</spring-cloud.version>
 	</properties>
 	<dependencies>
 
@@ -39,7 +38,6 @@
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>
 		</dependency>
-
 		<!--kafka-->
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>

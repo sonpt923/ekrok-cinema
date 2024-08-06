@@ -21,8 +21,8 @@ public class KafkaConfig {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringDeserializer.class); // message là string
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonObjectDeserializer.class); // message là 1 object json
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonObjectDeserializer.class);
         return new DefaultKafkaProducerFactory(props);
     }
 

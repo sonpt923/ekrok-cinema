@@ -10,6 +10,6 @@ public interface RoomService {
 
     Object getRoomByCondition(RoomRequest request);
 
-    Object getRoom(RoomRequest request);
+    Object getRoom(Long idRoom);
 
 }

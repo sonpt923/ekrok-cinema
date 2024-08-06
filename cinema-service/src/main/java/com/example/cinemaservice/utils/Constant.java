@@ -26,7 +26,7 @@ public class Constant {
 
         Integer TECHNICAL_CHECK = 3;
 
-        Integer PREPARING_FOR_NEXT_SHOW = 4;
+        Integer PREPARING = 4;
 
         Integer CLOSED = 5;
 

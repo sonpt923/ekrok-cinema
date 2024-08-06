@@ -18,9 +18,13 @@ public class KafkaMessage {
     }
 
     @KafkaListener(topics = "otp", groupId = "otp-group")
-    public void listen(MailRequest request) {
+    public void listenSendOTP(MailRequest request) {
         mailService.sendOTP(request);
     }
 
+    @KafkaListener(topics = "booking", groupId = "booking-group")
+    public void listenSendBookingMail(MailRequest request) {
+        mailService.sendBookingMail(request);
+    }
 
 }

@@ -1,13 +1,15 @@
-package com.example.notificationservice.dto.request;
+package com.example.cinemaservice.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
-public class EmailTemplateRequest {
+public class ChairResponse {
+
+    private String hello;
+
+
 }

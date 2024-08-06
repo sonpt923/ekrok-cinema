@@ -3,6 +3,7 @@ package com.example.cinemaservice.service.impl;
 import com.example.cinemaservice.dto.request.ProvinceRequest;
 import com.example.cinemaservice.entity.Province;
 import com.example.cinemaservice.repository.ProvinceRepository;
+import com.example.cinemaservice.repository.customize.ProvinceRepositoryCustom;
 import com.example.cinemaservice.service.ProvinceService;
 import com.example.dto.base.ListDataResponse;
 import com.example.exception.ValidationException;
@@ -21,6 +22,9 @@ public class ProvinceServiceImpl implements ProvinceService {
     @Autowired
     private MydictionaryService dictionary;
 
+    @Autowired
+    private ProvinceRepositoryCustom provinceRepositoryCustom;
+
     @Override
     public Object createProvice(Province province) {
         validateProvice(province);
@@ -35,7 +39,7 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public ListDataResponse findProviceByCondition(ProvinceRequest request) {
-        return null;
+        return provinceRepositoryCustom.findProviceByCondition(request);
     }
 
     private void validateProvice(Province province) {

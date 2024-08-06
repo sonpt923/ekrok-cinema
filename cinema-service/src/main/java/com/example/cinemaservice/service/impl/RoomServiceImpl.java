@@ -6,6 +6,7 @@ import com.example.cinemaservice.repository.RoomRepository;
 import com.example.cinemaservice.service.ChairService;
 import com.example.cinemaservice.service.RoomService;
 import com.example.cinemaservice.service.RoomTypeService;
+import com.example.dto.base.ListDataResponse;
 import com.example.exception.ValidationException;
 import com.example.service.MydictionaryService;
 import com.example.utils.BaseConstants;
@@ -79,7 +80,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public Object getRoomByCondition(RoomRequest request) {
-        ListResponse<Object> listResponse = new ListResponse<>();
+        ListDataResponse<Object> listResponse = new ListDataResponse<>();
         StringBuilder sql = new StringBuilder();
         Map<String, Object> params = new HashMap<>();
 
@@ -107,13 +108,13 @@ public class RoomServiceImpl implements RoomService {
         Integer totalRecord = ((Integer) query.getSingleResult()).intValue();
 
         listResponse.setListResponse((List<Object>) listResponse);
-        listResponse.setTotalRecord(totalRecord);
+        listResponse.setTotalRecords(totalRecord);
 
         return listResponse;
     }
 
     @Override
-    public Object getRoom(RoomRequest request) {
+    public Object getRoom(Long idRoom) {
         return null;
     }
 
