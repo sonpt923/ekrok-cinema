@@ -5,9 +5,12 @@ import com.example.exception.SystemException;
 import com.example.exception.ValidationException;
 import com.example.service.MydictionaryService;
 import com.example.userservice.dto.request.UserRequest;
+import com.example.userservice.entity.ApDomain;
 import com.example.userservice.entity.User;
+import com.example.userservice.entity.google.UserInfo;
 import com.example.userservice.entity.redisCache.OTPCache;
-import com.example.userservice.entity.redisCache.TokenCache;
+import com.example.userservice.entity.redisCache.SecurityCache;
+import com.example.userservice.repository.ApDomainRepository;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.repository.redis.OTPCacheRepository;
 import com.example.userservice.repository.redis.TokenCacheRepository;
@@ -51,6 +54,9 @@ public class AuthenServiceImpl implements AuthenService {
     @Autowired
     private TokenCacheRepository tokenCacheRepository;
 
+    @Autowired
+    private ApDomainRepository apDomainRepository;
+
     @Override
     public Object login(User request) {
         User user = userRepository.findUserByUsername(request.getUsername());
@@ -59,7 +65,7 @@ public class AuthenServiceImpl implements AuthenService {
                 try {
                     String token = jwtProvider.generateTokenRSA(request.getEmail());
                     String key = UUID.randomUUID().toString();
-                    TokenCache cache = new TokenCache(key, token);
+                    SecurityCache cache = new SecurityCache(key, 8L, token);
                     tokenCacheRepository.save(cache);
                     return new HashMap<>(Map.of("authen-key", key));
                 } catch (Exception e) {
@@ -68,7 +74,8 @@ public class AuthenServiceImpl implements AuthenService {
                 }
             }
         }
-        throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.DATA_IS_EXIST"));
+        throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND,
+                dictionaryService.get("ERROR.DATA_IS_EXIST"));
     }
 
     @Override
@@ -98,7 +105,14 @@ public class AuthenServiceImpl implements AuthenService {
         if (StringUtil.stringIsNullOrEmty(email)) {
             throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.NOT_FOUND_DATA"));
         }
-        OTPCache otpCache = new OTPCache(user.getUsername(), StringUtil.generateString(Constant.OTP_LENGTH));
+        Long otpTime = 0L;
+        ApDomain apDomain = apDomainRepository.getByCode(Constant.AP_DOMAIN.OTP_CODE);
+        try {
+            otpTime = Long.valueOf(apDomain.getValue());
+        } catch (Exception e) {
+            otpTime = Constant.OTP_TIME;
+        }
+        OTPCache otpCache = new OTPCache(user.getUsername(), otpTime, StringUtil.generateString(Constant.OTP_LENGTH));
         otpCacheRepository.save(otpCache);
         ResponseEntity response = notificationService.sendNotification(null);
         if (response.getStatusCode() == HttpStatus.OK) {
@@ -111,15 +125,24 @@ public class AuthenServiceImpl implements AuthenService {
     public Object changePassword(UserRequest request) {
         if (StringUtil.stringIsNullOrEmty(request.getPassword())
                 || StringUtil.stringIsNullOrEmty(request.getConfirmPassword())) {
-            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format("", ""));
+            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(Constant.ERROR_NOT_NULL, "password"));
         }
         if (request.getPassword().equals(request.getConfirmPassword())) {
             User user = userRepository.findUserByUsername(request.getUsername());
             user.setPassword(passwordEncoder.encode(request.getPassword()));
-            userRepository.save(user);
-            return null;
+            return userRepository.save(user);
         }
-        throw new SystemException("", "");
+        throw new ValidationException(Constant.ERROR_PASS_NOT_COMPARE, dictionaryService.get("ERROR.CHANGE_PASS.002"));
+    }
+
+    @Override
+    public Object loginByGoogle(UserInfo user) {
+        return null;
+    }
+
+    @Override
+    public Object registerByGoogle(UserInfo user) {
+        return null;
     }
 
 

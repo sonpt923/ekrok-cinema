@@ -46,7 +46,6 @@ public class MyDictionaryServiceImpl implements MydictionaryService, Serializabl
                     evn.getRequiredProperty(key), "");
             return new String(phrase.getBytes("iso-8859-1"), "utf-8");
         } catch (UnsupportedEncodingException e) {
-
             e.printStackTrace();
             return "";
         }

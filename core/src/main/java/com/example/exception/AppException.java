@@ -1,14 +1,12 @@
 package com.example.exception;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class AppException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    @Getter
-    @Setter
     private String code;
     private String message;
 

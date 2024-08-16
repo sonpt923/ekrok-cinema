@@ -10,8 +10,6 @@ public class BaseConstants {
 
     public static final String ERROR = "ERROR";
 
-    public static final String ERROR_STATUS_ALIAS = "APP982";
-
     public static final String ERROR_SYSTEM = "APP001";
 
     public static final String ERROR_DUPLICATE = "APP002";
@@ -25,6 +23,8 @@ public class BaseConstants {
     public static final String ERROR_NOT_HAVE_PERMISSION = "APP006";
 
     public static final String ERROR_USER_NAME_EMAIL_NOT_EXIST = "APP007";
+
+    public static final String ERROR_DATA_EXITS = "APP008";
 
     public static final String ERROR_UNIQUE = "API500";
 
@@ -40,7 +40,7 @@ public class BaseConstants {
 
     public static final String ERROR_PASSWORD_NOT_NULL = "APP302";
 
-    public static final String ERROR_APP_NOT_COMPARE = "APP303";
+    public static final String ERROR_PASS_NOT_COMPARE = "APP303";
 
     public static final String PERMIT = "APP304";
 
@@ -68,20 +68,20 @@ public class BaseConstants {
 
     public static final String ERROR_CREATE_STAFF = "API504";
 
-
-    public interface ROLE_CODE {
-        String CLIENT = "CLIENT";
-
-        String STAFF = "STAFF";
-
-        String ADMIN = "ADMIN";
-    }
-
     public interface STATUS {
 
         Long ACTIVE = 1L;
 
         Long IN_ACTIVE = 0L;
+    }
+
+    public interface RESPONSE_STATUS {
+
+        String SUCCESS = "SUCCESS";
+
+        String ERROR = "ERROR";
+
+        String ERROR_WITH_PAR = "ERROR_WITH_PAR";
     }
 
     public static final String TOKEN_TYPE = "Bearer ";

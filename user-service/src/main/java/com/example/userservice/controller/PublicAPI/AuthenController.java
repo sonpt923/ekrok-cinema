@@ -3,6 +3,7 @@ package com.example.userservice.controller.PublicAPI;
 import com.example.config.EnableWrapResponse;
 import com.example.userservice.dto.request.UserRequest;
 import com.example.userservice.entity.User;
+import com.example.userservice.entity.google.UserInfo;
 import com.example.userservice.entity.redisCache.OTPCache;
 import com.example.userservice.repository.redis.OTPCacheRepository;
 import com.example.userservice.service.AuthenService;
@@ -34,15 +35,15 @@ public class AuthenController {
         return new ResponseEntity(authenService.register(request), HttpStatus.OK);
     }
 
-//    @PostMapping("/register-by-google")
-//    public ResponseEntity registerByGoogle() {
-//        return new ResponseEntity(null, HttpStatus.OK);
-//    }
-//
-//    @PostMapping("/login-by-google")
-//    public ResponseEntity loginByGoogle() {
-//        return new ResponseEntity(null, HttpStatus.OK);
-//    }
+    @PostMapping("/register-by-google")
+    public ResponseEntity registerByGoogle(@RequestBody UserInfo userInfo) {
+        return new ResponseEntity(authenService.loginByGoogle(userInfo), HttpStatus.OK);
+    }
+
+    @PostMapping("/login-by-google")
+    public ResponseEntity loginByGoogle(@RequestBody UserInfo userInfo) {
+        return new ResponseEntity(authenService.registerByGoogle(userInfo), HttpStatus.OK);
+    }
 
     @PostMapping("/forgot-password")
     public ResponseEntity forgotPassword(@RequestBody User user) {

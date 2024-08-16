@@ -28,7 +28,7 @@ public class GroupController {
         return new ResponseEntity(null, HttpStatus.OK);
     }
 
-    @GetMapping("/group")
+    @GetMapping("/get-group")
     public ResponseEntity getGroup() {
         return new ResponseEntity(null, HttpStatus.OK);
     }
