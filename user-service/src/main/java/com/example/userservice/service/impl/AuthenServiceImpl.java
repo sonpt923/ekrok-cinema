@@ -10,11 +10,11 @@ import com.example.userservice.entity.User;
 import com.example.userservice.entity.google.UserInfo;
 import com.example.userservice.entity.redisCache.OTPCache;
 import com.example.userservice.entity.redisCache.SecurityCache;
-import com.example.userservice.repository.ApDomainRepository;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.repository.redis.OTPCacheRepository;
 import com.example.userservice.repository.redis.TokenCacheRepository;
 import com.example.userservice.security.JwtProvider;
+import com.example.userservice.service.ApDomainService;
 import com.example.userservice.service.AuthenService;
 import com.example.userservice.service.feign.NotificationService;
 import com.example.userservice.utils.Constant;
@@ -43,6 +43,9 @@ public class AuthenServiceImpl implements AuthenService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private ApDomainService apDomainService;
+
+    @Autowired
     private MydictionaryService dictionaryService;
 
     @Autowired
@@ -54,9 +57,6 @@ public class AuthenServiceImpl implements AuthenService {
     @Autowired
     private TokenCacheRepository tokenCacheRepository;
 
-    @Autowired
-    private ApDomainRepository apDomainRepository;
-
     @Override
     public Object login(User request) {
         User user = userRepository.findUserByUsername(request.getUsername());
@@ -65,7 +65,8 @@ public class AuthenServiceImpl implements AuthenService {
                 try {
                     String token = jwtProvider.generateTokenRSA(request.getEmail());
                     String key = UUID.randomUUID().toString();
-                    SecurityCache cache = new SecurityCache(key, 8L, token);
+                    Long ttl = Long.valueOf(apDomainService.getByCode(Constant.AP_DOMAIN.OTP_CODE).getValue());
+                    SecurityCache cache = new SecurityCache(key, ttl, token);
                     tokenCacheRepository.save(cache);
                     return new HashMap<>(Map.of("authen-key", key));
                 } catch (Exception e) {
@@ -106,7 +107,7 @@ public class AuthenServiceImpl implements AuthenService {
             throw new ValidationException(BaseConstants.ERROR_DATA_NOT_FOUND, dictionaryService.get("ERROR.NOT_FOUND_DATA"));
         }
         Long otpTime = 0L;
-        ApDomain apDomain = apDomainRepository.getByCode(Constant.AP_DOMAIN.OTP_CODE);
+        ApDomain apDomain = apDomainService.getByCode(Constant.AP_DOMAIN.OTP_CODE);
         try {
             otpTime = Long.valueOf(apDomain.getValue());
         } catch (Exception e) {

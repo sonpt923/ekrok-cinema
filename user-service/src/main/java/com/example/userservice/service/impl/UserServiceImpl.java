@@ -66,8 +66,6 @@ public class UserServiceImpl implements UserService {
         }
         // them user vao nhom duoc chi dinh
         user = repository.save(user);
-        // put image len s3
-//        awsConfig.s3Client().putObject()
         return user;
     }
 
@@ -95,7 +93,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public Object deleteUser(UserRequest userRequest) {
-        // lây nhóm quyền từ cache
+        // lấy danh sách nhóm quyền từ cache
         // kiểm tra xem có được xóa hay không
         if (StringUtil.stringIsNullOrEmty(userRequest.getId())) {
         }
@@ -121,7 +119,7 @@ public class UserServiceImpl implements UserService {
         }
 
         if (StringUtil.stringIsNullOrEmty(userRequest.getPhone())) {
-//            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(dictionary))
+            throw new ValidationException(BaseConstants.ERROR_NOT_NULL, String.format(dictionary.get("")));
         }
 
     }

@@ -5,20 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "ap_domain")
 public class ApDomain {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rowId;
+    private Long id;
 
     @Column(name = "type")
     private String type;
@@ -35,8 +39,8 @@ public class ApDomain {
     @Column(name = "value")
     private String value;
 
-    @Column(name = "parent_row_id")
-    private Long parentRowId;
+    @Column(name = "parent_id")
+    private Long parentId;
 
     @Column(name = "updated_at")
     private Timestamp updatedAt;

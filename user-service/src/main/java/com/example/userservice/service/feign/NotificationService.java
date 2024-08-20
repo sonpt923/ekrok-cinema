@@ -16,7 +16,7 @@ public interface NotificationService {
     @PostMapping(value = "/")
     ResponseEntity<?> sendNotification(@RequestBody Notification notification);
 
-    @PostMapping(value = "")
+    @PostMapping(value = "/")
     ResponseEntity<?> sendMailOTPConfirmation(@RequestParam("email") String email);
 
 

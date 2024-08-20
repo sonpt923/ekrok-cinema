@@ -23,14 +23,9 @@ public class ApDomainController {
     @Autowired
     private ApDomainService apDomainService;
 
-    @PostMapping("/create")
-    public ResponseEntity createApDomain(@RequestBody ApDomain apDomain, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(apDomainService.create(apDomain, token), HttpStatus.OK);
-    }
-
     @GetMapping("/get-ap-domain")
     public ResponseEntity getApDomainByCode(@RequestParam("code") String code, @RequestHeader("Authorization") String token) {
-        return new ResponseEntity(apDomainService.getByCode(code, token), HttpStatus.OK);
+        return new ResponseEntity(apDomainService.getByCodeAndPermission(code, token), HttpStatus.OK);
     }
 
     @PutMapping("/update")

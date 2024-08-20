@@ -37,17 +37,8 @@ public class ApDomainServiceImpl implements ApDomainService {
     }
 
     @Override
-    public ApDomain getByCode(String code, String token) {
-        return domainRepository.getByCode(code);
-    }
-
-    @Override
-    public ApDomain create(ApDomain apDomain, String token) {
-        validate(apDomain);
-        String username = jwtProvider.getUsernameFromToken(token);
-        apDomain.setCreatedBy(username);
-        apDomain.setCreatedAt(new Timestamp(System.currentTimeMillis()));
-        return domainRepository.save(apDomain);
+    public ApDomain getByCodeAndPermission(String code, String token) {
+        return null;
     }
 
     @Override
@@ -57,6 +48,11 @@ public class ApDomainServiceImpl implements ApDomainService {
         apDomain.setUpdatedBy(username);
         apDomain.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
         return domainRepository.save(apDomain);
+    }
+
+    @Override
+    public ApDomain getByCode(String code) {
+        return null;
     }
 
     private void validate(ApDomain apDomain) {

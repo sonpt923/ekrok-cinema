@@ -27,9 +27,4 @@ public class KafkaMessage {
         mailService.sendBookingMail(request);
     }
 
-//    @KafkaListener(topics = "cinema", groupId = "cinema-group")
-//    public void listenSendCinemaMail(MailRequest request) {
-//        mailService.sendBookingMail();
-//    }
-
 }

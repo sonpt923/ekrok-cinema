@@ -9,13 +9,12 @@ public interface ApDomainService {
 
     List<ApDomain> getByParentCode(String parentCode, String token) throws ValidationException;
 
-    
-
-    ApDomain getByCode(String code, String token);
-
-    ApDomain create(ApDomain apDomain, String token);
+    ApDomain getByCodeAndPermission(String code, String token);
 
     ApDomain update(ApDomain apDomain, String token);
+
+    ApDomain getByCode(String code);
+
 
 
 }

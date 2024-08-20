@@ -106,7 +106,7 @@ services:
   #    environment:
   #      - REDIS_PASSWORD=N7YhN4jXP6ASKBHRR9iLYJun9bXCRfAL
   #    volumes:
-  #      - cache/data
+  #      - cache/data/
   #    ports:
   #      - "6379:6379"
   #  elasticsearch:
